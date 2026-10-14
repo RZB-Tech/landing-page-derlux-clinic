@@ -1,0 +1,2276 @@
+<canvas id="0:1" name="5. Лендинг" x="0" y="0" width="0" height="0">
+  <frame id="25:2" name="_Assets · фото (Unsplash, заглушки до фото клиники)" x="-2800" y="0" width="2400" height="1340">
+    <rounded-rectangle id="25:3" name="ph · hero" x="40" y="40" width="200" height="300" />
+    <rounded-rectangle id="25:4" name="ph · d_derm" x="260" y="40" width="450" height="300" />
+    <rounded-rectangle id="25:5" name="ph · d_laser" x="730" y="40" width="225" height="300" />
+    <rounded-rectangle id="25:6" name="ph · d_aest" x="975" y="40" width="450" height="300" />
+    <rounded-rectangle id="25:7" name="ph · d_gyn" x="1445" y="40" width="200" height="300" />
+    <rounded-rectangle id="25:8" name="ph · d_endo" x="1665" y="40" width="236" height="300" />
+    <rounded-rectangle id="25:9" name="ph · d_uzi" x="1921" y="40" width="200" height="300" />
+    <rounded-rectangle id="25:10" name="ph · d_lab" x="40" y="360" width="450" height="300" />
+    <rounded-rectangle id="25:11" name="ph · d_proc" x="510" y="360" width="453" height="300" />
+    <rounded-rectangle id="25:12" name="ph · doc1" x="983" y="360" width="200" height="300" />
+    <rounded-rectangle id="25:13" name="ph · doc2" x="1203" y="360" width="450" height="300" />
+    <rounded-rectangle id="25:14" name="ph · doc3" x="1673" y="360" width="450" height="300" />
+    <rounded-rectangle id="25:15" name="ph · doc4" x="2143" y="360" width="217" height="300" />
+    <rounded-rectangle id="25:16" name="ph · why" x="40" y="680" width="450" height="300" />
+    <rounded-rectangle id="25:17" name="ph · eq1" x="510" y="680" width="450" height="300" />
+    <rounded-rectangle id="25:18" name="ph · eq2" x="980" y="680" width="200" height="300" />
+    <rounded-rectangle id="25:19" name="ph · eq3" x="1200" y="680" width="200" height="300" />
+    <rounded-rectangle id="25:20" name="ph · eq4" x="1420" y="680" width="200" height="300" />
+    <rounded-rectangle id="25:21" name="ph · ward1" x="1640" y="680" width="400" height="300" />
+    <rounded-rectangle id="25:22" name="ph · ward2" x="40" y="1000" width="400" height="300" />
+    <rounded-rectangle id="25:23" name="ph · int1" x="460" y="1000" width="200" height="300" />
+    <rounded-rectangle id="25:24" name="ph · int2" x="680" y="1000" width="200" height="300" />
+    <rounded-rectangle id="25:25" name="ph · art1" x="900" y="1000" width="300" height="300" />
+    <rounded-rectangle id="25:26" name="ph · art2" x="1220" y="1000" width="200" height="300" />
+    <rounded-rectangle id="25:27" name="ph · art3" x="1440" y="1000" width="200" height="300" />
+    <rounded-rectangle id="25:28" name="ph · hero2" x="1660" y="1000" width="223" height="300" />
+  </frame>
+  <frame id="27:28" name="_Components" x="-2800" y="1200" width="866" height="283">
+    <frame id="27:29" name="Icons" x="40" y="40" width="744" height="24">
+      <symbol id="27:32" name="icon/arrow-right" x="0" y="0" width="24" height="24" />
+      <symbol id="27:35" name="icon/phone" x="40" y="0" width="24" height="24" />
+      <symbol id="27:39" name="icon/clock" x="80" y="0" width="24" height="24" />
+      <symbol id="27:43" name="icon/pin" x="120" y="0" width="24" height="24" />
+      <symbol id="27:46" name="icon/check" x="160" y="0" width="24" height="24" />
+      <symbol id="27:49" name="icon/plus" x="200" y="0" width="24" height="24" />
+      <symbol id="27:52" name="icon/minus" x="240" y="0" width="24" height="24" />
+      <symbol id="27:56" name="icon/shield" x="280" y="0" width="24" height="24" />
+      <symbol id="27:60" name="icon/flask" x="320" y="0" width="24" height="24" />
+      <symbol id="27:65" name="icon/users" x="360" y="0" width="24" height="24" />
+      <symbol id="27:69" name="icon/calendar" x="400" y="0" width="24" height="24" />
+      <symbol id="27:72" name="icon/chevron-down" x="440" y="0" width="24" height="24" />
+      <symbol id="27:75" name="icon/heart" x="480" y="0" width="24" height="24" />
+      <symbol id="27:78" name="icon/sparkle" x="520" y="0" width="24" height="24" />
+      <symbol id="27:82" name="icon/mail" x="560" y="0" width="24" height="24" />
+      <symbol id="27:86" name="icon/send" x="600" y="0" width="24" height="24" />
+      <symbol id="27:90" name="icon/file" x="640" y="0" width="24" height="24" />
+      <symbol id="27:94" name="icon/globe" x="680" y="0" width="24" height="24" />
+      <symbol id="27:97" name="icon/star" x="720" y="0" width="24" height="24" />
+    </frame>
+    <frame id="27:114" name="Button" x="40" y="104" width="786" height="58">
+      <symbol id="27:98" name="Style=Primary" x="16" y="16" width="176" height="56" />
+      <symbol id="27:102" name="Style=Secondary" x="208" y="16" width="178" height="58" />
+      <symbol id="27:106" name="Style=Light" x="402" y="16" width="176" height="56" />
+      <symbol id="27:110" name="Style=Dark" x="594" y="16" width="176" height="56" />
+    </frame>
+    <frame id="27:121" name="Chip" x="40" y="202" width="282" height="41">
+      <symbol id="27:115" name="State=Default" x="16" y="16" width="74" height="41" />
+      <symbol id="27:117" name="State=Active" x="106" y="16" width="72" height="39" />
+      <symbol id="27:119" name="State=Accent" x="194" y="16" width="72" height="39" />
+    </frame>
+  </frame>
+  <frame id="28:6" name="Derlux — Главная · 1440" x="0" y="0" width="1440" height="14848">
+    <frame id="28:7" name="Top bar" x="0" y="0" width="1440" height="46">
+      <frame id="28:8" name="address" x="80" y="12" width="462" height="22">
+        <instance id="28:9" name="icon/pin" x="0" y="3" width="16" height="16" />
+        <text id="28:12" name="Ташкент, Мирзо-Улугбекский район, ул. Садыка Азимова, 46" x="24" y="0" width="438" height="22" />
+      </frame>
+      <frame id="28:13" name="hours" x="574" y="12" width="278" height="22">
+        <instance id="28:14" name="icon/clock" x="0" y="3" width="16" height="16" />
+        <text id="28:17" name="Пн–Сб 9:00–19:00 · Вс — по записи" x="24" y="0" width="254" height="22" />
+      </frame>
+      <frame id="28:18" name="spacer" x="884" y="22.5" width="76" height="1" />
+      <text id="28:19" name="Лицензия Минздрава РУз № ————" x="992" y="12" width="254" height="22" />
+      <frame id="28:20" name="lang" x="1278" y="12" width="82" height="22">
+        <instance id="28:21" name="icon/globe" x="0" y="3" width="16" height="16" />
+        <text id="28:24" name="RU · O‘Z" x="24" y="0" width="58" height="22" />
+      </frame>
+    </frame>
+    <frame id="28:25" name="Header" x="0" y="46" width="1440" height="96">
+      <frame id="28:26" name="Logo (временный)" x="80" y="23" width="151" height="49">
+        <text id="28:27" name="DERLUX" x="0" y="0" width="151" height="32" />
+        <text id="28:28" name="clinic" x="0" y="32" width="69" height="17" />
+      </frame>
+      <frame id="28:29" name="Nav" x="259" y="38" width="639" height="19">
+        <text id="28:30" name="Направления" x="0" y="0" width="97" height="19" />
+        <text id="28:31" name="Услуги и цены" x="119" y="0" width="104" height="19" />
+        <text id="28:32" name="Врачи" x="245" y="0" width="45" height="19" />
+        <text id="28:33" name="Check-up" x="312" y="0" width="70" height="19" />
+        <text id="28:34" name="Акции" x="404" y="0" width="46" height="19" />
+        <text id="28:35" name="О клинике" x="472" y="0" width="76" height="19" />
+        <text id="28:36" name="Контакты" x="570" y="0" width="69" height="19" />
+      </frame>
+      <frame id="28:37" name="spacer" x="926" y="47" width="13" height="1" />
+      <frame id="28:38" name="Phone" x="967" y="34.5" width="219" height="26">
+        <instance id="28:39" name="icon/phone" x="0" y="4" width="18" height="18" />
+        <text id="28:41" name="+998 90 500-50-70" x="26" y="0" width="193" height="26" />
+      </frame>
+      <instance id="28:42" name="Button" x="1214" y="20" width="146" height="55" />
+    </frame>
+    <frame id="28:46" name="01 Hero" x="0" y="142" width="1440" height="840">
+      <frame id="28:47" name="Hero · text" x="80" y="98.5" width="640" height="651">
+        <instance id="28:48" name="Chip" x="0" y="0" width="380" height="39" />
+        <text id="28:50" name="Здоровая кожа начинается с причины" x="0" y="71" width="640" height="153" />
+        <text id="28:51" name="Дерматолог, гинеколог и эндокринолог работают рядом, а анализы и УЗИ — в той же клинике. Находим причину и лечим её, а не только симптомы." x="0" y="256" width="560" height="84" />
+        <frame id="28:52" name="CTA" x="0" y="372" width="456" height="57">
+          <instance id="28:53" name="Button" x="0" y="0" width="252" height="56" />
+          <instance id="28:57" name="Button" x="264" y="0" width="192" height="57" />
+        </frame>
+        <frame id="28:61" name="Booking bar" x="0" y="461" width="640" height="76">
+          <frame id="28:62" name="Field · Направление" x="8" y="8" width="155.33334350585938" height="60">
+            <text id="28:63" name="Направление" x="20" y="10" width="105" height="17" />
+            <frame id="28:64" name="value" x="20" y="31" width="127" height="19">
+              <text id="28:65" name="Дерматология" x="0" y="0" width="105" height="19" />
+              <instance id="28:66" name="icon/chevron-down" x="111" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <rounded-rectangle id="28:68" name="divider" x="163.33334350585938" y="18" width="1" height="40" />
+          <frame id="28:69" name="Field · Врач" x="164.33334350585938" y="8" width="155.3333282470703" height="60">
+            <text id="28:70" name="Врач" x="20" y="10" width="36" height="17" />
+            <frame id="28:71" name="value" x="20" y="31" width="110" height="19">
+              <text id="28:72" name="Любой врач" x="0" y="0" width="88" height="19" />
+              <instance id="28:73" name="icon/chevron-down" x="94" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <rounded-rectangle id="28:75" name="divider" x="319.66668701171875" y="18" width="1" height="40" />
+          <frame id="28:76" name="Field · Дата" x="320.66668701171875" y="8" width="155.3333282470703" height="60">
+            <text id="28:77" name="Дата" x="20" y="10" width="36" height="17" />
+            <frame id="28:78" name="value" x="20" y="31" width="134" height="19">
+              <text id="28:79" name="Сегодня, 14 окт" x="0" y="0" width="112" height="19" />
+              <instance id="28:80" name="icon/chevron-down" x="118" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <instance id="28:82" name="Button" x="476" y="10.5" width="156" height="55" />
+        </frame>
+        <frame id="28:86" name="Facts" x="0" y="569" width="590" height="82">
+          <frame id="28:87" name="Fact" x="0" y="0" width="170" height="82">
+            <text id="28:88" name="8" x="0" y="0" width="18" height="32" />
+            <text id="28:89" name="направлений в одной клинике" x="0" y="38" width="170" height="44" />
+          </frame>
+          <frame id="28:90" name="Fact" x="210" y="0" width="170" height="82">
+            <text id="28:91" name="УЗИ + лаб." x="0" y="0" width="140" height="32" />
+            <text id="28:92" name="результаты без поездок по городу" x="0" y="38" width="170" height="44" />
+          </frame>
+          <frame id="28:93" name="Fact" x="420" y="0" width="170" height="82">
+            <text id="28:94" name="6 дней" x="0" y="0" width="90" height="32" />
+            <text id="28:95" name="в неделю, воскресенье — по записи" x="0" y="38" width="170" height="44" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="28:96" name="Hero · visual" x="784" y="64" width="576" height="720">
+        <rounded-rectangle id="28:97" name="photo · hero" x="56" y="0" width="520" height="700" />
+        <frame id="28:98" name="Ближайшая запись" x="0" y="520" width="293" height="190">
+          <frame id="28:99" name="h" x="20" y="20" width="173" height="17">
+            <ellipse id="28:100" name="Ellipse" x="0" y="4.5" width="8" height="8" />
+            <text id="28:101" name="Ближайшая запись" x="16" y="0" width="157" height="17" />
+          </frame>
+          <text id="28:102" name="Сегодня, 15:30" x="20" y="47" width="143" height="26" />
+          <text id="28:103" name="Дерматолог · консультация 30 мин" x="20" y="83" width="253" height="22" />
+          <instance id="28:104" name="Button" x="20" y="115" width="251" height="55" />
+        </frame>
+        <frame id="28:108" name="Badge · стерильность" x="330" y="40" width="276" height="44">
+          <instance id="28:109" name="icon/shield" x="14" y="12" width="20" height="20" />
+          <text id="28:112" name="Стерильность по стандартам" x="44" y="12.5" width="214" height="19" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="28:113" name="02 Направления" x="0" y="982" width="1440" height="1253">
+      <frame id="28:114" name="Head" x="80" y="120" width="1280" height="117">
+        <frame id="28:115" name="title" x="0" y="22" width="760" height="95">
+          <text id="28:116" name="Направления" x="0" y="0" width="106" height="17" />
+          <text id="28:117" name="Восемь направлений — одна клиника" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="28:118" name="desc" x="820" y="0" width="460" height="117">
+          <text id="28:119" name="От лечения акне до ведения беременности: врачи разных специальностей видят полную картину и передают пациента друг другу без лишних визитов." x="0" y="0" width="460" height="78" />
+          <frame id="28:120" name="link" x="0" y="98" width="161" height="19">
+            <text id="28:121" name="Все услуги и цены" x="0" y="0" width="135" height="19" />
+            <instance id="28:122" name="icon/arrow-right" x="143" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="28:124" name="Grid" x="80" y="293" width="1280" height="840">
+        <frame id="28:125" name="Card · Дерматология" x="0" y="0" width="302" height="396">
+          <rounded-rectangle id="28:126" name="photo · d_derm" x="0" y="0" width="302" height="240" />
+          <text id="28:127" name="Дерматология" x="0" y="256" width="302" height="26" />
+          <text id="28:128" name="Акне и постакне, псориаз, экзема, алопеция, витилиго, папилломы" x="0" y="298" width="302" height="44" />
+          <frame id="28:129" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:130" name="от 150 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="28:131" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="28:132" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:133" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:135" name="Card · Лазерная дерматология" x="326" y="0" width="302" height="396">
+          <rounded-rectangle id="28:136" name="photo · d_laser" x="0" y="0" width="302" height="240" />
+          <text id="28:137" name="Лазерная дерматология" x="0" y="256" width="302" height="26" />
+          <text id="28:138" name="Вросший ноготь, новообразования, пигментация, рубцы и сосуды" x="0" y="298" width="302" height="44" />
+          <frame id="28:139" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:140" name="от 300 000 сум" x="0" y="9.5" width="115" height="19" />
+            <frame id="28:141" name="spacer" x="115" y="18.5" width="149" height="1" />
+            <frame id="28:142" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:143" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:145" name="Card · Эстетическая медицина" x="652" y="0" width="302" height="396">
+          <rounded-rectangle id="28:146" name="photo · d_aest" x="0" y="0" width="302" height="240" />
+          <text id="28:147" name="Эстетическая медицина" x="0" y="256" width="302" height="26" />
+          <text id="28:148" name="RF-лифтинг, антивозрастные процедуры, стрии и растяжки, целлюлит" x="0" y="298" width="302" height="44" />
+          <frame id="28:149" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:150" name="от 250 000 сум" x="0" y="9.5" width="114" height="19" />
+            <frame id="28:151" name="spacer" x="114" y="18.5" width="150" height="1" />
+            <frame id="28:152" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:153" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:155" name="Card · Гинекология" x="978" y="0" width="302" height="396">
+          <rounded-rectangle id="28:156" name="photo · d_gyn" x="0" y="0" width="302" height="240" />
+          <text id="28:157" name="Гинекология" x="0" y="256" width="302" height="26" />
+          <text id="28:158" name="Бесплодие, миома и киста, эрозия, контрацепция, ведение беременности" x="0" y="298" width="302" height="44" />
+          <frame id="28:159" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:160" name="от 180 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="28:161" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="28:162" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:163" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:165" name="Card · Эндокринология" x="0" y="444" width="302" height="396">
+          <rounded-rectangle id="28:166" name="photo · d_endo" x="0" y="0" width="302" height="240" />
+          <text id="28:167" name="Эндокринология" x="0" y="256" width="302" height="26" />
+          <text id="28:168" name="Щитовидная железа, диабет 2 типа, вес и метаболизм, рост у детей" x="0" y="298" width="302" height="44" />
+          <frame id="28:169" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:170" name="от 180 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="28:171" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="28:172" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:173" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:175" name="Card · УЗИ всех органов" x="326" y="444" width="302" height="396">
+          <rounded-rectangle id="28:176" name="photo · d_uzi" x="0" y="0" width="302" height="240" />
+          <text id="28:177" name="УЗИ всех органов" x="0" y="256" width="302" height="26" />
+          <text id="28:178" name="Щитовидная железа, малый таз, брюшная полость, беременность" x="0" y="298" width="302" height="44" />
+          <frame id="28:179" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:180" name="от 120 000 сум" x="0" y="9.5" width="110" height="19" />
+            <frame id="28:181" name="spacer" x="110" y="18.5" width="154" height="1" />
+            <frame id="28:182" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:183" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:185" name="Card · Лаборатория" x="652" y="444" width="302" height="396">
+          <rounded-rectangle id="28:186" name="photo · d_lab" x="0" y="0" width="302" height="240" />
+          <text id="28:187" name="Лаборатория" x="0" y="256" width="302" height="26" />
+          <text id="28:188" name="Гормоны, биохимия, инфекции, общий анализ крови — все виды анализов" x="0" y="298" width="302" height="44" />
+          <frame id="28:189" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:190" name="от 35 000 сум" x="0" y="9.5" width="104" height="19" />
+            <frame id="28:191" name="spacer" x="104" y="18.5" width="160" height="1" />
+            <frame id="28:192" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:193" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="28:195" name="Card · Процедурный кабинет" x="978" y="444" width="302" height="396">
+          <rounded-rectangle id="28:196" name="photo · d_proc" x="0" y="0" width="302" height="240" />
+          <text id="28:197" name="Процедурный кабинет" x="0" y="256" width="302" height="26" />
+          <text id="28:198" name="Капельницы, инъекции, забор крови, перевязки" x="0" y="298" width="302" height="44" />
+          <frame id="28:199" name="footer" x="0" y="358" width="302" height="38">
+            <text id="28:200" name="от 50 000 сум" x="0" y="9.5" width="106" height="19" />
+            <frame id="28:201" name="spacer" x="106" y="18.5" width="158" height="1" />
+            <frame id="28:202" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="28:203" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="30:39" name="03 Что беспокоит · Почему Derlux" x="0" y="2235" width="1440" height="1057">
+      <frame id="30:40" name="Top" x="80" y="40" width="1280" height="665">
+        <frame id="30:41" name="Concerns" x="0" y="0" width="620" height="440">
+          <text id="30:42" name="С чего начать" x="0" y="0" width="110" height="17" />
+          <text id="30:43" name="Что вас беспокоит?" x="0" y="41" width="620" height="62" />
+          <text id="30:44" name="Выберите — подскажем врача и нужные анализы. Не уверены? Администратор перезвонит и поможет записаться." x="0" y="127" width="540" height="52" />
+          <frame id="30:45" name="Chips" x="0" y="203" width="620" height="194">
+            <instance id="30:46" name="Chip" x="0" y="0" width="156" height="39" />
+            <instance id="30:48" name="Chip" x="166" y="0" width="135" height="41" />
+            <instance id="30:50" name="Chip" x="311" y="0" width="167" height="41" />
+            <instance id="30:52" name="Chip" x="0" y="51" width="218" height="41" />
+            <instance id="30:54" name="Chip" x="228" y="51" width="197" height="41" />
+            <instance id="30:56" name="Chip" x="435" y="51" width="169" height="41" />
+            <instance id="30:58" name="Chip" x="0" y="102" width="254" height="41" />
+            <instance id="30:60" name="Chip" x="264" y="102" width="147" height="41" />
+            <instance id="30:62" name="Chip" x="421" y="102" width="188" height="41" />
+            <instance id="30:64" name="Chip" x="0" y="153" width="126" height="41" />
+            <instance id="30:66" name="Chip" x="136" y="153" width="141" height="41" />
+            <instance id="30:68" name="Chip" x="287" y="153" width="147" height="41" />
+            <instance id="30:70" name="Chip" x="444" y="153" width="133" height="41" />
+          </frame>
+          <frame id="30:72" name="link" x="0" y="421" width="427" height="19">
+            <text id="30:73" name="Не нашли своё? Опишите проблему — подберём врача" x="0" y="0" width="401" height="19" />
+            <instance id="30:74" name="icon/arrow-right" x="409" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="30:76" name="Почему Derlux · карточка" x="684" y="0" width="596" height="665">
+          <text id="30:77" name="Почему Derlux" x="48" y="48" width="120" height="17" />
+          <text id="30:78" name="Кожа, гормоны и женское здоровье — в одной клинике" x="48" y="93" width="500" height="77" />
+          <text id="30:79" name="Акне, выпадение волос и пигментация часто связаны с гормонами. Дерматолог, эндокринолог и гинеколог работают рядом, а анализы и УЗИ делают здесь же — диагноз и план лечения за один визит." x="48" y="198" width="500" height="104" />
+          <frame id="30:80" name="Схема" x="48" y="330" width="500" height="132">
+            <frame id="30:81" name="Дерматолог" x="0" y="0" width="132" height="132">
+              <text id="30:82" name="Дерматолог" x="22" y="56.5" width="88" height="19" />
+            </frame>
+            <rounded-rectangle id="30:83" name="line" x="132" y="65.5" width="52" height="1" />
+            <frame id="30:84" name="Эндокринолог" x="184" y="0" width="132" height="132">
+              <text id="30:85" name="Эндокринолог" x="13" y="56.5" width="106" height="19" />
+            </frame>
+            <rounded-rectangle id="30:86" name="line" x="316" y="65.5" width="52" height="1" />
+            <frame id="30:87" name="Гинеколог" x="368" y="0" width="132" height="132">
+              <text id="30:88" name="Гинеколог" x="28" y="56.5" width="76" height="19" />
+            </frame>
+          </frame>
+          <frame id="30:89" name="Лаборатория + УЗИ" x="48" y="490" width="519" height="43">
+            <instance id="30:90" name="icon/flask" x="16" y="12.5" width="18" height="18" />
+            <text id="30:93" name="Своя лаборатория и УЗИ — результаты без поездок по городу" x="44" y="12" width="455" height="19" />
+          </frame>
+          <instance id="30:94" name="Button" x="48" y="561" width="223" height="56" />
+        </frame>
+      </frame>
+      <frame id="30:98" name="Преимущества" x="80" y="761" width="1280" height="176">
+        <frame id="30:99" name="Adv · Стерильность — стандарт" x="0" y="0" width="302" height="176">
+          <frame id="30:100" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="30:101" name="icon/shield" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="30:104" name="Стерильность — стандарт" x="0" y="68" width="302" height="26" />
+          <text id="30:105" name="Одноразовые расходники, стерилизация инструментов, протоколы обработки кабинетов." x="0" y="110" width="290" height="66" />
+        </frame>
+        <frame id="30:106" name="Adv · Опытные специалисты" x="326" y="0" width="302" height="176">
+          <frame id="30:107" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="30:108" name="icon/users" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="30:112" name="Опытные специалисты" x="0" y="68" width="302" height="26" />
+          <text id="30:113" name="Врачи с профильной категорией и регулярным повышением квалификации." x="0" y="110" width="290" height="66" />
+        </frame>
+        <frame id="30:114" name="Adv · Работа по протоколам" x="652" y="0" width="302" height="176">
+          <frame id="30:115" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="30:116" name="icon/check" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="30:118" name="Работа по протоколам" x="0" y="68" width="302" height="26" />
+          <text id="30:119" name="Лечение по клиническим рекомендациям — без лишних назначений." x="0" y="110" width="290" height="66" />
+        </frame>
+        <frame id="30:120" name="Adv · Бережное отношение" x="978" y="0" width="302" height="154">
+          <frame id="30:121" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="30:122" name="icon/heart" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="30:124" name="Бережное отношение" x="0" y="68" width="302" height="26" />
+          <text id="30:125" name="Деликатно, без спешки, с объяснением каждого шага." x="0" y="110" width="290" height="44" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="30:126" name="04 Услуги и цены" x="0" y="3292" width="1440" height="1139">
+      <frame id="30:127" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="30:128" name="title" x="0" y="0" width="760" height="95">
+          <text id="30:129" name="Услуги и цены" x="0" y="0" width="116" height="17" />
+          <text id="30:130" name="Цены известны заранее" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="30:131" name="desc" x="840" y="4" width="440" height="91">
+          <text id="30:132" name="Указана стоимость «от». Точную цену и план лечения врач назовёт на консультации." x="0" y="0" width="440" height="52" />
+          <frame id="30:133" name="link" x="0" y="72" width="109" height="19">
+            <text id="30:134" name="Весь прайс" x="0" y="0" width="83" height="19" />
+            <instance id="30:135" name="icon/arrow-right" x="91" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="30:137" name="Tabs" x="80" y="271" width="1021" height="41">
+        <instance id="30:138" name="Chip" x="0" y="0" width="141" height="39" />
+        <instance id="30:140" name="Chip" x="149" y="0" width="83" height="41" />
+        <instance id="30:142" name="Chip" x="240" y="0" width="106" height="41" />
+        <instance id="30:144" name="Chip" x="354" y="0" width="131" height="41" />
+        <instance id="30:146" name="Chip" x="493" y="0" width="161" height="41" />
+        <instance id="30:148" name="Chip" x="662" y="0" width="68" height="41" />
+        <instance id="30:150" name="Chip" x="738" y="0" width="135" height="41" />
+        <instance id="30:152" name="Chip" x="881" y="0" width="140" height="41" />
+      </frame>
+      <frame id="30:154" name="Price list" x="80" y="368" width="1280" height="651">
+        <frame id="30:155" name="Row · Консультация дерматолога" x="40" y="8" width="1200" height="106">
+          <frame id="30:156" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:157" name="Консультация дерматолога" x="0" y="0" width="560" height="26" />
+            <text id="30:158" name="Первичный приём, дерматоскопия, план лечения" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:159" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:160" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:161" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:164" name="30 мин" x="22" y="0" width="51" height="22" />
+          </frame>
+          <text id="30:165" name="от 150 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:166" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+        <frame id="30:170" name="Row · Лечение акне" x="40" y="114" width="1200" height="106">
+          <frame id="30:171" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:172" name="Лечение акне" x="0" y="0" width="560" height="26" />
+            <text id="30:173" name="Курс подбирается индивидуально" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:174" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:175" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:176" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:179" name="45 мин" x="22" y="0" width="51" height="22" />
+          </frame>
+          <text id="30:180" name="от 250 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:181" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+        <frame id="30:185" name="Row · Удаление папиллом и бородавок" x="40" y="220" width="1200" height="106">
+          <frame id="30:186" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:187" name="Удаление папиллом и бородавок" x="0" y="0" width="560" height="26" />
+            <text id="30:188" name="Радиоволновой или лазерный метод" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:189" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:190" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:191" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:194" name="15 мин" x="22" y="0" width="47" height="22" />
+          </frame>
+          <text id="30:195" name="от 120 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:196" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+        <frame id="30:200" name="Row · Лазерная коррекция вросшего ногтя" x="40" y="326" width="1200" height="106">
+          <frame id="30:201" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:202" name="Лазерная коррекция вросшего ногтя" x="0" y="0" width="560" height="26" />
+            <text id="30:203" name="Под местной анестезией" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:204" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:205" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:206" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:209" name="40 мин" x="22" y="0" width="52" height="22" />
+          </frame>
+          <text id="30:210" name="от 600 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:211" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+        <frame id="30:215" name="Row · RF-лифтинг лица" x="40" y="432" width="1200" height="106">
+          <frame id="30:216" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:217" name="RF-лифтинг лица" x="0" y="0" width="560" height="26" />
+            <text id="30:218" name="Антивозрастная аппаратная процедура" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:219" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:220" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:221" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:224" name="60 мин" x="22" y="0" width="52" height="22" />
+          </frame>
+          <text id="30:225" name="от 400 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:226" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+        <frame id="30:230" name="Row · Лечение пигментации" x="40" y="538" width="1200" height="105">
+          <frame id="30:231" name="name" x="0" y="26.5" width="560" height="52">
+            <text id="30:232" name="Лечение пигментации" x="0" y="0" width="560" height="26" />
+            <text id="30:233" name="Пилинги и аппаратные методы" x="0" y="30" width="560" height="22" />
+          </frame>
+          <frame id="30:234" name="spacer" x="592" y="52" width="54" height="1" />
+          <frame id="30:235" name="dur" x="678" y="41.5" width="110" height="22">
+            <instance id="30:236" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="30:239" name="45 мин" x="22" y="0" width="51" height="22" />
+          </frame>
+          <text id="30:240" name="от 350 000 сум" x="820" y="39.5" width="200" height="26" />
+          <instance id="30:241" name="Button" x="1052" y="24" width="148" height="57" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="30:245" name="05 Врачи" x="0" y="4431" width="1440" height="1018">
+      <frame id="30:246" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="30:247" name="title" x="0" y="0" width="760" height="95">
+          <text id="30:248" name="Врачи" x="0" y="0" width="46" height="17" />
+          <text id="30:249" name="Врачи, которые слушают" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="30:250" name="desc" x="840" y="4" width="440" height="91">
+          <text id="30:251" name="Фото, ФИО и регалии — заглушки: клиника пришлёт данные врачей." x="0" y="0" width="440" height="52" />
+          <frame id="30:252" name="link" x="0" y="72" width="100" height="19">
+            <text id="30:253" name="Все врачи" x="0" y="0" width="74" height="19" />
+            <instance id="30:254" name="icon/arrow-right" x="82" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="30:256" name="Doctors" x="80" y="271" width="1280" height="627">
+        <frame id="30:257" name="Doctor · Дилноза Каримова" x="0" y="0" width="302" height="627">
+          <rounded-rectangle id="30:258" name="photo · doc1" x="0" y="0" width="302" height="392" />
+          <text id="30:259" name="Дилноза Каримова" x="0" y="406" width="302" height="26" />
+          <text id="30:260" name="Дерматолог, косметолог" x="0" y="446" width="302" height="22" />
+          <frame id="30:261" name="meta" x="0" y="482" width="302" height="74">
+            <frame id="30:262" name="tag" x="0" y="0" width="108" height="34">
+              <text id="30:263" name="Стаж 12 лет" x="12" y="6" width="84" height="22" />
+            </frame>
+            <frame id="30:264" name="tag" x="114" y="0" width="158" height="34">
+              <text id="30:265" name="Высшая категория" x="12" y="6" width="134" height="22" />
+            </frame>
+            <frame id="30:266" name="tag" x="0" y="40" width="77" height="34">
+              <text id="30:267" name="RU · UZ" x="12" y="6" width="53" height="22" />
+            </frame>
+          </frame>
+          <instance id="30:268" name="Button" x="0" y="570" width="302" height="57" />
+        </frame>
+        <frame id="30:272" name="Doctor · Нилуфар Юсупова" x="326" y="0" width="302" height="627">
+          <rounded-rectangle id="30:273" name="photo · doc2" x="0" y="0" width="302" height="392" />
+          <text id="30:274" name="Нилуфар Юсупова" x="0" y="406" width="302" height="26" />
+          <text id="30:275" name="Акушер-гинеколог" x="0" y="446" width="302" height="22" />
+          <frame id="30:276" name="meta" x="0" y="482" width="302" height="74">
+            <frame id="30:277" name="tag" x="0" y="0" width="109" height="34">
+              <text id="30:278" name="Стаж 15 лет" x="12" y="6" width="85" height="22" />
+            </frame>
+            <frame id="30:279" name="tag" x="115" y="0" width="158" height="34">
+              <text id="30:280" name="Высшая категория" x="12" y="6" width="134" height="22" />
+            </frame>
+            <frame id="30:281" name="tag" x="0" y="40" width="77" height="34">
+              <text id="30:282" name="RU · UZ" x="12" y="6" width="53" height="22" />
+            </frame>
+          </frame>
+          <instance id="30:283" name="Button" x="0" y="570" width="302" height="57" />
+        </frame>
+        <frame id="30:287" name="Doctor · Малика Рахимова" x="652" y="0" width="302" height="627">
+          <rounded-rectangle id="30:288" name="photo · doc3" x="0" y="0" width="302" height="392" />
+          <text id="30:289" name="Малика Рахимова" x="0" y="406" width="302" height="26" />
+          <text id="30:290" name="Эндокринолог, детский эндокринолог" x="0" y="446" width="302" height="22" />
+          <frame id="30:291" name="meta" x="0" y="482" width="302" height="74">
+            <frame id="30:292" name="tag" x="0" y="0" width="103" height="34">
+              <text id="30:293" name="Стаж 9 лет" x="12" y="6" width="79" height="22" />
+            </frame>
+            <frame id="30:294" name="tag" x="109" y="0" width="155" height="34">
+              <text id="30:295" name="Первая категория" x="12" y="6" width="131" height="22" />
+            </frame>
+            <frame id="30:296" name="tag" x="0" y="40" width="77" height="34">
+              <text id="30:297" name="RU · UZ" x="12" y="6" width="53" height="22" />
+            </frame>
+          </frame>
+          <instance id="30:298" name="Button" x="0" y="570" width="302" height="57" />
+        </frame>
+        <frame id="30:302" name="Doctor · Сабина Алиева" x="978" y="0" width="302" height="627">
+          <rounded-rectangle id="30:303" name="photo · doc4" x="0" y="0" width="302" height="392" />
+          <text id="30:304" name="Сабина Алиева" x="0" y="406" width="302" height="26" />
+          <text id="30:305" name="Врач УЗИ-диагностики" x="0" y="446" width="302" height="22" />
+          <frame id="30:306" name="meta" x="0" y="482" width="302" height="74">
+            <frame id="30:307" name="tag" x="0" y="0" width="105" height="34">
+              <text id="30:308" name="Стаж 11 лет" x="12" y="6" width="81" height="22" />
+            </frame>
+            <frame id="30:309" name="tag" x="111" y="0" width="158" height="34">
+              <text id="30:310" name="Высшая категория" x="12" y="6" width="134" height="22" />
+            </frame>
+            <frame id="30:311" name="tag" x="0" y="40" width="77" height="34">
+              <text id="30:312" name="RU · UZ" x="12" y="6" width="53" height="22" />
+            </frame>
+          </frame>
+          <instance id="30:313" name="Button" x="0" y="570" width="302" height="57" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="31:107" name="06 Check-up" x="0" y="5449" width="1440" height="1072">
+      <frame id="31:108" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="31:109" name="title" x="0" y="0" width="760" height="95">
+          <text id="31:110" name="Check-up программы" x="0" y="0" width="171" height="17" />
+          <text id="31:111" name="Всё обследование — за один визит" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="31:112" name="desc" x="840" y="17" width="440" height="78">
+          <text id="31:113" name="Готовые программы: врачи, анализы и УЗИ в один день. Результаты и заключение — на руки или в Telegram." x="0" y="0" width="440" height="78" />
+        </frame>
+      </frame>
+      <frame id="31:114" name="Programs" x="80" y="271" width="1278" height="681">
+        <frame id="31:115" name="Program · Здоровая кожа" x="0" y="0" width="410" height="681">
+          <frame id="31:116" name="tags" x="36" y="40" width="95" height="39">
+            <instance id="31:117" name="Chip" x="0" y="0" width="95" height="39" />
+          </frame>
+          <text id="31:119" name="«Здоровая кожа»" x="36" y="103" width="338" height="40" />
+          <text id="31:120" name="Для тех, у кого акне, выпадение волос или пигментация не проходят" x="36" y="167" width="338" height="44" />
+          <frame id="31:121" name="Входит" x="36" y="235" width="328" height="214">
+            <frame id="31:122" name="li" x="0" y="0" width="328" height="22">
+              <instance id="31:123" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:125" name="Консультация дерматолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:126" name="li" x="0" y="34" width="328" height="22">
+              <instance id="31:127" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:129" name="Консультация эндокринолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:130" name="li" x="0" y="68" width="328" height="44">
+              <instance id="31:131" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:133" name="Гормоны щитовидной железы и половые гормоны" x="28" y="0" width="300" height="44" />
+            </frame>
+            <frame id="31:134" name="li" x="0" y="124" width="328" height="22">
+              <instance id="31:135" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:137" name="Биохимия крови и ферритин" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:138" name="li" x="0" y="158" width="328" height="22">
+              <instance id="31:139" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:141" name="Дерматоскопия" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:142" name="li" x="0" y="192" width="328" height="22">
+              <instance id="31:143" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:145" name="Заключение и план лечения" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="34:222" name="push" x="36" y="473" width="1" height="8" />
+          <rounded-rectangle id="31:146" name="divider" x="36" y="505" width="338" height="1" />
+          <text id="31:147" name="от 950 000 сум" x="36" y="530" width="210" height="32" />
+          <instance id="31:148" name="Button" x="36" y="586" width="338" height="55" />
+        </frame>
+        <frame id="31:152" name="Program · Женское здоровье" x="434" y="0" width="410" height="681">
+          <frame id="31:153" name="tags" x="36" y="40" width="237" height="41">
+            <instance id="31:154" name="Chip" x="0" y="0" width="119" height="41" />
+            <instance id="31:156" name="Chip" x="127" y="0" width="110" height="41" />
+          </frame>
+          <text id="31:158" name="«Женское здоровье»" x="36" y="105" width="338" height="40" />
+          <text id="31:159" name="Ежегодный осмотр и планирование беременности" x="36" y="169" width="338" height="44" />
+          <frame id="31:160" name="Входит" x="36" y="237" width="328" height="192">
+            <frame id="31:161" name="li" x="0" y="0" width="328" height="22">
+              <instance id="31:162" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:164" name="Консультация гинеколога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:165" name="li" x="0" y="34" width="328" height="22">
+              <instance id="31:166" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:168" name="УЗИ органов малого таза" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:169" name="li" x="0" y="68" width="328" height="22">
+              <instance id="31:170" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:172" name="УЗИ молочных желёз" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:173" name="li" x="0" y="102" width="328" height="22">
+              <instance id="31:174" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:176" name="Мазок на онкоцитологию и флору" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:177" name="li" x="0" y="136" width="328" height="22">
+              <instance id="31:178" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:180" name="Общий анализ крови" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:181" name="li" x="0" y="170" width="328" height="22">
+              <instance id="31:182" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:184" name="Заключение и рекомендации" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="34:223" name="push" x="36" y="453" width="1" height="28" />
+          <rounded-rectangle id="31:185" name="divider" x="36" y="505" width="338" height="1" />
+          <text id="31:186" name="от 1 100 000 сум" x="36" y="530" width="222" height="32" />
+          <instance id="31:187" name="Button" x="36" y="586" width="338" height="55" />
+        </frame>
+        <frame id="31:191" name="Program · Щитовидная железа" x="868" y="0" width="410" height="681">
+          <frame id="31:192" name="tags" x="36" y="40" width="105" height="39">
+            <instance id="31:193" name="Chip" x="0" y="0" width="105" height="39" />
+          </frame>
+          <text id="31:195" name="«Щитовидная железа»" x="36" y="103" width="338" height="40" />
+          <text id="31:196" name="При усталости, перепадах веса и выпадении волос — взрослым и детям" x="36" y="167" width="338" height="44" />
+          <frame id="31:197" name="Входит" x="36" y="235" width="328" height="158">
+            <frame id="31:198" name="li" x="0" y="0" width="328" height="22">
+              <instance id="31:199" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:201" name="Консультация эндокринолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:202" name="li" x="0" y="34" width="328" height="22">
+              <instance id="31:203" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:205" name="УЗИ щитовидной железы" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:206" name="li" x="0" y="68" width="328" height="22">
+              <instance id="31:207" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:209" name="ТТГ, Т4 свободный, АТ-ТПО" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:210" name="li" x="0" y="102" width="328" height="22">
+              <instance id="31:211" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:213" name="Общий анализ крови" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="31:214" name="li" x="0" y="136" width="328" height="22">
+              <instance id="31:215" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="31:217" name="Заключение и рекомендации" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="34:224" name="push" x="36" y="417" width="1" height="64" />
+          <rounded-rectangle id="31:218" name="divider" x="36" y="505" width="338" height="1" />
+          <text id="31:219" name="от 650 000 сум" x="36" y="530" width="210" height="32" />
+          <instance id="31:220" name="Button" x="36" y="586" width="338" height="55" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="31:224" name="07 Оборудование" x="0" y="6521" width="1440" height="874">
+      <frame id="31:225" name="Head" x="80" y="120" width="1280" height="149">
+        <frame id="31:226" name="title" x="0" y="0" width="760" height="149">
+          <text id="31:227" name="Оборудование" x="0" y="0" width="117" height="17" />
+          <text id="31:228" name="Оборудование экспертного класса" x="0" y="33" width="760" height="116" />
+        </frame>
+        <frame id="31:229" name="desc" x="840" y="97" width="440" height="52">
+          <text id="31:230" name="Названия, производители и фото — заглушки  до данных от клиники." x="0" y="0" width="440" height="52" />
+        </frame>
+      </frame>
+      <frame id="31:231" name="Equipment" x="80" y="325" width="1280" height="429">
+        <frame id="31:232" name="Equipment · Лазерная платформа" x="0" y="0" width="302" height="429">
+          <rounded-rectangle id="31:233" name="photo · eq1" x="0" y="0" width="302" height="302" />
+          <frame id="38:230" name="Frame 2" x="0" y="318" width="302" height="78">
+            <text id="31:234" name="Лазерная платформа" x="0" y="0" width="302" height="26" />
+            <text id="38:233" name="Удаление новообразований, вросший ноготь, пигментация" x="0" y="34" width="302" height="44" />
+          </frame>
+          <text id="38:235" name="Производитель — уточняется" x="0" y="412" width="302" height="17" />
+        </frame>
+        <frame id="31:237" name="Equipment · Аппарат RF-лифтинга" x="326" y="0" width="302" height="429">
+          <rounded-rectangle id="31:238" name="photo · eq2" x="0" y="0" width="302" height="302" />
+          <frame id="38:222" name="Frame 1" x="0" y="318" width="302" height="78">
+            <text id="31:239" name="Аппарат RF-лифтинга" x="0" y="0" width="302" height="26" />
+            <text id="31:241" name="Подтяжка и улучшение качества кожи без операции" x="0" y="34" width="302" height="44" />
+          </frame>
+          <text id="31:240" name="Производитель — уточняется" x="0" y="412" width="302" height="17" />
+        </frame>
+        <frame id="31:242" name="Equipment · Цифровой дерматоскоп" x="652" y="0" width="302" height="429">
+          <rounded-rectangle id="31:243" name="photo · eq3" x="0" y="0" width="302" height="302" />
+          <frame id="38:231" name="Frame 3" x="0" y="318" width="302" height="78">
+            <text id="31:244" name="Цифровой дерматоскоп" x="0" y="0" width="302" height="26" />
+            <text id="38:239" name="Осмотр родинок и раннее выявление изменений кожи" x="0" y="34" width="302" height="44" />
+          </frame>
+          <text id="38:237" name="Производитель — уточняется" x="0" y="412" width="302" height="17" />
+        </frame>
+        <frame id="31:247" name="Equipment · Фракционный RF" x="978" y="0" width="302" height="429">
+          <rounded-rectangle id="31:248" name="photo · eq4" x="0" y="0" width="302" height="302" />
+          <frame id="38:232" name="Frame 4" x="0" y="318" width="302" height="78">
+            <text id="31:249" name="Фракционный RF" x="0" y="0" width="302" height="26" />
+            <text id="38:241" name="Осмотр родинок и раннее выявление изменений кожи" x="0" y="34" width="302" height="44" />
+          </frame>
+          <text id="38:243" name="Производитель — уточняется" x="0" y="412" width="302" height="17" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="31:252" name="08 Стационар" x="0" y="7395" width="1440" height="875">
+      <frame id="31:253" name="Stationary" x="80" y="120" width="1280" height="635">
+        <frame id="31:254" name="text" x="0" y="0" width="520" height="635">
+          <text id="31:255" name="Стационар" x="0" y="0" width="87" height="17" />
+          <text id="31:256" name="Лечение под присмотром врача" x="0" y="41" width="520" height="116" />
+          <text id="31:257" name="Когда после процедуры или капельной терапии нужно наблюдение — остаётесь в палате, а врач и медсестра рядом." x="0" y="181" width="480" height="78" />
+          <frame id="31:258" name="features" x="0" y="283" width="341" height="146">
+            <frame id="31:259" name="li" x="0" y="0" width="341" height="26">
+              <instance id="31:260" name="icon/check" x="0" y="3" width="20" height="20" />
+              <text id="31:262" name="Одноместные и двухместные палаты*" x="32" y="0" width="309" height="26" />
+            </frame>
+            <frame id="31:263" name="li" x="0" y="40" width="297" height="26">
+              <instance id="31:264" name="icon/check" x="0" y="3" width="20" height="20" />
+              <text id="31:266" name="Наблюдение врача и медсестры" x="32" y="0" width="265" height="26" />
+            </frame>
+            <frame id="31:267" name="li" x="0" y="80" width="299" height="26">
+              <instance id="31:268" name="icon/check" x="0" y="3" width="20" height="20" />
+              <text id="31:270" name="Капельная терапия и процедуры" x="32" y="0" width="267" height="26" />
+            </frame>
+            <frame id="31:271" name="li" x="0" y="120" width="286" height="26">
+              <instance id="31:272" name="icon/check" x="0" y="3" width="20" height="20" />
+              <text id="31:274" name="Питание и отдельный санузел*" x="32" y="0" width="254" height="26" />
+            </frame>
+          </frame>
+          <frame id="31:275" name="price" x="0" y="453" width="220" height="32">
+            <text id="31:276" name="от — сум / сутки" x="0" y="0" width="220" height="32" />
+          </frame>
+          <text id="31:277" name="* Типы и количество палат, условия и цены уточняются — клиника пришлёт данные." x="0" y="509" width="480" height="44" />
+          <instance id="31:278" name="Button" x="0" y="577" width="240" height="58" />
+        </frame>
+        <frame id="31:282" name="photos" x="584" y="57.5" width="696" height="520">
+          <rounded-rectangle id="31:283" name="photo · ward1" x="0" y="0" width="440" height="520" />
+          <rounded-rectangle id="31:284" name="photo · int1" x="460" y="120" width="236" height="400" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="31:285" name="09 Акции" x="0" y="8270" width="1440" height="809">
+      <frame id="31:286" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="31:287" name="title" x="0" y="0" width="760" height="95">
+          <text id="31:288" name="Акции" x="0" y="0" width="50" height="17" />
+          <text id="31:289" name="Предложения месяца" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="31:290" name="desc" x="840" y="4" width="440" height="91">
+          <text id="31:291" name="Примеры — реальные акции, сроки и условия добавит администратор в админ-панели." x="0" y="0" width="440" height="52" />
+          <frame id="31:292" name="link" x="0" y="72" width="101" height="19">
+            <text id="31:293" name="Все акции" x="0" y="0" width="75" height="19" />
+            <instance id="31:294" name="icon/arrow-right" x="83" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="31:296" name="Promos" x="80" y="271" width="1278" height="418">
+        <frame id="31:297" name="Promo · На первую консультацию дерматолога" x="0" y="0" width="410" height="418">
+          <instance id="31:298" name="Chip" x="36" y="36" width="134" height="39" />
+          <text id="31:300" name="−20%" x="36" y="95" width="175" height="92" />
+          <text id="31:301" name="На первую консультацию дерматолога" x="36" y="207" width="338" height="52" />
+          <text id="31:302" name="При записи через сайт. Не суммируется с другими предложениями." x="36" y="279" width="338" height="44" />
+          <frame id="34:225" name="push" x="36" y="343" width="1" height="1" />
+          <frame id="31:303" name="link" x="36" y="364" width="110" height="19">
+            <text id="31:304" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="31:305" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="31:307" name="Promo · Check-up «Женское здоровье»" x="434" y="0" width="410" height="418">
+          <instance id="31:308" name="Chip" x="36" y="36" width="140" height="41" />
+          <text id="31:310" name="−15%" x="36" y="97" width="162" height="92" />
+          <text id="31:311" name="Check-up «Женское здоровье»" x="36" y="209" width="338" height="26" />
+          <text id="31:312" name="Вся программа в один день: гинеколог, УЗИ, анализы." x="36" y="255" width="338" height="44" />
+          <frame id="34:226" name="push" x="36" y="319" width="1" height="24" />
+          <frame id="31:313" name="link" x="36" y="363" width="110" height="19">
+            <text id="31:314" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="31:315" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="31:317" name="Promo · Четвёртая процедура RF-лифтинга — в подарок" x="868" y="0" width="410" height="418">
+          <instance id="31:318" name="Chip" x="36" y="36" width="137" height="39" />
+          <text id="31:320" name="3 + 1" x="36" y="95" width="149" height="92" />
+          <text id="31:321" name="Четвёртая процедура RF-лифтинга — в подарок" x="36" y="207" width="338" height="52" />
+          <text id="31:322" name="При оплате курса из трёх процедур." x="36" y="279" width="338" height="22" />
+          <frame id="34:227" name="push" x="36" y="321" width="1" height="22" />
+          <frame id="31:323" name="link" x="36" y="363" width="110" height="19">
+            <text id="31:324" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="31:325" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="32:148" name="10 Отзывы" x="0" y="9079" width="1440" height="731">
+      <frame id="32:149" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="32:150" name="title" x="0" y="0" width="760" height="95">
+          <text id="32:151" name="Отзывы" x="0" y="0" width="61" height="17" />
+          <text id="32:152" name="Что говорят пациенты" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="32:153" name="desc" x="870" y="43" width="410" height="52">
+          <frame id="32:154" name="rating" x="0" y="0" width="410" height="52">
+            <text id="32:155" name="4,9" x="0" y="0" width="55" height="52" />
+            <frame id="32:156" name="stars" x="71" y="3" width="339" height="46">
+              <frame id="32:157" name="row" x="0" y="0" width="106" height="18">
+                <instance id="32:158" name="icon/star" x="0" y="0" width="18" height="18" />
+                <instance id="32:160" name="icon/star" x="22" y="0" width="18" height="18" />
+                <instance id="32:162" name="icon/star" x="44" y="0" width="18" height="18" />
+                <instance id="32:164" name="icon/star" x="66" y="0" width="18" height="18" />
+                <instance id="32:166" name="icon/star" x="88" y="0" width="18" height="18" />
+              </frame>
+              <text id="32:168" name="по отзывам в Google и Яндекс Картах (пример)" x="0" y="24" width="339" height="22" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:169" name="Reviews" x="80" y="271" width="1278" height="340">
+        <frame id="32:170" name="Review · Мадина, 27 лет" x="0" y="0" width="410" height="340">
+          <frame id="32:171" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="32:172" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="32:174" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="32:176" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="32:178" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="32:180" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="32:182" name="«Долго не могла справиться с акне. Дерматолог отправила к эндокринологу, анализы сдала здесь же — через три месяца кожа чистая. Спасибо за внимание и терпение.»" x="36" y="76" width="338" height="135" />
+          <rounded-rectangle id="32:183" name="divider" x="36" y="235" width="338" height="1" />
+          <frame id="32:184" name="author" x="36" y="260" width="275" height="44">
+            <frame id="32:185" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="32:186" name="М" x="13" y="9" width="18" height="26" />
+            </frame>
+            <frame id="32:187" name="name" x="58" y="0.5" width="217" height="43">
+              <text id="32:188" name="Мадина, 27 лет" x="0" y="0" width="109" height="19" />
+              <text id="32:189" name="Лечение акне · сентябрь 2026" x="0" y="21" width="217" height="22" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:190" name="Review · Шахноза, 31 год" x="434" y="0" width="410" height="340">
+          <frame id="32:191" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="32:192" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="32:194" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="32:196" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="32:198" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="32:200" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="32:202" name="«Вела беременность в Derlux. Каждое назначение объясняли, УЗИ делали без очередей. Очень спокойно и по-человечески.»" x="36" y="76" width="338" height="108" />
+          <rounded-rectangle id="32:203" name="divider" x="36" y="208" width="338" height="1" />
+          <frame id="32:204" name="author" x="36" y="233" width="327" height="44">
+            <frame id="32:205" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="32:206" name="Ш" x="12" y="9" width="20" height="26" />
+            </frame>
+            <frame id="32:207" name="name" x="58" y="0.5" width="269" height="43">
+              <text id="32:208" name="Шахноза, 31 год" x="0" y="0" width="116" height="19" />
+              <text id="32:209" name="Ведение беременности · август 2026" x="0" y="21" width="269" height="22" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:210" name="Review · Тимур, 35 лет" x="868" y="0" width="410" height="340">
+          <frame id="32:211" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="32:212" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="32:214" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="32:216" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="32:218" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="32:220" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="32:222" name="«Удалял папилломы — быстро и аккуратно. Чисто, всё стерильно, цену назвали заранее, без сюрпризов.»" x="36" y="76" width="338" height="81" />
+          <rounded-rectangle id="32:223" name="divider" x="36" y="181" width="338" height="1" />
+          <frame id="32:224" name="author" x="36" y="206" width="311" height="44">
+            <frame id="32:225" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="32:226" name="Т" x="16" y="9" width="12" height="26" />
+            </frame>
+            <frame id="32:227" name="name" x="58" y="0.5" width="253" height="43">
+              <text id="32:228" name="Тимур, 35 лет" x="0" y="0" width="100" height="19" />
+              <text id="32:229" name="Удаление папиллом · октябрь 2026" x="0" y="21" width="253" height="22" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="32:230" name="11 Онлайн-запись" x="0" y="9810" width="1440" height="1166">
+      <frame id="32:231" name="Booking" x="80" y="120" width="1280" height="926">
+        <frame id="32:232" name="text" x="0" y="0" width="560" height="704">
+          <text id="32:233" name="Онлайн-запись" x="0" y="0" width="126" height="17" />
+          <text id="32:234" name="Запишитесь за минуту — без звонков" x="0" y="45" width="560" height="113" />
+          <text id="32:235" name="Выберите услугу, врача и свободное время. Администратор перезвонит, подтвердит запись и подскажет, как подготовиться." x="0" y="186" width="480" height="78" />
+          <frame id="32:236" name="Steps" x="0" y="292" width="560" height="365">
+            <frame id="32:237" name="Step 1" x="0" y="0" width="560" height="92">
+              <frame id="32:238" name="num" x="0" y="24" width="44" height="44">
+                <text id="32:239" name="1" x="19" y="12.5" width="6" height="19" />
+              </frame>
+              <frame id="32:240" name="t" x="64" y="21" width="368" height="50">
+                <text id="32:241" name="Направление или услуга" x="0" y="0" width="243" height="26" />
+                <text id="32:242" name="Не знаете, что выбрать — оставьте «Консультация»" x="0" y="28" width="368" height="22" />
+              </frame>
+            </frame>
+            <frame id="32:243" name="Step 2" x="0" y="92" width="560" height="91">
+              <frame id="32:244" name="num" x="0" y="23" width="44" height="44">
+                <text id="32:245" name="2" x="17.5" y="12.5" width="9" height="19" />
+              </frame>
+              <frame id="32:246" name="t" x="64" y="20" width="340" height="50">
+                <text id="32:247" name="Врач" x="0" y="0" width="48" height="26" />
+                <text id="32:248" name="Конкретный специалист или любой свободный" x="0" y="28" width="340" height="22" />
+              </frame>
+            </frame>
+            <frame id="32:249" name="Step 3" x="0" y="183" width="560" height="91">
+              <frame id="32:250" name="num" x="0" y="23" width="44" height="44">
+                <text id="32:251" name="3" x="17" y="12.5" width="10" height="19" />
+              </frame>
+              <frame id="32:252" name="t" x="64" y="20" width="319" height="50">
+                <text id="32:253" name="Дата и время" x="0" y="0" width="131" height="26" />
+                <text id="32:254" name="Только свободные слоты, Пн–Сб 9:00–19:00" x="0" y="28" width="319" height="22" />
+              </frame>
+            </frame>
+            <frame id="32:255" name="Step 4" x="0" y="274" width="560" height="91">
+              <frame id="32:256" name="num" x="0" y="23" width="44" height="44">
+                <text id="32:257" name="4" x="17" y="12.5" width="10" height="19" />
+              </frame>
+              <frame id="32:258" name="t" x="64" y="20" width="335" height="50">
+                <text id="32:259" name="Имя и телефон" x="0" y="0" width="147" height="26" />
+                <text id="32:260" name="Перезвоним в течение 15 минут и подтвердим" x="0" y="28" width="335" height="22" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="32:261" name="alt" x="0" y="685" width="286" height="19">
+            <frame id="32:262" name="+998 90 500-50-70" x="0" y="0" width="171" height="19">
+              <instance id="32:263" name="icon/phone" x="0" y="0.5" width="18" height="18" />
+              <text id="32:265" name="+998 90 500-50-70" x="26" y="0" width="145" height="19" />
+            </frame>
+            <frame id="32:266" name="Telegram" x="195" y="0" width="91" height="19">
+              <instance id="32:267" name="icon/send" x="0" y="0.5" width="18" height="18" />
+              <text id="32:270" name="Telegram" x="26" y="0" width="65" height="19" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="32:271" name="Форма записи" x="680" y="0" width="600" height="926">
+          <frame id="32:272" name="Progress" x="40" y="40" width="518" height="31">
+            <text id="32:273" name="Шаг 3 из 4 · Дата и время" x="0" y="0" width="199" height="17" />
+            <frame id="32:274" name="bars" x="0" y="27" width="518" height="4">
+              <rounded-rectangle id="32:275" name="seg" x="0" y="0" width="125" height="4" />
+              <rounded-rectangle id="32:276" name="seg" x="131" y="0" width="125" height="4" />
+              <rounded-rectangle id="32:277" name="seg" x="262" y="0" width="125" height="4" />
+              <rounded-rectangle id="32:278" name="seg" x="393" y="0" width="125" height="4" />
+            </frame>
+          </frame>
+          <frame id="32:279" name="Field · Направление" x="40" y="95" width="520" height="83">
+            <text id="32:280" name="Направление" x="0" y="0" width="97" height="22" />
+            <frame id="32:281" name="input" x="0" y="30" width="520" height="53">
+              <text id="32:282" name="Дерматология" x="19" y="17" width="105" height="19" />
+              <frame id="32:283" name="spacer" x="132" y="26" width="343" height="1" />
+              <instance id="32:284" name="icon/chevron-down" x="483" y="17.5" width="18" height="18" />
+            </frame>
+          </frame>
+          <frame id="32:286" name="Field · Услуга" x="40" y="202" width="520" height="83">
+            <text id="32:287" name="Услуга" x="0" y="0" width="49" height="22" />
+            <frame id="32:288" name="input" x="0" y="30" width="520" height="53">
+              <text id="32:289" name="Консультация дерматолога · от 150 000 сум" x="19" y="17" width="322" height="19" />
+              <frame id="32:290" name="spacer" x="349" y="26" width="126" height="1" />
+              <instance id="32:291" name="icon/chevron-down" x="483" y="17.5" width="18" height="18" />
+            </frame>
+          </frame>
+          <frame id="32:293" name="Field · Врач" x="40" y="309" width="520" height="83">
+            <text id="32:294" name="Врач" x="0" y="0" width="36" height="22" />
+            <frame id="32:295" name="input" x="0" y="30" width="520" height="53">
+              <text id="32:296" name="Дилноза Каримова · дерматолог" x="19" y="17" width="237" height="19" />
+              <frame id="32:297" name="spacer" x="264" y="26" width="211" height="1" />
+              <instance id="32:298" name="icon/chevron-down" x="483" y="17.5" width="18" height="18" />
+            </frame>
+          </frame>
+          <frame id="32:300" name="Дата" x="40" y="416" width="493" height="73">
+            <text id="32:301" name="Дата" x="0" y="0" width="35" height="22" />
+            <frame id="32:302" name="days" x="0" y="32" width="493" height="41">
+              <instance id="32:303" name="Chip" x="0" y="0" width="77" height="41" />
+              <instance id="32:305" name="Chip" x="85" y="0" width="73" height="39" />
+              <instance id="32:307" name="Chip" x="166" y="0" width="77" height="41" />
+              <instance id="32:309" name="Chip" x="251" y="0" width="75" height="41" />
+              <instance id="32:311" name="Chip" x="334" y="0" width="74" height="41" />
+              <instance id="32:313" name="Chip" x="416" y="0" width="77" height="41" />
+            </frame>
+          </frame>
+          <frame id="32:315" name="Время" x="40" y="513" width="485" height="73">
+            <text id="32:316" name="Свободное время" x="0" y="0" width="129" height="22" />
+            <frame id="32:317" name="times" x="0" y="32" width="485" height="41">
+              <instance id="32:318" name="Chip" x="0" y="0" width="71" height="41" />
+              <instance id="32:320" name="Chip" x="79" y="0" width="73" height="41" />
+              <instance id="32:322" name="Chip" x="160" y="0" width="75" height="41" />
+              <instance id="32:324" name="Chip" x="243" y="0" width="74" height="39" />
+              <instance id="32:326" name="Chip" x="325" y="0" width="76" height="41" />
+              <instance id="32:328" name="Chip" x="409" y="0" width="76" height="41" />
+            </frame>
+          </frame>
+          <frame id="32:330" name="Контакты" x="40" y="610" width="520" height="83">
+            <frame id="32:331" name="Field · Имя" x="0" y="0" width="252" height="83">
+              <text id="32:332" name="Имя" x="0" y="0" width="30" height="22" />
+              <frame id="32:333" name="input" x="0" y="30" width="252" height="53">
+                <text id="32:334" name="Мадина" x="19" y="17" width="57" height="19" />
+                <frame id="32:335" name="spacer" x="84" y="26" width="149" height="1" />
+              </frame>
+            </frame>
+            <frame id="32:336" name="Field · Телефон" x="268" y="0" width="252" height="83">
+              <text id="32:337" name="Телефон" x="0" y="0" width="62" height="22" />
+              <frame id="32:338" name="input" x="0" y="30" width="252" height="53">
+                <text id="32:339" name="+998 90 ___ __ __" x="19" y="17" width="121" height="19" />
+                <frame id="32:340" name="spacer" x="148" y="26" width="85" height="1" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="32:341" name="Согласие" x="40" y="717" width="494" height="22">
+            <frame id="32:342" name="checkbox" x="0" y="0" width="22" height="22">
+              <instance id="32:343" name="icon/check" x="3" y="3" width="16" height="16" />
+            </frame>
+            <text id="32:345" name="Согласен(-на) на обработку персональных данных" x="34" y="0" width="460" height="22" />
+          </frame>
+          <instance id="32:346" name="Button" x="40" y="763" width="520" height="55" />
+          <text id="32:350" name="Администратор перезвонит в течение 15 минут, чтобы подтвердить запись." x="40" y="842" width="520" height="44" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="32:351" name="12 Статьи" x="0" y="10976" width="1440" height="836">
+      <frame id="32:352" name="Head" x="80" y="120" width="1280" height="95">
+        <frame id="32:353" name="title" x="0" y="0" width="760" height="95">
+          <text id="32:354" name="Полезное" x="0" y="0" width="78" height="17" />
+          <text id="32:355" name="Статьи и новости" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="32:356" name="desc" x="1175" y="76" width="105" height="19">
+          <frame id="32:357" name="link" x="0" y="0" width="105" height="19">
+            <text id="32:358" name="Все статьи" x="0" y="0" width="79" height="19" />
+            <instance id="32:359" name="icon/arrow-right" x="87" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="32:361" name="Articles" x="80" y="271" width="1278" height="445">
+        <frame id="32:362" name="Article" x="0" y="0" width="410" height="445">
+          <rounded-rectangle id="32:363" name="photo · art1" x="0" y="0" width="410" height="280" />
+          <text id="32:364" name="Дерматология · 6 мин" x="0" y="296" width="175" height="17" />
+          <text id="32:365" name="Акне или розацеа: как отличить и почему не стоит лечиться самостоятельно" x="0" y="329" width="410" height="52" />
+          <text id="32:366" name="2 октября 2026" x="0" y="397" width="111" height="22" />
+        </frame>
+        <frame id="32:367" name="Article" x="434" y="0" width="410" height="445">
+          <rounded-rectangle id="32:368" name="photo · art3" x="0" y="0" width="410" height="280" />
+          <text id="32:369" name="УЗИ · 4 мин" x="0" y="296" width="87" height="17" />
+          <text id="32:370" name="Подготовка к УЗИ: что можно и нельзя накануне исследования" x="0" y="329" width="410" height="52" />
+          <text id="32:371" name="28 сентября 2026" x="0" y="397" width="129" height="22" />
+        </frame>
+        <frame id="32:372" name="Article" x="868" y="0" width="410" height="445">
+          <rounded-rectangle id="32:373" name="photo · art2" x="0" y="0" width="410" height="280" />
+          <text id="32:374" name="Эндокринология · 7 мин" x="0" y="296" width="196" height="17" />
+          <text id="32:375" name="Щитовидная железа и кожа: почему сухость и выпадение волос — повод проверить гормоны" x="0" y="329" width="410" height="78" />
+          <text id="32:376" name="20 сентября 2026" x="0" y="423" width="129" height="22" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="32:377" name="13 Лицензии" x="0" y="11812" width="1440" height="483">
+      <frame id="32:378" name="Licenses" x="80" y="96" width="1280" height="291">
+        <frame id="32:379" name="text" x="0" y="40.5" width="520" height="210">
+          <text id="32:380" name="Документы" x="0" y="0" width="90" height="17" />
+          <text id="32:381" name="Лицензии и сертификаты" x="0" y="37" width="520" height="36" />
+          <text id="32:382" name="Клиника работает по лицензии Министерства здравоохранения Республики Узбекистан. Номер и копии документов добавим после получения от клиники." x="0" y="93" width="480" height="78" />
+          <frame id="32:383" name="link" x="0" y="191" width="210" height="19">
+            <text id="32:384" name="Смотреть все документы" x="0" y="0" width="184" height="19" />
+            <instance id="32:385" name="icon/arrow-right" x="192" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="32:387" name="Docs" x="632" y="0" width="648" height="291">
+          <frame id="32:388" name="Doc · Лицензия" x="0" y="0" width="200" height="291">
+            <frame id="32:389" name="paper" x="0" y="0" width="200" height="260">
+              <instance id="32:390" name="icon/file" x="24" y="28" width="28" height="28" />
+              <rounded-rectangle id="32:393" name="line" x="24" y="66" width="152" height="6" />
+              <rounded-rectangle id="32:394" name="line" x="24" y="82" width="120" height="6" />
+              <rounded-rectangle id="32:395" name="line" x="24" y="98" width="152" height="6" />
+              <rounded-rectangle id="32:396" name="line" x="24" y="114" width="96" height="6" />
+              <rounded-rectangle id="32:397" name="line" x="24" y="130" width="140" height="6" />
+              <rounded-rectangle id="32:398" name="line" x="24" y="146" width="110" height="6" />
+            </frame>
+            <text id="32:399" name="Лицензия" x="0" y="272" width="71" height="19" />
+          </frame>
+          <frame id="32:400" name="Doc · Сертификат" x="224" y="0" width="200" height="291">
+            <frame id="32:401" name="paper" x="0" y="0" width="200" height="260">
+              <instance id="32:402" name="icon/file" x="24" y="28" width="28" height="28" />
+              <rounded-rectangle id="32:405" name="line" x="24" y="66" width="152" height="6" />
+              <rounded-rectangle id="32:406" name="line" x="24" y="82" width="120" height="6" />
+              <rounded-rectangle id="32:407" name="line" x="24" y="98" width="152" height="6" />
+              <rounded-rectangle id="32:408" name="line" x="24" y="114" width="96" height="6" />
+              <rounded-rectangle id="32:409" name="line" x="24" y="130" width="140" height="6" />
+              <rounded-rectangle id="32:410" name="line" x="24" y="146" width="110" height="6" />
+            </frame>
+            <text id="32:411" name="Сертификат" x="0" y="272" width="89" height="19" />
+          </frame>
+          <frame id="32:412" name="Doc · Аккредитация" x="448" y="0" width="200" height="291">
+            <frame id="32:413" name="paper" x="0" y="0" width="200" height="260">
+              <instance id="32:414" name="icon/file" x="24" y="28" width="28" height="28" />
+              <rounded-rectangle id="32:417" name="line" x="24" y="66" width="152" height="6" />
+              <rounded-rectangle id="32:418" name="line" x="24" y="82" width="120" height="6" />
+              <rounded-rectangle id="32:419" name="line" x="24" y="98" width="152" height="6" />
+              <rounded-rectangle id="32:420" name="line" x="24" y="114" width="96" height="6" />
+              <rounded-rectangle id="32:421" name="line" x="24" y="130" width="140" height="6" />
+              <rounded-rectangle id="32:422" name="line" x="24" y="146" width="110" height="6" />
+            </frame>
+            <text id="32:423" name="Аккредитация" x="0" y="272" width="104" height="19" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="33:197" name="14 FAQ" x="0" y="12295" width="1440" height="979">
+      <frame id="33:198" name="FAQ" x="80" y="120" width="1280" height="739">
+        <frame id="33:199" name="text" x="0" y="0" width="420" height="260">
+          <text id="33:200" name="FAQ" x="0" y="0" width="28" height="17" />
+          <text id="33:201" name="Частые вопросы" x="0" y="41" width="420" height="62" />
+          <text id="33:202" name="Не нашли ответ? Позвоните или напишите в Telegram — ответим в рабочее время." x="0" y="127" width="400" height="52" />
+          <instance id="33:203" name="Button" x="0" y="203" width="172" height="57" />
+        </frame>
+        <frame id="33:207" name="Accordion" x="500" y="0" width="780" height="739">
+          <frame id="33:208" name="Tabs" x="0" y="0" width="521" height="41">
+            <instance id="33:209" name="Chip" x="0" y="0" width="185" height="39" />
+            <instance id="33:211" name="Chip" x="193" y="0" width="229" height="41" />
+            <instance id="33:213" name="Chip" x="430" y="0" width="91" height="41" />
+          </frame>
+          <frame id="33:215" name="gap" x="0" y="41" width="10" height="24" />
+          <frame id="33:216" name="Q · Нужна ли предварительная запись?" x="0" y="65" width="780" height="152">
+            <frame id="33:217" name="row" x="0" y="25" width="780" height="38">
+              <text id="33:218" name="Нужна ли предварительная запись?" x="0" y="6" width="640" height="26" />
+              <frame id="33:219" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:220" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:221" name="icon/minus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+            <text id="33:223" name="Желательно: так вы придёте в удобное время к нужному врачу без ожидания. В воскресенье клиника работает только по записи." x="0" y="75" width="640" height="52" />
+          </frame>
+          <frame id="33:224" name="Q · Можно ли сдать анализы без направления врача?" x="0" y="217" width="780" height="87">
+            <frame id="33:225" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:226" name="Можно ли сдать анализы без направления врача?" x="0" y="6" width="640" height="26" />
+              <frame id="33:227" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:228" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:229" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="33:231" name="Q · Как подготовиться к УЗИ?" x="0" y="304" width="780" height="87">
+            <frame id="33:232" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:233" name="Как подготовиться к УЗИ?" x="0" y="6" width="640" height="26" />
+              <frame id="33:234" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:235" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:236" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="33:238" name="Q · Сколько стоит первичная консультация?" x="0" y="391" width="780" height="87">
+            <frame id="33:239" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:240" name="Сколько стоит первичная консультация?" x="0" y="6" width="640" height="26" />
+              <frame id="33:241" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:242" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:243" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="33:245" name="Q · Можно ли выбрать врача-женщину?" x="0" y="478" width="780" height="87">
+            <frame id="33:246" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:247" name="Можно ли выбрать врача-женщину?" x="0" y="6" width="640" height="26" />
+              <frame id="33:248" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:249" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:250" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="33:252" name="Q · Когда будут готовы результаты анализов?" x="0" y="565" width="780" height="87">
+            <frame id="33:253" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:254" name="Когда будут готовы результаты анализов?" x="0" y="6" width="640" height="26" />
+              <frame id="33:255" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:256" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:257" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="33:259" name="Q · Как перенести или отменить запись?" x="0" y="652" width="780" height="87">
+            <frame id="33:260" name="row" x="0" y="24" width="780" height="38">
+              <text id="33:261" name="Как перенести или отменить запись?" x="0" y="6" width="640" height="26" />
+              <frame id="33:262" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="33:263" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="33:264" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="33:266" name="15 Контакты" x="0" y="13274" width="1440" height="858">
+      <frame id="33:267" name="Contacts" x="80" y="120" width="1280" height="618">
+        <frame id="33:268" name="Карточка" x="0" y="0" width="520" height="618">
+          <text id="33:269" name="Контакты" x="40" y="40" width="76" height="17" />
+          <text id="33:270" name="Как нас найти" x="40" y="81" width="440" height="62" />
+          <frame id="33:271" name="row · pin" x="40" y="167" width="434" height="54">
+            <frame id="33:272" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="33:273" name="icon/pin" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="33:276" name="t" x="54" y="0" width="380" height="54">
+              <text id="33:277" name="г. Ташкент, Мирзо-Улугбекский район," x="0" y="0" width="380" height="26" />
+              <text id="33:278" name="ул. Садыка Азимова, 46" x="0" y="28" width="235" height="26" />
+            </frame>
+          </frame>
+          <frame id="33:279" name="row · phone" x="40" y="245" width="247" height="54">
+            <frame id="33:280" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="33:281" name="icon/phone" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="33:283" name="t" x="54" y="0" width="193" height="54">
+              <text id="33:284" name="+998 90 500-50-70" x="0" y="0" width="193" height="26" />
+              <text id="33:285" name="+998 90 328-58-98" x="0" y="28" width="190" height="26" />
+            </frame>
+          </frame>
+          <frame id="33:286" name="row · mail" x="40" y="323" width="277" height="40">
+            <frame id="33:287" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="33:288" name="icon/mail" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="33:291" name="t" x="54" y="0" width="223" height="26">
+              <text id="33:292" name="sarvar2858@gmail.com" x="0" y="0" width="223" height="26" />
+            </frame>
+          </frame>
+          <frame id="33:293" name="График" x="40" y="387" width="440" height="110">
+            <frame id="33:294" name="Понедельник — суббота" x="0" y="0" width="440" height="55">
+              <text id="33:295" name="Понедельник — суббота" x="0" y="15" width="197" height="26" />
+              <frame id="33:296" name="spacer" x="197" y="27.5" width="162" height="1" />
+              <text id="33:297" name="9:00–19:00" x="359" y="18.5" width="81" height="19" />
+            </frame>
+            <frame id="33:298" name="Воскресенье" x="0" y="55" width="440" height="55">
+              <text id="33:299" name="Воскресенье" x="0" y="15" width="107" height="26" />
+              <frame id="33:300" name="spacer" x="107" y="27.5" width="206" height="1" />
+              <text id="33:301" name="только по записи" x="313" y="18.5" width="127" height="19" />
+            </frame>
+          </frame>
+          <frame id="33:302" name="buttons" x="40" y="521" width="382" height="57">
+            <instance id="33:303" name="Button" x="0" y="0" width="243" height="56" />
+            <instance id="33:307" name="Button" x="255" y="0" width="127" height="57" />
+          </frame>
+        </frame>
+        <frame id="33:311" name="Карта (иллюстрация, заменить на Яндекс/Google Maps)" x="544" y="0" width="736" height="618">
+          <rounded-rectangle id="33:312" name="block" x="-20" y="-20" width="182" height="132" />
+          <rounded-rectangle id="33:313" name="block" x="200" y="-20" width="162" height="132" />
+          <rounded-rectangle id="33:314" name="block" x="400" y="-20" width="202" height="132" />
+          <rounded-rectangle id="33:315" name="block" x="640" y="-20" width="122" height="132" />
+          <rounded-rectangle id="33:316" name="block" x="-20" y="150" width="122" height="152" />
+          <rounded-rectangle id="33:317" name="block" x="140" y="150" width="222" height="152" />
+          <rounded-rectangle id="33:318" name="block" x="400" y="150" width="132" height="152" />
+          <rounded-rectangle id="33:319" name="block" x="570" y="150" width="182" height="152" />
+          <rounded-rectangle id="33:320" name="block" x="-20" y="340" width="242" height="122" />
+          <rounded-rectangle id="33:321" name="block" x="260" y="340" width="102" height="122" />
+          <rounded-rectangle id="33:322" name="block" x="400" y="340" width="182" height="122" />
+          <rounded-rectangle id="33:323" name="block" x="620" y="340" width="142" height="122" />
+          <rounded-rectangle id="33:324" name="block" x="-20" y="500" width="162" height="152" />
+          <rounded-rectangle id="33:325" name="block" x="180" y="500" width="202" height="152" />
+          <rounded-rectangle id="33:326" name="block" x="420" y="500" width="102" height="152" />
+          <rounded-rectangle id="33:327" name="block" x="560" y="500" width="202" height="152" />
+          <rounded-rectangle id="33:328" name="park" x="400" y="340" width="222" height="122" />
+          <rounded-rectangle id="33:329" name="canal" x="-80" y="470" width="894.3031087517738" height="147.04170668125153" />
+          <ellipse id="33:330" name="pin halo" x="332" y="232" width="96" height="96" />
+          <ellipse id="33:331" name="pin" x="362" y="262" width="36" height="36" />
+          <frame id="33:332" name="label" x="446" y="250" width="204" height="67">
+            <text id="33:333" name="Derlux Clinic" x="16" y="12" width="88" height="19" />
+            <text id="33:334" name="ул. Садыка Азимова, 46" x="16" y="33" width="172" height="22" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="33:335" name="16 Подвал" x="0" y="14132" width="1440" height="716">
+      <frame id="33:336" name="top" x="80" y="96" width="1280" height="100">
+        <frame id="33:337" name="brand" x="0" y="0" width="680" height="100">
+          <text id="33:338" name="DERLUX" x="0" y="0" width="189" height="44" />
+          <text id="33:339" name="Здоровая кожа начинается с причины" x="0" y="60" width="680" height="40" />
+        </frame>
+        <frame id="33:340" name="spacer" x="720" y="99" width="135" height="1" />
+        <frame id="33:341" name="cta" x="895" y="44" width="385" height="56">
+          <text id="33:342" name="+998 90 500-50-70" x="0" y="15" width="193" height="26" />
+          <instance id="33:343" name="Button" x="209" y="0" width="176" height="56" />
+        </frame>
+      </frame>
+      <rounded-rectangle id="33:347" name="divider" x="80" y="252" width="1280" height="1" />
+      <frame id="33:348" name="columns" x="80" y="309" width="1280" height="289">
+        <frame id="33:349" name="Направления" x="0" y="0" width="290" height="289">
+          <text id="33:350" name="Направления" x="0" y="0" width="106" height="17" />
+          <text id="33:351" name="Дерматология" x="0" y="29" width="290" height="22" />
+          <text id="33:352" name="Лазерная дерматология" x="0" y="63" width="290" height="22" />
+          <text id="33:353" name="Эстетическая медицина" x="0" y="97" width="290" height="22" />
+          <text id="33:354" name="Гинекология" x="0" y="131" width="290" height="22" />
+          <text id="33:355" name="Эндокринология" x="0" y="165" width="290" height="22" />
+          <text id="33:356" name="УЗИ" x="0" y="199" width="290" height="22" />
+          <text id="33:357" name="Лаборатория" x="0" y="233" width="290" height="22" />
+          <text id="33:358" name="Процедурный кабинет" x="0" y="267" width="290" height="22" />
+        </frame>
+        <frame id="33:359" name="Пациентам" x="330" y="0" width="290" height="255">
+          <text id="33:360" name="Пациентам" x="0" y="0" width="89" height="17" />
+          <text id="33:361" name="Услуги и цены" x="0" y="29" width="290" height="22" />
+          <text id="33:362" name="Врачи" x="0" y="63" width="290" height="22" />
+          <text id="33:363" name="Check-up" x="0" y="97" width="290" height="22" />
+          <text id="33:364" name="Акции" x="0" y="131" width="290" height="22" />
+          <text id="33:365" name="Отзывы" x="0" y="165" width="290" height="22" />
+          <text id="33:366" name="FAQ" x="0" y="199" width="290" height="22" />
+          <text id="33:367" name="Онлайн-запись" x="0" y="233" width="290" height="22" />
+        </frame>
+        <frame id="33:368" name="Клиника" x="660" y="0" width="290" height="221">
+          <text id="33:369" name="Клиника" x="0" y="0" width="69" height="17" />
+          <text id="33:370" name="О клинике" x="0" y="29" width="290" height="22" />
+          <text id="33:371" name="Оборудование" x="0" y="63" width="290" height="22" />
+          <text id="33:372" name="Стационар" x="0" y="97" width="290" height="22" />
+          <text id="33:373" name="Лицензии" x="0" y="131" width="290" height="22" />
+          <text id="33:374" name="Статьи и новости" x="0" y="165" width="290" height="22" />
+          <text id="33:375" name="Контакты" x="0" y="199" width="290" height="22" />
+        </frame>
+        <frame id="33:376" name="Контакты" x="990" y="0" width="290" height="221">
+          <text id="33:377" name="Контакты" x="0" y="0" width="76" height="17" />
+          <text id="33:378" name="ул. Садыка Азимова, 46" x="0" y="29" width="290" height="22" />
+          <text id="33:379" name="+998 90 500-50-70" x="0" y="63" width="290" height="22" />
+          <text id="33:380" name="+998 90 328-58-98" x="0" y="97" width="290" height="22" />
+          <text id="33:381" name="sarvar2858@gmail.com" x="0" y="131" width="290" height="22" />
+          <text id="33:382" name="Пн–Сб 9:00–19:00, Вс — по записи" x="0" y="165" width="290" height="22" />
+          <text id="33:383" name="Instagram · Telegram" x="0" y="199" width="290" height="22" />
+        </frame>
+      </frame>
+      <frame id="33:384" name="bottom" x="80" y="654" width="1280" height="22">
+        <text id="33:385" name="© 2026 Derlux Clinic · Лицензия Минздрава РУз № ————" x="0" y="0" width="410" height="22" />
+        <text id="33:386" name="Политика конфиденциальности" x="434" y="0" width="228" height="22" />
+        <frame id="33:387" name="spacer" x="686" y="10.5" width="66" height="1" />
+        <text id="33:388" name="Имеются противопоказания. Необходима консультация специалиста." x="776" y="0" width="504" height="22" />
+      </frame>
+    </frame>
+  </frame>
+  <frame id="35:222" name="Заметки к концепции" x="1560" y="0" width="720" height="1826">
+    <text id="35:223" name="5 шаг · Визуальная концепция главной" x="40" y="40" width="640" height="21" />
+    <text id="35:224" name="Заметки к макету" x="40" y="85" width="640" height="60" />
+    <frame id="35:225" name="Заглушки — заменить на данные клиники" x="40" y="169" width="640" height="407">
+      <text id="35:226" name="Заглушки — заменить на данные клиники" x="32" y="32" width="576" height="33" />
+      <text id="35:227" name="• Логотип — временный словесный знак «DERLUX clinic»." x="32" y="75" width="576" height="24" />
+      <text id="35:228" name="• Акцент #1E4A42 — переменная brand/accent: подставим фирменный цвет одной правкой." x="32" y="109" width="576" height="48" />
+      <text id="35:229" name="• Фото — Unsplash (бесплатная лицензия). Обработка для единства: температура +12, насыщенность −12 — применять и к фото клиники." x="32" y="167" width="576" height="48" />
+      <text id="35:230" name="• Врачи: ФИО, стаж, категории, языки — вымышленные." x="32" y="225" width="576" height="24" />
+      <text id="35:231" name="• Цены «от», состав и цены Check-up — примеры на согласование." x="32" y="259" width="576" height="24" />
+      <text id="35:232" name="• Оборудование, стационар, акции, отзывы, статьи, лицензия — заглушки." x="32" y="293" width="576" height="24" />
+      <text id="35:233" name="• Карта — иллюстрация; на сайте — Яндекс/Google Maps по присланной ссылке." x="32" y="327" width="576" height="48" />
+    </frame>
+    <frame id="35:234" name="Решения" x="40" y="600" width="640" height="421">
+      <text id="35:235" name="Решения" x="32" y="32" width="576" height="33" />
+      <text id="35:236" name="• Рейтинг креативности ≈ 5/10: спокойная медицина, эмоция — в первом экране, «Почему Derlux», Check-up." x="32" y="75" width="576" height="48" />
+      <text id="35:237" name="• Эмоции: Доверие (главная) · Чистота · Бережность." x="32" y="133" width="576" height="24" />
+      <text id="35:238" name="• Шрифты: Cormorant Garamond (заголовки, курсив — одно слово) + Onest (текст, цифры, интерфейс). Оба с кириллицей и латиницей для узбекской версии." x="32" y="167" width="576" height="72" />
+      <text id="35:239" name="• Форма-мотив — арка: портреты врачей, первый экран, стационар." x="32" y="249" width="576" height="24" />
+      <text id="35:240" name="• Запись — в 3 местах: мини-форма в первом экране, кнопки в блоках, отдельный блок из 4 шагов." x="32" y="283" width="576" height="48" />
+      <text id="35:241" name="• Цвета, тексты, кнопки, чипы, иконки — переменные, текстовые стили и компоненты (страница «5. Лендинг», слева)." x="32" y="341" width="576" height="48" />
+    </frame>
+    <frame id="35:242" name="Уточнить у клиники" x="40" y="1045" width="640" height="233">
+      <text id="35:243" name="Уточнить у клиники" x="32" y="32" width="576" height="33" />
+      <text id="35:244" name="• Стационар: дневной или круглосуточный, палаты, цены." x="32" y="75" width="576" height="24" />
+      <text id="35:245" name="• Языки приёма у врачей (RU / UZ / EN)." x="32" y="109" width="576" height="24" />
+      <text id="35:246" name="• Номер лицензии, ссылки на Instagram и Telegram." x="32" y="143" width="576" height="24" />
+      <text id="35:247" name="• Нужна ли узбекская версия сразу (кириллица или латиница)." x="32" y="177" width="576" height="24" />
+    </frame>
+    <frame id="35:248" name="Следующие этапы (по процессу)" x="40" y="1302" width="640" height="257">
+      <text id="35:249" name="Следующие этапы (по процессу)" x="32" y="32" width="576" height="33" />
+      <text id="35:250" name="6. Кириллизация и узбекская версия — проверить длину строк." x="32" y="75" width="576" height="24" />
+      <text id="35:251" name="7. Защита концепции клиенту." x="32" y="109" width="576" height="24" />
+      <text id="35:252" name="8. Ключевые страницы: направление, услуга, врач, прайс, запись, контакты." x="32" y="143" width="576" height="48" />
+      <text id="35:253" name="9. Адаптив 390 / 768 и подготовка к разработке." x="32" y="201" width="576" height="24" />
+    </frame>
+    <frame id="35:254" name="Фото (Unsplash)" x="40" y="1583" width="640" height="203">
+      <text id="35:255" name="Фото (Unsplash)" x="32" y="32" width="576" height="33" />
+      <text id="35:256" name="Ayo Ogunseinde, MIROV, Sum Sum, Look Studio, Elise Wilcox, see plus, Elen Sher, National Cancer Institute, Annie Spratt, Jonathan Borba, Bermix Studio, Ato Aikins, EYES on St Albans, Mélyna Côté, Studio Michael França, Max Tcvetkov, Zoshua Colah, kimia kazemi, Olga Thelavart, Patrick Langwallner." x="32" y="75" width="576" height="96" />
+    </frame>
+  </frame>
+  <frame id="40:222" name="Derlux — Главная · 1440 · v2 (короче, больше воздуха)" x="2440" y="0" width="1440" height="11536">
+    <frame id="40:235" name="Header" x="0" y="0" width="1440" height="96">
+      <frame id="40:236" name="Logo (временный)" x="80" y="23" width="151" height="49">
+        <text id="40:237" name="DERLUX" x="0" y="0" width="151" height="32" />
+        <text id="40:238" name="clinic" x="0" y="32" width="69" height="17" />
+      </frame>
+      <frame id="40:239" name="Nav" x="259" y="38" width="464" height="19">
+        <text id="40:240" name="Направления" x="0" y="0" width="97" height="19" />
+        <text id="40:241" name="Цены" x="133" y="0" width="39" height="19" />
+        <text id="40:242" name="Врачи" x="208" y="0" width="45" height="19" />
+        <text id="40:243" name="Check-up" x="289" y="0" width="70" height="19" />
+        <text id="40:246" name="Контакты" x="395" y="0" width="69" height="19" />
+      </frame>
+      <frame id="40:247" name="spacer" x="751" y="47" width="188" height="1" />
+      <frame id="40:248" name="Phone" x="967" y="34.5" width="219" height="26">
+        <instance id="40:249" name="icon/phone" x="0" y="4" width="18" height="18" />
+        <text id="40:250" name="+998 90 500-50-70" x="26" y="0" width="193" height="26" />
+      </frame>
+      <instance id="40:251" name="Button" x="1214" y="20" width="146" height="55" />
+    </frame>
+    <frame id="40:252" name="01 Hero" x="0" y="96" width="1440" height="968">
+      <frame id="40:253" name="Hero · text" x="80" y="223" width="640" height="450">
+        <text id="40:255" name="Здоровая кожа начинается с причины" x="0" y="0" width="640" height="153" />
+        <text id="40:256" name="Дерматолог, гинеколог и эндокринолог — рядом. Анализы и УЗИ — здесь же." x="0" y="189" width="460" height="56" />
+        <frame id="40:257" name="CTA" x="0" y="281" width="456" height="57">
+          <instance id="40:258" name="Button" x="0" y="0" width="252" height="56" />
+          <instance id="40:259" name="Button" x="264" y="0" width="192" height="57" />
+        </frame>
+        <frame id="40:260" name="Booking bar" x="0" y="374" width="640" height="76">
+          <frame id="40:261" name="Field · Направление" x="8" y="8" width="155.33334350585938" height="60">
+            <text id="40:262" name="Направление" x="20" y="10" width="105" height="17" />
+            <frame id="40:263" name="value" x="20" y="31" width="127" height="19">
+              <text id="40:264" name="Дерматология" x="0" y="0" width="105" height="19" />
+              <instance id="40:265" name="icon/chevron-down" x="111" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <rounded-rectangle id="40:266" name="divider" x="163.33334350585938" y="18" width="1" height="40" />
+          <frame id="40:267" name="Field · Врач" x="164.33334350585938" y="8" width="155.3333282470703" height="60">
+            <text id="40:268" name="Врач" x="20" y="10" width="36" height="17" />
+            <frame id="40:269" name="value" x="20" y="31" width="110" height="19">
+              <text id="40:270" name="Любой врач" x="0" y="0" width="88" height="19" />
+              <instance id="40:271" name="icon/chevron-down" x="94" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <rounded-rectangle id="40:272" name="divider" x="319.66668701171875" y="18" width="1" height="40" />
+          <frame id="40:273" name="Field · Дата" x="320.66668701171875" y="8" width="155.3333282470703" height="60">
+            <text id="40:274" name="Дата" x="20" y="10" width="36" height="17" />
+            <frame id="40:275" name="value" x="20" y="31" width="134" height="19">
+              <text id="40:276" name="Сегодня, 14 окт" x="0" y="0" width="112" height="19" />
+              <instance id="40:277" name="icon/chevron-down" x="118" y="1.5" width="16" height="16" />
+            </frame>
+          </frame>
+          <instance id="40:278" name="Button" x="476" y="10.5" width="156" height="55" />
+        </frame>
+      </frame>
+      <frame id="40:289" name="Hero · visual" x="784" y="88" width="576" height="720">
+        <rounded-rectangle id="40:290" name="photo · hero" x="56" y="0" width="520" height="700" />
+        <frame id="40:291" name="Ближайшая запись" x="0" y="520" width="293" height="190">
+          <frame id="40:292" name="h" x="20" y="20" width="173" height="17">
+            <ellipse id="40:293" name="Ellipse" x="0" y="4.5" width="8" height="8" />
+            <text id="40:294" name="Ближайшая запись" x="16" y="0" width="157" height="17" />
+          </frame>
+          <text id="40:295" name="Сегодня, 15:30" x="20" y="47" width="143" height="26" />
+          <text id="40:296" name="Дерматолог · консультация 30 мин" x="20" y="83" width="253" height="22" />
+          <instance id="40:297" name="Button" x="20" y="115" width="251" height="55" />
+        </frame>
+        <frame id="40:298" name="Badge · стерильность" x="330" y="40" width="276" height="44">
+          <instance id="40:299" name="icon/shield" x="14" y="12" width="20" height="20" />
+          <text id="40:300" name="Стерильность по стандартам" x="44" y="12.5" width="214" height="19" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:301" name="02 Направления" x="0" y="1064" width="1440" height="1283">
+      <frame id="40:302" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:303" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:304" name="Направления" x="0" y="0" width="106" height="17" />
+          <text id="40:305" name="Восемь направлений — одна клиника" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:306" name="desc" x="1119" y="76" width="161" height="19">
+          <frame id="40:308" name="link" x="0" y="0" width="161" height="19">
+            <text id="40:309" name="Все услуги и цены" x="0" y="0" width="135" height="19" />
+            <instance id="40:310" name="icon/arrow-right" x="143" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="40:311" name="Grid" x="80" y="327" width="1280" height="796">
+        <frame id="40:312" name="Card · Дерматология" x="0" y="0" width="302" height="362">
+          <rounded-rectangle id="40:313" name="photo · d_derm" x="0" y="0" width="302" height="240" />
+          <text id="40:314" name="Дерматология" x="0" y="252" width="302" height="26" />
+          <text id="40:315" name="Акне, псориаз, экзема, папилломы" x="0" y="290" width="302" height="22" />
+          <frame id="40:316" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:317" name="от 150 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="40:318" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="40:319" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:320" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:321" name="Card · Лазерная дерматология" x="326" y="0" width="302" height="362">
+          <rounded-rectangle id="40:322" name="photo · d_laser" x="0" y="0" width="302" height="240" />
+          <text id="40:323" name="Лазерная дерматология" x="0" y="252" width="302" height="26" />
+          <text id="40:324" name="Ногти, пигментация, рубцы" x="0" y="290" width="302" height="22" />
+          <frame id="40:325" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:326" name="от 300 000 сум" x="0" y="9.5" width="115" height="19" />
+            <frame id="40:327" name="spacer" x="115" y="18.5" width="149" height="1" />
+            <frame id="40:328" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:329" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:330" name="Card · Эстетическая медицина" x="652" y="0" width="302" height="362">
+          <rounded-rectangle id="40:331" name="photo · d_aest" x="0" y="0" width="302" height="240" />
+          <text id="40:332" name="Эстетическая медицина" x="0" y="252" width="302" height="26" />
+          <text id="40:333" name="RF-лифтинг, стрии, целлюлит" x="0" y="290" width="302" height="22" />
+          <frame id="40:334" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:335" name="от 250 000 сум" x="0" y="9.5" width="114" height="19" />
+            <frame id="40:336" name="spacer" x="114" y="18.5" width="150" height="1" />
+            <frame id="40:337" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:338" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:339" name="Card · Гинекология" x="978" y="0" width="302" height="362">
+          <rounded-rectangle id="40:340" name="photo · d_gyn" x="0" y="0" width="302" height="240" />
+          <text id="40:341" name="Гинекология" x="0" y="252" width="302" height="26" />
+          <text id="40:342" name="Бесплодие, миома, беременность" x="0" y="290" width="302" height="22" />
+          <frame id="40:343" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:344" name="от 180 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="40:345" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="40:346" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:347" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:348" name="Card · Эндокринология" x="0" y="434" width="302" height="362">
+          <rounded-rectangle id="40:349" name="photo · d_endo" x="0" y="0" width="302" height="240" />
+          <text id="40:350" name="Эндокринология" x="0" y="252" width="302" height="26" />
+          <text id="40:351" name="Щитовидная железа, диабет, вес" x="0" y="290" width="302" height="22" />
+          <frame id="40:352" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:353" name="от 180 000 сум" x="0" y="9.5" width="111" height="19" />
+            <frame id="40:354" name="spacer" x="111" y="18.5" width="153" height="1" />
+            <frame id="40:355" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:356" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:357" name="Card · УЗИ всех органов" x="326" y="434" width="302" height="362">
+          <rounded-rectangle id="40:358" name="photo · d_uzi" x="0" y="0" width="302" height="240" />
+          <text id="40:359" name="УЗИ всех органов" x="0" y="252" width="302" height="26" />
+          <text id="40:360" name="Все органы, беременность" x="0" y="290" width="302" height="22" />
+          <frame id="40:361" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:362" name="от 120 000 сум" x="0" y="9.5" width="110" height="19" />
+            <frame id="40:363" name="spacer" x="110" y="18.5" width="154" height="1" />
+            <frame id="40:364" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:365" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:366" name="Card · Лаборатория" x="652" y="434" width="302" height="362">
+          <rounded-rectangle id="40:367" name="photo · d_lab" x="0" y="0" width="302" height="240" />
+          <text id="40:368" name="Лаборатория" x="0" y="252" width="302" height="26" />
+          <text id="40:369" name="Все виды анализов" x="0" y="290" width="302" height="22" />
+          <frame id="40:370" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:371" name="от 35 000 сум" x="0" y="9.5" width="104" height="19" />
+            <frame id="40:372" name="spacer" x="104" y="18.5" width="160" height="1" />
+            <frame id="40:373" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:374" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:375" name="Card · Процедурный кабинет" x="978" y="434" width="302" height="362">
+          <rounded-rectangle id="40:376" name="photo · d_proc" x="0" y="0" width="302" height="240" />
+          <text id="40:377" name="Процедурный кабинет" x="0" y="252" width="302" height="26" />
+          <text id="40:378" name="Капельницы, инъекции" x="0" y="290" width="302" height="22" />
+          <frame id="40:379" name="footer" x="0" y="324" width="302" height="38">
+            <text id="40:380" name="от 50 000 сум" x="0" y="9.5" width="106" height="19" />
+            <frame id="40:381" name="spacer" x="106" y="18.5" width="158" height="1" />
+            <frame id="40:382" name="arrow" x="264" y="0" width="38" height="38">
+              <instance id="40:383" name="icon/arrow-right" x="10" y="10" width="18" height="18" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:384" name="03 Что беспокоит · Почему Derlux" x="0" y="2347" width="1440" height="924">
+      <frame id="40:385" name="Top" x="80" y="40" width="1280" height="558">
+        <frame id="40:386" name="Concerns" x="0" y="0" width="620" height="332">
+          <text id="40:387" name="С чего начать" x="0" y="0" width="110" height="17" />
+          <text id="40:388" name="Что вас беспокоит?" x="0" y="45" width="620" height="62" />
+          <text id="40:389" name="Выберите — подскажем врача и анализы." x="0" y="135" width="540" height="26" />
+          <frame id="40:390" name="Chips" x="0" y="189" width="620" height="143">
+            <instance id="40:391" name="Chip" x="0" y="0" width="156" height="39" />
+            <instance id="40:392" name="Chip" x="166" y="0" width="135" height="41" />
+            <instance id="40:393" name="Chip" x="311" y="0" width="167" height="41" />
+            <instance id="40:394" name="Chip" x="0" y="51" width="218" height="41" />
+            <instance id="40:395" name="Chip" x="228" y="51" width="197" height="41" />
+            <instance id="40:396" name="Chip" x="435" y="51" width="169" height="41" />
+            <instance id="40:397" name="Chip" x="0" y="102" width="254" height="41" />
+            <instance id="40:398" name="Chip" x="264" y="102" width="147" height="41" />
+          </frame>
+        </frame>
+        <frame id="40:407" name="Почему Derlux · карточка" x="684" y="0" width="596" height="558">
+          <text id="40:408" name="Почему Derlux" x="48" y="48" width="120" height="17" />
+          <text id="40:409" name="Кожа, гормоны и женское здоровье — в одной клинике" x="48" y="97" width="500" height="77" />
+          <text id="40:410" name="Причина проблем с кожей часто в гормонах. Поэтому врачи работают вместе, а анализы и УЗИ — здесь же." x="48" y="206" width="500" height="52" />
+          <frame id="40:411" name="Схема" x="48" y="290" width="500" height="132">
+            <frame id="40:412" name="Дерматолог" x="0" y="0" width="132" height="132">
+              <text id="40:413" name="Дерматолог" x="22" y="56.5" width="88" height="19" />
+            </frame>
+            <rounded-rectangle id="40:414" name="line" x="132" y="65.5" width="52" height="1" />
+            <frame id="40:415" name="Эндокринолог" x="184" y="0" width="132" height="132">
+              <text id="40:416" name="Эндокринолог" x="13" y="56.5" width="106" height="19" />
+            </frame>
+            <rounded-rectangle id="40:417" name="line" x="316" y="65.5" width="52" height="1" />
+            <frame id="40:418" name="Гинеколог" x="368" y="0" width="132" height="132">
+              <text id="40:419" name="Гинеколог" x="28" y="56.5" width="76" height="19" />
+            </frame>
+          </frame>
+          <instance id="40:423" name="Button" x="48" y="454" width="223" height="56" />
+        </frame>
+      </frame>
+      <frame id="40:424" name="Преимущества" x="80" y="670" width="1280" height="94">
+        <frame id="40:425" name="Adv · Стерильность — стандарт" x="0" y="0" width="302" height="94">
+          <frame id="40:426" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="40:427" name="icon/shield" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="40:428" name="Стерильность — стандарт" x="0" y="68" width="302" height="26" />
+        </frame>
+        <frame id="40:430" name="Adv · Опытные специалисты" x="326" y="0" width="302" height="94">
+          <frame id="40:431" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="40:432" name="icon/users" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="40:433" name="Опытные специалисты" x="0" y="68" width="302" height="26" />
+        </frame>
+        <frame id="40:435" name="Adv · Работа по протоколам" x="652" y="0" width="302" height="94">
+          <frame id="40:436" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="40:437" name="icon/check" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="40:438" name="Работа по протоколам" x="0" y="68" width="302" height="26" />
+        </frame>
+        <frame id="40:440" name="Adv · Бережное отношение" x="978" y="0" width="302" height="94">
+          <frame id="40:441" name="icon" x="0" y="0" width="52" height="52">
+            <instance id="40:442" name="icon/heart" x="14" y="14" width="24" height="24" />
+          </frame>
+          <text id="40:443" name="Бережное отношение" x="0" y="68" width="302" height="26" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:445" name="04 Услуги и цены" x="0" y="3271" width="1440" height="1205">
+      <frame id="40:446" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:447" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:448" name="Услуги и цены" x="0" y="0" width="116" height="17" />
+          <text id="40:449" name="Цены известны заранее" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:450" name="desc" x="840" y="30" width="440" height="65">
+          <text id="40:451" name="Точную стоимость врач назовёт на консультации." x="0" y="0" width="440" height="26" />
+          <frame id="40:452" name="link" x="0" y="46" width="109" height="19">
+            <text id="40:453" name="Весь прайс" x="0" y="0" width="83" height="19" />
+            <instance id="40:454" name="icon/arrow-right" x="91" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="40:455" name="Tabs" x="80" y="327" width="1021" height="41">
+        <instance id="40:456" name="Chip" x="0" y="0" width="141" height="39" />
+        <instance id="40:457" name="Chip" x="149" y="0" width="83" height="41" />
+        <instance id="40:458" name="Chip" x="240" y="0" width="106" height="41" />
+        <instance id="40:459" name="Chip" x="354" y="0" width="131" height="41" />
+        <instance id="40:460" name="Chip" x="493" y="0" width="161" height="41" />
+        <instance id="40:461" name="Chip" x="662" y="0" width="68" height="41" />
+        <instance id="40:462" name="Chip" x="738" y="0" width="135" height="41" />
+        <instance id="40:463" name="Chip" x="881" y="0" width="140" height="41" />
+      </frame>
+      <frame id="40:464" name="Price list" x="80" y="440" width="1280" height="605">
+        <frame id="40:465" name="Row · Консультация дерматолога" x="40" y="8" width="1200" height="118">
+          <frame id="40:466" name="name" x="0" y="45.5" width="560" height="26">
+            <text id="40:467" name="Консультация дерматолога" x="0" y="0" width="560" height="26" />
+          </frame>
+          <frame id="40:469" name="spacer" x="592" y="58" width="54" height="1" />
+          <frame id="40:470" name="dur" x="678" y="47.5" width="110" height="22">
+            <instance id="40:471" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="40:472" name="30 мин" x="22" y="0" width="51" height="22" />
+          </frame>
+          <text id="40:473" name="от 150 000 сум" x="820" y="45.5" width="200" height="26" />
+          <instance id="40:474" name="Button" x="1052" y="30" width="148" height="57" />
+        </frame>
+        <frame id="40:475" name="Row · Лечение акне" x="40" y="126" width="1200" height="118">
+          <frame id="40:476" name="name" x="0" y="45.5" width="560" height="26">
+            <text id="40:477" name="Лечение акне" x="0" y="0" width="560" height="26" />
+          </frame>
+          <frame id="40:479" name="spacer" x="592" y="58" width="54" height="1" />
+          <frame id="40:480" name="dur" x="678" y="47.5" width="110" height="22">
+            <instance id="40:481" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="40:482" name="45 мин" x="22" y="0" width="51" height="22" />
+          </frame>
+          <text id="40:483" name="от 250 000 сум" x="820" y="45.5" width="200" height="26" />
+          <instance id="40:484" name="Button" x="1052" y="30" width="148" height="57" />
+        </frame>
+        <frame id="40:485" name="Row · Удаление папиллом и бородавок" x="40" y="244" width="1200" height="118">
+          <frame id="40:486" name="name" x="0" y="45.5" width="560" height="26">
+            <text id="40:487" name="Удаление папиллом и бородавок" x="0" y="0" width="560" height="26" />
+          </frame>
+          <frame id="40:489" name="spacer" x="592" y="58" width="54" height="1" />
+          <frame id="40:490" name="dur" x="678" y="47.5" width="110" height="22">
+            <instance id="40:491" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="40:492" name="15 мин" x="22" y="0" width="47" height="22" />
+          </frame>
+          <text id="40:493" name="от 120 000 сум" x="820" y="45.5" width="200" height="26" />
+          <instance id="40:494" name="Button" x="1052" y="30" width="148" height="57" />
+        </frame>
+        <frame id="40:495" name="Row · Лазерная коррекция вросшего ногтя" x="40" y="362" width="1200" height="118">
+          <frame id="40:496" name="name" x="0" y="45.5" width="560" height="26">
+            <text id="40:497" name="Лазерная коррекция вросшего ногтя" x="0" y="0" width="560" height="26" />
+          </frame>
+          <frame id="40:499" name="spacer" x="592" y="58" width="54" height="1" />
+          <frame id="40:500" name="dur" x="678" y="47.5" width="110" height="22">
+            <instance id="40:501" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="40:502" name="40 мин" x="22" y="0" width="52" height="22" />
+          </frame>
+          <text id="40:503" name="от 600 000 сум" x="820" y="45.5" width="200" height="26" />
+          <instance id="40:504" name="Button" x="1052" y="30" width="148" height="57" />
+        </frame>
+        <frame id="40:505" name="Row · RF-лифтинг лица" x="40" y="480" width="1200" height="117">
+          <frame id="40:506" name="name" x="0" y="45.5" width="560" height="26">
+            <text id="40:507" name="RF-лифтинг лица" x="0" y="0" width="560" height="26" />
+          </frame>
+          <frame id="40:509" name="spacer" x="592" y="58" width="54" height="1" />
+          <frame id="40:510" name="dur" x="678" y="47.5" width="110" height="22">
+            <instance id="40:511" name="icon/clock" x="0" y="3" width="16" height="16" />
+            <text id="40:512" name="60 мин" x="22" y="0" width="52" height="22" />
+          </frame>
+          <text id="40:513" name="от 400 000 сум" x="820" y="45.5" width="200" height="26" />
+          <instance id="40:514" name="Button" x="1052" y="30" width="148" height="57" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:525" name="05 Врачи" x="0" y="4476" width="1440" height="1046">
+      <frame id="40:526" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:527" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:528" name="Врачи" x="0" y="0" width="46" height="17" />
+          <text id="40:529" name="Врачи, которые слушают" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:530" name="desc" x="1180" y="76" width="100" height="19">
+          <frame id="40:532" name="link" x="0" y="0" width="100" height="19">
+            <text id="40:533" name="Все врачи" x="0" y="0" width="74" height="19" />
+            <instance id="40:534" name="icon/arrow-right" x="82" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="40:535" name="Doctors" x="80" y="327" width="1280" height="559">
+        <frame id="40:536" name="Doctor · Дилноза Каримова" x="0" y="0" width="302" height="559">
+          <rounded-rectangle id="40:537" name="photo · doc1" x="0" y="0" width="302" height="392" />
+          <text id="40:538" name="Дилноза Каримова" x="0" y="402" width="302" height="26" />
+          <text id="40:539" name="Дерматолог, косметолог" x="0" y="438" width="302" height="22" />
+          <text id="40:1331" name="Стаж 12 лет · Высшая категория" x="0" y="470" width="302" height="22" />
+          <instance id="40:547" name="Button" x="0" y="502" width="302" height="57" />
+        </frame>
+        <frame id="40:548" name="Doctor · Нилуфар Юсупова" x="326" y="0" width="302" height="559">
+          <rounded-rectangle id="40:549" name="photo · doc2" x="0" y="0" width="302" height="392" />
+          <text id="40:550" name="Нилуфар Юсупова" x="0" y="402" width="302" height="26" />
+          <text id="40:551" name="Акушер-гинеколог" x="0" y="438" width="302" height="22" />
+          <text id="40:1332" name="Стаж 15 лет · Высшая категория" x="0" y="470" width="302" height="22" />
+          <instance id="40:559" name="Button" x="0" y="502" width="302" height="57" />
+        </frame>
+        <frame id="40:560" name="Doctor · Малика Рахимова" x="652" y="0" width="302" height="559">
+          <rounded-rectangle id="40:561" name="photo · doc3" x="0" y="0" width="302" height="392" />
+          <text id="40:562" name="Малика Рахимова" x="0" y="402" width="302" height="26" />
+          <text id="40:563" name="Эндокринолог, детский эндокринолог" x="0" y="438" width="302" height="22" />
+          <text id="40:1333" name="Стаж 9 лет · Первая категория" x="0" y="470" width="302" height="22" />
+          <instance id="40:571" name="Button" x="0" y="502" width="302" height="57" />
+        </frame>
+        <frame id="40:572" name="Doctor · Сабина Алиева" x="978" y="0" width="302" height="559">
+          <rounded-rectangle id="40:573" name="photo · doc4" x="0" y="0" width="302" height="392" />
+          <text id="40:574" name="Сабина Алиева" x="0" y="402" width="302" height="26" />
+          <text id="40:575" name="Врач УЗИ-диагностики" x="0" y="438" width="302" height="22" />
+          <text id="40:1334" name="Стаж 11 лет · Высшая категория" x="0" y="470" width="302" height="22" />
+          <instance id="40:583" name="Button" x="0" y="502" width="302" height="57" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:584" name="06 Check-up" x="0" y="5522" width="1440" height="1092">
+      <frame id="40:585" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:586" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:587" name="Check-up программы" x="0" y="0" width="171" height="17" />
+          <text id="40:588" name="Всё обследование — за один визит" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:589" name="desc" x="840" y="69" width="440" height="26">
+          <text id="40:590" name="Врачи, анализы и УЗИ — в один день." x="0" y="0" width="440" height="26" />
+        </frame>
+      </frame>
+      <frame id="40:591" name="Programs" x="80" y="327" width="1278" height="605">
+        <frame id="40:592" name="Program · Здоровая кожа" x="0" y="0" width="410" height="605">
+          <frame id="40:593" name="tags" x="36" y="40" width="95" height="39">
+            <instance id="40:594" name="Chip" x="0" y="0" width="95" height="39" />
+          </frame>
+          <text id="40:595" name="«Здоровая кожа»" x="36" y="103" width="338" height="40" />
+          <text id="40:596" name="Для тех, у кого акне, выпадение волос или пигментация не проходят" x="36" y="167" width="338" height="44" />
+          <frame id="40:597" name="Входит" x="36" y="235" width="328" height="146">
+            <frame id="40:598" name="li" x="0" y="0" width="328" height="22">
+              <instance id="40:599" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:600" name="Консультация дерматолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:601" name="li" x="0" y="34" width="328" height="22">
+              <instance id="40:602" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:603" name="Консультация эндокринолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:604" name="li" x="0" y="68" width="328" height="44">
+              <instance id="40:605" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:606" name="Гормоны щитовидной железы и половые гормоны" x="28" y="0" width="300" height="44" />
+            </frame>
+            <frame id="40:607" name="li" x="0" y="124" width="328" height="22">
+              <instance id="40:608" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:609" name="Биохимия крови и ферритин" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="40:616" name="push" x="36" y="405" width="1" height="1" />
+          <rounded-rectangle id="40:617" name="divider" x="36" y="430" width="338" height="1" />
+          <text id="40:618" name="от 950 000 сум" x="36" y="455" width="210" height="32" />
+          <instance id="40:619" name="Button" x="36" y="511" width="338" height="55" />
+        </frame>
+        <frame id="40:620" name="Program · Женское здоровье" x="434" y="0" width="410" height="605">
+          <frame id="40:621" name="tags" x="36" y="40" width="237" height="41">
+            <instance id="40:622" name="Chip" x="0" y="0" width="119" height="41" />
+            <instance id="40:623" name="Chip" x="127" y="0" width="110" height="41" />
+          </frame>
+          <text id="40:624" name="«Женское здоровье»" x="36" y="105" width="338" height="40" />
+          <text id="40:625" name="Ежегодный осмотр и планирование беременности" x="36" y="169" width="338" height="44" />
+          <frame id="40:626" name="Входит" x="36" y="237" width="328" height="124">
+            <frame id="40:627" name="li" x="0" y="0" width="328" height="22">
+              <instance id="40:628" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:629" name="Консультация гинеколога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:630" name="li" x="0" y="34" width="328" height="22">
+              <instance id="40:631" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:632" name="УЗИ органов малого таза" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:633" name="li" x="0" y="68" width="328" height="22">
+              <instance id="40:634" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:635" name="УЗИ молочных желёз" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:636" name="li" x="0" y="102" width="328" height="22">
+              <instance id="40:637" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:638" name="Мазок на онкоцитологию и флору" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="40:645" name="push" x="36" y="385" width="1" height="20" />
+          <rounded-rectangle id="40:646" name="divider" x="36" y="429" width="338" height="1" />
+          <text id="40:647" name="от 1 100 000 сум" x="36" y="454" width="222" height="32" />
+          <instance id="40:648" name="Button" x="36" y="510" width="338" height="55" />
+        </frame>
+        <frame id="40:649" name="Program · Щитовидная железа" x="868" y="0" width="410" height="605">
+          <frame id="40:650" name="tags" x="36" y="40" width="105" height="39">
+            <instance id="40:651" name="Chip" x="0" y="0" width="105" height="39" />
+          </frame>
+          <text id="40:652" name="«Щитовидная железа»" x="36" y="103" width="338" height="40" />
+          <text id="40:653" name="При усталости, перепадах веса и выпадении волос — взрослым и детям" x="36" y="167" width="338" height="44" />
+          <frame id="40:654" name="Входит" x="36" y="235" width="328" height="124">
+            <frame id="40:655" name="li" x="0" y="0" width="328" height="22">
+              <instance id="40:656" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:657" name="Консультация эндокринолога" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:658" name="li" x="0" y="34" width="328" height="22">
+              <instance id="40:659" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:660" name="УЗИ щитовидной железы" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:661" name="li" x="0" y="68" width="328" height="22">
+              <instance id="40:662" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:663" name="ТТГ, Т4 свободный, АТ-ТПО" x="28" y="0" width="300" height="22" />
+            </frame>
+            <frame id="40:664" name="li" x="0" y="102" width="328" height="22">
+              <instance id="40:665" name="icon/check" x="0" y="0" width="18" height="18" />
+              <text id="40:666" name="Общий анализ крови" x="28" y="0" width="300" height="22" />
+            </frame>
+          </frame>
+          <frame id="40:670" name="push" x="36" y="383" width="1" height="22" />
+          <rounded-rectangle id="40:671" name="divider" x="36" y="429" width="338" height="1" />
+          <text id="40:672" name="от 650 000 сум" x="36" y="454" width="210" height="32" />
+          <instance id="40:673" name="Button" x="36" y="510" width="338" height="55" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:732" name="09 Акции" x="0" y="6614" width="1440" height="847">
+      <frame id="40:733" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:734" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:735" name="Акции" x="0" y="0" width="50" height="17" />
+          <text id="40:736" name="Предложения месяца" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:737" name="desc" x="1179" y="76" width="101" height="19">
+          <frame id="40:739" name="link" x="0" y="0" width="101" height="19">
+            <text id="40:740" name="Все акции" x="0" y="0" width="75" height="19" />
+            <instance id="40:741" name="icon/arrow-right" x="83" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+      <frame id="40:742" name="Promos" x="80" y="327" width="1278" height="360">
+        <frame id="40:743" name="Promo · На первую консультацию дерматолога" x="0" y="0" width="410" height="360">
+          <instance id="40:744" name="Chip" x="36" y="36" width="136" height="41" />
+          <text id="40:745" name="−20%" x="36" y="101" width="146" height="80" />
+          <text id="40:746" name="На первую консультацию дерматолога" x="36" y="205" width="338" height="52" />
+          <frame id="40:748" name="push" x="36" y="281" width="1" height="1" />
+          <frame id="40:749" name="link" x="36" y="306" width="110" height="19">
+            <text id="40:750" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="40:751" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="40:752" name="Promo · Check-up «Женское здоровье»" x="434" y="0" width="410" height="360">
+          <instance id="40:753" name="Chip" x="36" y="36" width="140" height="41" />
+          <text id="40:754" name="−15%" x="36" y="101" width="135" height="80" />
+          <text id="40:755" name="Check-up «Женское здоровье»" x="36" y="205" width="338" height="26" />
+          <frame id="40:757" name="push" x="36" y="255" width="1" height="26" />
+          <frame id="40:758" name="link" x="36" y="305" width="110" height="19">
+            <text id="40:759" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="40:760" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+        <frame id="40:761" name="Promo · Четвёртая процедура RF-лифтинга — в подарок" x="868" y="0" width="410" height="360">
+          <instance id="40:762" name="Chip" x="36" y="36" width="139" height="41" />
+          <text id="40:763" name="3 + 1" x="36" y="101" width="124" height="80" />
+          <text id="40:764" name="Четвёртая процедура RF-лифтинга — в подарок" x="36" y="205" width="338" height="52" />
+          <frame id="40:766" name="push" x="36" y="281" width="1" height="1" />
+          <frame id="40:767" name="link" x="36" y="306" width="110" height="19">
+            <text id="40:768" name="Записаться" x="0" y="0" width="84" height="19" />
+            <instance id="40:769" name="icon/arrow-right" x="92" y="0.5" width="18" height="18" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:770" name="10 Отзывы" x="0" y="7461" width="1440" height="797">
+      <frame id="40:771" name="Head" x="80" y="160" width="1280" height="95">
+        <frame id="40:772" name="title" x="0" y="0" width="760" height="95">
+          <text id="40:773" name="Отзывы" x="0" y="0" width="61" height="17" />
+          <text id="40:774" name="Что говорят пациенты" x="0" y="33" width="760" height="62" />
+        </frame>
+        <frame id="40:775" name="desc" x="870" y="43" width="410" height="52">
+          <frame id="40:776" name="rating" x="0" y="0" width="410" height="52">
+            <text id="40:777" name="4,9" x="0" y="0" width="55" height="52" />
+            <frame id="40:778" name="stars" x="71" y="3" width="339" height="46">
+              <frame id="40:779" name="row" x="0" y="0" width="106" height="18">
+                <instance id="40:780" name="icon/star" x="0" y="0" width="18" height="18" />
+                <instance id="40:781" name="icon/star" x="22" y="0" width="18" height="18" />
+                <instance id="40:782" name="icon/star" x="44" y="0" width="18" height="18" />
+                <instance id="40:783" name="icon/star" x="66" y="0" width="18" height="18" />
+                <instance id="40:784" name="icon/star" x="88" y="0" width="18" height="18" />
+              </frame>
+              <text id="40:785" name="по отзывам в Google и Яндекс Картах (пример)" x="0" y="24" width="339" height="22" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+      <frame id="40:786" name="Reviews" x="80" y="327" width="1278" height="310">
+        <frame id="40:787" name="Review · Мадина, 27 лет" x="0" y="0" width="410" height="310">
+          <frame id="40:788" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="40:789" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="40:790" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="40:791" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="40:792" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="40:793" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="40:794" name="«Дерматолог отправила к эндокринологу, анализы сдала здесь же. Через три месяца кожа чистая.»" x="36" y="76" width="338" height="81" />
+          <frame id="40:1337" name="push" x="36" y="181" width="1" height="1" />
+          <rounded-rectangle id="40:795" name="divider" x="36" y="206" width="338" height="1" />
+          <frame id="40:796" name="author" x="36" y="231" width="275" height="44">
+            <frame id="40:797" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="40:798" name="М" x="13" y="9" width="18" height="26" />
+            </frame>
+            <frame id="40:799" name="name" x="58" y="0.5" width="217" height="43">
+              <text id="40:800" name="Мадина, 27 лет" x="0" y="0" width="109" height="19" />
+              <text id="40:801" name="Лечение акне · сентябрь 2026" x="0" y="21" width="217" height="22" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:802" name="Review · Шахноза, 31 год" x="434" y="0" width="410" height="310">
+          <frame id="40:803" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="40:804" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="40:805" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="40:806" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="40:807" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="40:808" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="40:809" name="«Вела беременность в Derlux. Всё объясняли, УЗИ — без очередей.»" x="36" y="76" width="338" height="54" />
+          <frame id="40:1338" name="push" x="36" y="154" width="1" height="27" />
+          <rounded-rectangle id="40:810" name="divider" x="36" y="205" width="338" height="1" />
+          <frame id="40:811" name="author" x="36" y="230" width="327" height="44">
+            <frame id="40:812" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="40:813" name="Ш" x="12" y="9" width="20" height="26" />
+            </frame>
+            <frame id="40:814" name="name" x="58" y="0.5" width="269" height="43">
+              <text id="40:815" name="Шахноза, 31 год" x="0" y="0" width="116" height="19" />
+              <text id="40:816" name="Ведение беременности · август 2026" x="0" y="21" width="269" height="22" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:817" name="Review · Тимур, 35 лет" x="868" y="0" width="410" height="310">
+          <frame id="40:818" name="stars" x="36" y="36" width="96" height="16">
+            <instance id="40:819" name="icon/star" x="0" y="0" width="16" height="16" />
+            <instance id="40:820" name="icon/star" x="20" y="0" width="16" height="16" />
+            <instance id="40:821" name="icon/star" x="40" y="0" width="16" height="16" />
+            <instance id="40:822" name="icon/star" x="60" y="0" width="16" height="16" />
+            <instance id="40:823" name="icon/star" x="80" y="0" width="16" height="16" />
+          </frame>
+          <text id="40:824" name="«Быстро, аккуратно, стерильно. Цену назвали заранее.»" x="36" y="76" width="338" height="54" />
+          <frame id="40:1339" name="push" x="36" y="154" width="1" height="27" />
+          <rounded-rectangle id="40:825" name="divider" x="36" y="205" width="338" height="1" />
+          <frame id="40:826" name="author" x="36" y="230" width="311" height="44">
+            <frame id="40:827" name="avatar" x="0" y="0" width="44" height="44">
+              <text id="40:828" name="Т" x="16" y="9" width="12" height="26" />
+            </frame>
+            <frame id="40:829" name="name" x="58" y="0.5" width="253" height="43">
+              <text id="40:830" name="Тимур, 35 лет" x="0" y="0" width="100" height="19" />
+              <text id="40:831" name="Удаление папиллом · октябрь 2026" x="0" y="21" width="253" height="22" />
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:832" name="11 Онлайн-запись" x="0" y="8258" width="1440" height="1139">
+      <frame id="40:833" name="Booking" x="80" y="160" width="1280" height="819">
+        <frame id="40:834" name="text" x="0" y="0" width="560" height="628">
+          <text id="40:835" name="Онлайн-запись" x="0" y="0" width="126" height="17" />
+          <text id="40:836" name="Запишитесь за минуту — без звонков" x="0" y="45" width="560" height="113" />
+          <text id="40:837" name="Администратор перезвонит и подтвердит запись." x="0" y="186" width="480" height="26" />
+          <frame id="40:838" name="Steps" x="0" y="240" width="560" height="341">
+            <frame id="40:839" name="Step 1" x="0" y="0" width="560" height="86">
+              <frame id="40:840" name="num" x="0" y="21" width="44" height="44">
+                <text id="40:841" name="1" x="19" y="12.5" width="6" height="19" />
+              </frame>
+              <frame id="40:842" name="t" x="64" y="30" width="243" height="26">
+                <text id="40:843" name="Направление или услуга" x="0" y="0" width="243" height="26" />
+              </frame>
+            </frame>
+            <frame id="40:845" name="Step 2" x="0" y="86" width="560" height="85">
+              <frame id="40:846" name="num" x="0" y="20" width="44" height="44">
+                <text id="40:847" name="2" x="17.5" y="12.5" width="9" height="19" />
+              </frame>
+              <frame id="40:848" name="t" x="64" y="29" width="48" height="26">
+                <text id="40:849" name="Врач" x="0" y="0" width="48" height="26" />
+              </frame>
+            </frame>
+            <frame id="40:851" name="Step 3" x="0" y="171" width="560" height="85">
+              <frame id="40:852" name="num" x="0" y="20" width="44" height="44">
+                <text id="40:853" name="3" x="17" y="12.5" width="10" height="19" />
+              </frame>
+              <frame id="40:854" name="t" x="64" y="29" width="131" height="26">
+                <text id="40:855" name="Дата и время" x="0" y="0" width="131" height="26" />
+              </frame>
+            </frame>
+            <frame id="40:857" name="Step 4" x="0" y="256" width="560" height="85">
+              <frame id="40:858" name="num" x="0" y="20" width="44" height="44">
+                <text id="40:859" name="4" x="17" y="12.5" width="10" height="19" />
+              </frame>
+              <frame id="40:860" name="t" x="64" y="29" width="147" height="26">
+                <text id="40:861" name="Имя и телефон" x="0" y="0" width="147" height="26" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="40:863" name="alt" x="0" y="609" width="286" height="19">
+            <frame id="40:864" name="+998 90 500-50-70" x="0" y="0" width="171" height="19">
+              <instance id="40:865" name="icon/phone" x="0" y="0.5" width="18" height="18" />
+              <text id="40:866" name="+998 90 500-50-70" x="26" y="0" width="145" height="19" />
+            </frame>
+            <frame id="40:867" name="Telegram" x="195" y="0" width="91" height="19">
+              <instance id="40:868" name="icon/send" x="0" y="0.5" width="18" height="18" />
+              <text id="40:869" name="Telegram" x="26" y="0" width="65" height="19" />
+            </frame>
+          </frame>
+        </frame>
+        <frame id="40:870" name="Форма записи" x="680" y="0" width="600" height="819">
+          <frame id="40:871" name="Progress" x="40" y="40" width="518" height="31">
+            <text id="40:872" name="Шаг 3 из 4 · Дата и время" x="0" y="0" width="199" height="17" />
+            <frame id="40:873" name="bars" x="0" y="27" width="518" height="4">
+              <rounded-rectangle id="40:874" name="seg" x="0" y="0" width="125" height="4" />
+              <rounded-rectangle id="40:875" name="seg" x="131" y="0" width="125" height="4" />
+              <rounded-rectangle id="40:876" name="seg" x="262" y="0" width="125" height="4" />
+              <rounded-rectangle id="40:877" name="seg" x="393" y="0" width="125" height="4" />
+            </frame>
+          </frame>
+          <frame id="40:878" name="Field · Направление" x="40" y="95" width="520" height="83">
+            <text id="40:879" name="Направление" x="0" y="0" width="97" height="22" />
+            <frame id="40:880" name="input" x="0" y="30" width="520" height="53">
+              <text id="40:881" name="Дерматология" x="19" y="17" width="105" height="19" />
+              <frame id="40:882" name="spacer" x="132" y="26" width="343" height="1" />
+              <instance id="40:883" name="icon/chevron-down" x="483" y="17.5" width="18" height="18" />
+            </frame>
+          </frame>
+          <frame id="40:890" name="Field · Врач" x="40" y="202" width="520" height="83">
+            <text id="40:891" name="Врач" x="0" y="0" width="36" height="22" />
+            <frame id="40:892" name="input" x="0" y="30" width="520" height="53">
+              <text id="40:893" name="Дилноза Каримова · дерматолог" x="19" y="17" width="237" height="19" />
+              <frame id="40:894" name="spacer" x="264" y="26" width="211" height="1" />
+              <instance id="40:895" name="icon/chevron-down" x="483" y="17.5" width="18" height="18" />
+            </frame>
+          </frame>
+          <frame id="40:896" name="Дата" x="40" y="309" width="493" height="73">
+            <text id="40:897" name="Дата" x="0" y="0" width="35" height="22" />
+            <frame id="40:898" name="days" x="0" y="32" width="493" height="41">
+              <instance id="40:899" name="Chip" x="0" y="0" width="77" height="41" />
+              <instance id="40:900" name="Chip" x="85" y="0" width="73" height="39" />
+              <instance id="40:901" name="Chip" x="166" y="0" width="77" height="41" />
+              <instance id="40:902" name="Chip" x="251" y="0" width="75" height="41" />
+              <instance id="40:903" name="Chip" x="334" y="0" width="74" height="41" />
+              <instance id="40:904" name="Chip" x="416" y="0" width="77" height="41" />
+            </frame>
+          </frame>
+          <frame id="40:905" name="Время" x="40" y="406" width="485" height="73">
+            <text id="40:906" name="Свободное время" x="0" y="0" width="129" height="22" />
+            <frame id="40:907" name="times" x="0" y="32" width="485" height="41">
+              <instance id="40:908" name="Chip" x="0" y="0" width="71" height="41" />
+              <instance id="40:909" name="Chip" x="79" y="0" width="73" height="41" />
+              <instance id="40:910" name="Chip" x="160" y="0" width="75" height="41" />
+              <instance id="40:911" name="Chip" x="243" y="0" width="74" height="39" />
+              <instance id="40:912" name="Chip" x="325" y="0" width="76" height="41" />
+              <instance id="40:913" name="Chip" x="409" y="0" width="76" height="41" />
+            </frame>
+          </frame>
+          <frame id="40:914" name="Контакты" x="40" y="503" width="520" height="83">
+            <frame id="40:915" name="Field · Имя" x="0" y="0" width="252" height="83">
+              <text id="40:916" name="Имя" x="0" y="0" width="30" height="22" />
+              <frame id="40:917" name="input" x="0" y="30" width="252" height="53">
+                <text id="40:918" name="Мадина" x="19" y="17" width="57" height="19" />
+                <frame id="40:919" name="spacer" x="84" y="26" width="149" height="1" />
+              </frame>
+            </frame>
+            <frame id="40:920" name="Field · Телефон" x="268" y="0" width="252" height="83">
+              <text id="40:921" name="Телефон" x="0" y="0" width="62" height="22" />
+              <frame id="40:922" name="input" x="0" y="30" width="252" height="53">
+                <text id="40:923" name="+998 90 ___ __ __" x="19" y="17" width="121" height="19" />
+                <frame id="40:924" name="spacer" x="148" y="26" width="85" height="1" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="40:925" name="Согласие" x="40" y="610" width="494" height="22">
+            <frame id="40:926" name="checkbox" x="0" y="0" width="22" height="22">
+              <instance id="40:927" name="icon/check" x="3" y="3" width="16" height="16" />
+            </frame>
+            <text id="40:928" name="Согласен(-на) на обработку персональных данных" x="34" y="0" width="460" height="22" />
+          </frame>
+          <instance id="40:929" name="Button" x="40" y="656" width="520" height="55" />
+          <text id="40:930" name="Администратор перезвонит в течение 15 минут, чтобы подтвердить запись." x="40" y="735" width="520" height="44" />
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:996" name="14 FAQ" x="0" y="9397" width="1440" height="820">
+      <frame id="40:997" name="FAQ" x="80" y="160" width="1280" height="500">
+        <frame id="40:998" name="text" x="0" y="0" width="420" height="260">
+          <text id="40:999" name="FAQ" x="0" y="0" width="28" height="17" />
+          <text id="40:1000" name="Частые вопросы" x="0" y="41" width="420" height="62" />
+          <text id="40:1001" name="Не нашли ответ? Позвоните или напишите в Telegram — ответим в рабочее время." x="0" y="127" width="400" height="52" />
+          <instance id="40:1002" name="Button" x="0" y="203" width="172" height="57" />
+        </frame>
+        <frame id="40:1003" name="Accordion" x="500" y="0" width="780" height="500">
+          <frame id="40:1009" name="Q · Нужна ли предварительная запись?" x="0" y="0" width="780" height="152">
+            <frame id="40:1010" name="row" x="0" y="25" width="780" height="38">
+              <text id="40:1011" name="Нужна ли предварительная запись?" x="0" y="6" width="640" height="26" />
+              <frame id="40:1012" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="40:1013" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="40:1014" name="icon/minus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+            <text id="40:1015" name="Желательно: так вы придёте в удобное время к нужному врачу без ожидания. В воскресенье клиника работает только по записи." x="0" y="75" width="640" height="52" />
+          </frame>
+          <frame id="40:1016" name="Q · Можно ли сдать анализы без направления врача?" x="0" y="152" width="780" height="87">
+            <frame id="40:1017" name="row" x="0" y="24" width="780" height="38">
+              <text id="40:1018" name="Можно ли сдать анализы без направления врача?" x="0" y="6" width="640" height="26" />
+              <frame id="40:1019" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="40:1020" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="40:1021" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="40:1022" name="Q · Как подготовиться к УЗИ?" x="0" y="239" width="780" height="87">
+            <frame id="40:1023" name="row" x="0" y="24" width="780" height="38">
+              <text id="40:1024" name="Как подготовиться к УЗИ?" x="0" y="6" width="640" height="26" />
+              <frame id="40:1025" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="40:1026" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="40:1027" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="40:1028" name="Q · Сколько стоит первичная консультация?" x="0" y="326" width="780" height="87">
+            <frame id="40:1029" name="row" x="0" y="24" width="780" height="38">
+              <text id="40:1030" name="Сколько стоит первичная консультация?" x="0" y="6" width="640" height="26" />
+              <frame id="40:1031" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="40:1032" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="40:1033" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+          <frame id="40:1034" name="Q · Можно ли выбрать врача-женщину?" x="0" y="413" width="780" height="87">
+            <frame id="40:1035" name="row" x="0" y="24" width="780" height="38">
+              <text id="40:1036" name="Можно ли выбрать врача-женщину?" x="0" y="6" width="640" height="26" />
+              <frame id="40:1037" name="spacer" x="656" y="18.5" width="70" height="1" />
+              <frame id="40:1038" name="toggle" x="742" y="0" width="38" height="38">
+                <instance id="40:1039" name="icon/plus" x="10" y="10" width="18" height="18" />
+              </frame>
+            </frame>
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:1052" name="15 Контакты" x="0" y="10217" width="1440" height="938">
+      <frame id="40:1053" name="Contacts" x="80" y="160" width="1280" height="618">
+        <frame id="40:1054" name="Карточка" x="0" y="0" width="520" height="618">
+          <text id="40:1055" name="Контакты" x="40" y="40" width="76" height="17" />
+          <text id="40:1056" name="Как нас найти" x="40" y="81" width="440" height="62" />
+          <frame id="40:1057" name="row · pin" x="40" y="167" width="434" height="54">
+            <frame id="40:1058" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="40:1059" name="icon/pin" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="40:1060" name="t" x="54" y="0" width="380" height="54">
+              <text id="40:1061" name="г. Ташкент, Мирзо-Улугбекский район," x="0" y="0" width="380" height="26" />
+              <text id="40:1062" name="ул. Садыка Азимова, 46" x="0" y="28" width="235" height="26" />
+            </frame>
+          </frame>
+          <frame id="40:1063" name="row · phone" x="40" y="245" width="247" height="54">
+            <frame id="40:1064" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="40:1065" name="icon/phone" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="40:1066" name="t" x="54" y="0" width="193" height="54">
+              <text id="40:1067" name="+998 90 500-50-70" x="0" y="0" width="193" height="26" />
+              <text id="40:1068" name="+998 90 328-58-98" x="0" y="28" width="190" height="26" />
+            </frame>
+          </frame>
+          <frame id="40:1069" name="row · mail" x="40" y="323" width="277" height="40">
+            <frame id="40:1070" name="ic" x="0" y="0" width="40" height="40">
+              <instance id="40:1071" name="icon/mail" x="10" y="10" width="20" height="20" />
+            </frame>
+            <frame id="40:1072" name="t" x="54" y="0" width="223" height="26">
+              <text id="40:1073" name="sarvar2858@gmail.com" x="0" y="0" width="223" height="26" />
+            </frame>
+          </frame>
+          <frame id="40:1074" name="График" x="40" y="387" width="440" height="110">
+            <frame id="40:1075" name="Понедельник — суббота" x="0" y="0" width="440" height="55">
+              <text id="40:1076" name="Понедельник — суббота" x="0" y="15" width="197" height="26" />
+              <frame id="40:1077" name="spacer" x="197" y="27.5" width="162" height="1" />
+              <text id="40:1078" name="9:00–19:00" x="359" y="18.5" width="81" height="19" />
+            </frame>
+            <frame id="40:1079" name="Воскресенье" x="0" y="55" width="440" height="55">
+              <text id="40:1080" name="Воскресенье" x="0" y="15" width="107" height="26" />
+              <frame id="40:1081" name="spacer" x="107" y="27.5" width="206" height="1" />
+              <text id="40:1082" name="только по записи" x="313" y="18.5" width="127" height="19" />
+            </frame>
+          </frame>
+          <frame id="40:1083" name="buttons" x="40" y="521" width="382" height="57">
+            <instance id="40:1084" name="Button" x="0" y="0" width="243" height="56" />
+            <instance id="40:1085" name="Button" x="255" y="0" width="127" height="57" />
+          </frame>
+        </frame>
+        <frame id="40:1086" name="Карта (иллюстрация, заменить на Яндекс/Google Maps)" x="544" y="0" width="736" height="618">
+          <rounded-rectangle id="40:1087" name="block" x="-20" y="-20" width="182" height="132" />
+          <rounded-rectangle id="40:1088" name="block" x="200" y="-20" width="162" height="132" />
+          <rounded-rectangle id="40:1089" name="block" x="400" y="-20" width="202" height="132" />
+          <rounded-rectangle id="40:1090" name="block" x="640" y="-20" width="122" height="132" />
+          <rounded-rectangle id="40:1091" name="block" x="-20" y="150" width="122" height="152" />
+          <rounded-rectangle id="40:1092" name="block" x="140" y="150" width="222" height="152" />
+          <rounded-rectangle id="40:1093" name="block" x="400" y="150" width="132" height="152" />
+          <rounded-rectangle id="40:1094" name="block" x="570" y="150" width="182" height="152" />
+          <rounded-rectangle id="40:1095" name="block" x="-20" y="340" width="242" height="122" />
+          <rounded-rectangle id="40:1096" name="block" x="260" y="340" width="102" height="122" />
+          <rounded-rectangle id="40:1097" name="block" x="400" y="340" width="182" height="122" />
+          <rounded-rectangle id="40:1098" name="block" x="620" y="340" width="142" height="122" />
+          <rounded-rectangle id="40:1099" name="block" x="-20" y="500" width="162" height="152" />
+          <rounded-rectangle id="40:1100" name="block" x="180" y="500" width="202" height="152" />
+          <rounded-rectangle id="40:1101" name="block" x="420" y="500" width="102" height="152" />
+          <rounded-rectangle id="40:1102" name="block" x="560" y="500" width="202" height="152" />
+          <rounded-rectangle id="40:1103" name="park" x="400" y="340" width="222" height="122" />
+          <rounded-rectangle id="40:1104" name="canal" x="-80" y="470" width="894.3031087517738" height="147.04170668125153" />
+          <ellipse id="40:1105" name="pin halo" x="332" y="232" width="96" height="96" />
+          <ellipse id="40:1106" name="pin" x="362" y="262" width="36" height="36" />
+          <frame id="40:1107" name="label" x="446" y="250" width="204" height="67">
+            <text id="40:1108" name="Derlux Clinic" x="16" y="12" width="88" height="19" />
+            <text id="40:1109" name="ул. Садыка Азимова, 46" x="16" y="33" width="172" height="22" />
+          </frame>
+        </frame>
+      </frame>
+    </frame>
+    <frame id="40:1110" name="16 Подвал" x="0" y="11155" width="1440" height="381">
+      <frame id="40:1111" name="top" x="80" y="96" width="1280" height="56">
+        <frame id="40:1112" name="brand" x="0" y="12" width="189" height="44">
+          <text id="40:1113" name="DERLUX" x="0" y="0" width="189" height="44" />
+        </frame>
+        <frame id="40:1115" name="spacer" x="229" y="55" width="626" height="1" />
+        <frame id="40:1116" name="cta" x="895" y="0" width="385" height="56">
+          <text id="40:1117" name="+998 90 500-50-70" x="0" y="15" width="193" height="26" />
+          <instance id="40:1118" name="Button" x="209" y="0" width="176" height="56" />
+        </frame>
+      </frame>
+      <rounded-rectangle id="40:1119" name="divider" x="80" y="200" width="1280" height="1" />
+      <frame id="40:1360" name="anchors" x="80" y="249" width="1280" height="22">
+        <text id="40:1361" name="Направления" x="0" y="0" width="96" height="22" />
+        <text id="40:1362" name="Цены" x="136" y="0" width="39" height="22" />
+        <text id="40:1363" name="Врачи" x="215" y="0" width="45" height="22" />
+        <text id="40:1364" name="Check-up" x="300" y="0" width="69" height="22" />
+        <text id="40:1365" name="Контакты" x="409" y="0" width="67" height="22" />
+        <frame id="40:1366" name="spacer" x="516" y="0" width="409" height="1" />
+        <text id="40:1367" name="ул. Садыка Азимова, 46 · Пн–Сб 9:00–19:00" x="965" y="0" width="315" height="22" />
+      </frame>
+      <frame id="40:1156" name="bottom" x="80" y="319" width="1280" height="22">
+        <text id="40:1157" name="© 2026 Derlux Clinic · Лицензия Минздрава РУз № ————" x="0" y="0" width="410" height="22" />
+        <frame id="40:1159" name="spacer" x="434" y="10.5" width="318" height="1" />
+        <text id="40:1160" name="Имеются противопоказания. Необходима консультация специалиста." x="776" y="0" width="504" height="22" />
+      </frame>
+    </frame>
+  </frame>
+</canvas>
