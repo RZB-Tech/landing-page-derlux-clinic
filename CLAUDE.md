@@ -31,6 +31,12 @@ Read the design through the `figma` MCP server (user scope). Save what you pull 
 
 `design/landing/v2-full.png` is the 1:1 target at 1440. Playwright's Chromium is installed under `%LOCALAPPDATA%\ms-playwright`; `D:\temp-pw` has `playwright-core` and the scripts used for full-page screenshots (`shoot.js`), section geometry (`measure.js`, `measure2.js`), horizontal overflow (`overflow.js`) and the booking flow (`interact.js`). Run them against `next start`, not `next dev`.
 
+## Deploy
+
+- GitHub: https://github.com/aoqilov/derlux-clinic (private), branch `main`.
+- Vercel project `derlux-clinic` (team aoqilovs-projects), connected to the repo: every push to `main` deploys to production at https://derlux-clinic.vercel.app; other branches get preview URLs.
+- `siteUrl` (`src/lib/site.ts`) uses `NEXT_PUBLIC_SITE_URL`, else Vercel's production domain. When the clinic's own domain is attached, set `NEXT_PUBLIC_SITE_URL` in Vercel so canonical, sitemap and JSON-LD use it.
+
 ## Commands
 
 ```bash
