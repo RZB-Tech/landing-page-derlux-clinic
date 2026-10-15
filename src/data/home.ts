@@ -1,4 +1,5 @@
-import type { Advantage, Concern, NearestSlot, SectionHeading } from "./types";
+import { clinic } from "./clinic";
+import type { Advantage, Concern, NearestSlot, SectionHeading, WorkingHours } from "./types";
 
 // Copy of the home page (Figma «5. Лендинг», «Derlux — Главная · 1440 · v2»).
 
@@ -36,14 +37,18 @@ export const hero = {
   },
 };
 
-// Mock of the nearest free slot (would come from the scheduling API).
+// Mock of the scheduling API: the nearest free slot is the first one 3 hours from now.
 export const nearestSlot: NearestSlot = {
-  dayLabel: "Сегодня",
-  time: "15:30",
+  leadHours: 3,
   directionId: "dermatology",
   note: "Дерматолог · консультация 30 мин",
 };
-export const nearestSlotCopy = { caption: "Ближайшая запись", cta: "Записаться на это время" };
+export const nearestSlotCopy = {
+  caption: "Ближайшая запись",
+  cta: "Записаться на это время",
+  /** Holds the card's size in the prerendered HTML, hidden until the time is known. */
+  placeholder: "Сегодня, 15:30",
+};
 
 export const directionsSection: SectionHeading = {
   caption: "Направления",
@@ -167,6 +172,12 @@ export const bookingForm = {
 
 // Free slots per working day (mock of the scheduling API).
 export const bookingSlots = ["9:30", "11:00", "12:30", "15:30", "17:00", "18:30"];
+// Any time on this grid can be booked: the hero's «Ближайшая запись» picks one outside the list.
+export const bookingHours: WorkingHours = {
+  opens: clinic.openingHours[0].opens,
+  closes: clinic.openingHours[0].closes,
+  stepMinutes: 30,
+};
 export const bookingDaysAhead = 6;
 
 export const faqSection = {

@@ -5,6 +5,7 @@ import type { CheckupProgram, Clinic, Direction, Doctor, Service } from "@/data/
 import type { bookingForm } from "@/data/home";
 import { submitBooking } from "@/actions/booking";
 import { trackGoal } from "@/lib/analytics";
+import { toMinutes } from "@/lib/dates";
 import { cn, fillTemplate, formatPriceFrom } from "@/lib/format";
 import { useBooking } from "@/components/booking/BookingProvider";
 import { AccentTitle } from "@/components/ui/AccentTitle";
@@ -61,6 +62,11 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
   const service = services.find((s) => s.id === selection.serviceId);
   const doctor = doctors.find((d) => d.id === selection.doctorId);
   const doctorOptions = direction ? doctors.filter((d) => d.directionIds.includes(direction.id)) : [];
+  // A time from the hero's «Ближайшая запись» may be outside the list: show it among the chips.
+  const timeChips =
+    selection.time && !slots.includes(selection.time)
+      ? [...slots, selection.time].sort((a, b) => toMinutes(a) - toMinutes(b))
+      : slots;
 
   const topicDone = Boolean(direction || checkup || selection.unsure);
   const slotDone = Boolean(day && selection.time);
@@ -228,7 +234,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
         <fieldset className="flex flex-col gap-2.5">
           <legend className="mb-2.5 text-small text-graphite">{copy.timeLabel}</legend>
           <div className="flex flex-wrap gap-2">
-            {slots.map((t) => {
+            {timeChips.map((t) => {
               const active = t === selection.time;
               return (
                 <button

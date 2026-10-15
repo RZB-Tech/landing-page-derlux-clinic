@@ -168,11 +168,21 @@ export type Advantage = {
   icon: "shield" | "users" | "check" | "heart";
 };
 
+/** «Ближайшая запись» in the hero (mock of the scheduling API): the first slot `leadHours` from now. */
 export type NearestSlot = {
-  dayLabel: string;
-  time: string;
+  leadHours: number;
   directionId: Id;
   note: string;
+};
+
+/** Booking slot grid on the clinic's clock (Пн–Сб). */
+export type WorkingHours = {
+  /** «09:00» */
+  opens: string;
+  /** «19:00» */
+  closes: string;
+  /** Visit length and slot step, in minutes. */
+  stepMinutes: number;
 };
 
 export type SectionHeading = {

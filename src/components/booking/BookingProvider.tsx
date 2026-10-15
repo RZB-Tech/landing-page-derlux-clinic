@@ -2,7 +2,7 @@
 
 import { createContext, use, useCallback, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { Doctor } from "@/data/types";
-import { upcomingWorkingDays, type BookingDay } from "@/lib/dates";
+import { clinicToday, upcomingWorkingDays, type BookingDay } from "@/lib/dates";
 
 /**
  * Shared booking selection. Every «Записаться» on the page (hero bar, concern chips, price rows,
@@ -49,7 +49,8 @@ const initialSelection: BookingSelection = {
 };
 
 const noopSubscribe = () => () => {};
-const todayKey = () => new Date().toDateString();
+// The clinic's date, so the days match the hero's «Ближайшая запись» for visitors in any time zone.
+const todayKey = () => clinicToday(new Date()).toDateString();
 
 function applyPreset(prev: BookingSelection, preset: BookingPreset, doctors: Doctor[]): BookingSelection {
   const next: BookingSelection = { ...prev, ...preset };

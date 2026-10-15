@@ -2,13 +2,14 @@ import Image from "next/image";
 import { clinic } from "@/data/clinic";
 import { directions } from "@/data/directions";
 import { doctors } from "@/data/doctors";
-import { hero, nearestSlot, nearestSlotCopy } from "@/data/home";
+import { bookingHours, hero, nearestSlot, nearestSlotCopy } from "@/data/home";
 import type { SocialLink } from "@/data/types";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { ButtonContent, LinkButton, buttonClassName } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { HeroBookingBar } from "./HeroBookingBar";
+import { NearestSlotCard } from "./NearestSlotCard";
 
 const socialIcons: Record<SocialLink["network"], IconName> = {
   instagram: "instagram-accent",
@@ -69,22 +70,12 @@ export function Hero() {
             />
           </div>
 
-          <div className="absolute top-[72.2222%] left-0 flex max-w-full flex-col items-start gap-2.5 rounded-tile bg-white p-5 shadow-float">
-            <p className="flex items-center gap-2 text-caption font-medium text-graphite uppercase">
-              <Icon name="dot-accent" size={8} />
-              {nearestSlotCopy.caption}
-            </p>
-            <p className="text-title font-semibold whitespace-nowrap text-ink">
-              {nearestSlot.dayLabel}, {nearestSlot.time}
-            </p>
-            <p className="text-small text-graphite min-[360px]:whitespace-nowrap">{nearestSlot.note}</p>
-            <BookingTrigger
-              preset={{ directionId: nearestSlot.directionId, dateIso: null, time: nearestSlot.time }}
-              className={buttonClassName({ variant: "primary", className: "max-[359px]:px-5" })}
-            >
-              {nearestSlotCopy.cta}
-            </BookingTrigger>
-          </div>
+          <NearestSlotCard
+            offer={nearestSlot}
+            hours={bookingHours}
+            copy={nearestSlotCopy}
+            className="absolute top-[72.2222%] left-0 flex max-w-full flex-col items-start gap-2.5 rounded-tile bg-white p-5 shadow-float"
+          />
 
           <p className="absolute top-[5.5556%] right-0 flex items-center gap-2.5 rounded-full bg-milk py-3 pr-4.5 pl-3.5 text-label font-medium whitespace-nowrap text-ink 2xl:right-auto 2xl:left-[57.2917%]">
             <Icon name="shield-accent-20" size={20} />

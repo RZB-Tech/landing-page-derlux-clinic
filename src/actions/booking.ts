@@ -3,8 +3,9 @@
 import { checkups } from "@/data/checkups";
 import { directions } from "@/data/directions";
 import { doctors } from "@/data/doctors";
-import { bookingForm, bookingSlots, concerns } from "@/data/home";
+import { bookingForm, bookingHours, concerns } from "@/data/home";
 import { services } from "@/data/services";
+import { isBookableTime } from "@/lib/dates";
 import { formatPriceFrom } from "@/lib/format";
 import { escapeTelegramHtml, sendTelegramMessage } from "@/lib/telegram";
 
@@ -66,7 +67,7 @@ export async function submitBooking(request: BookingRequest): Promise<BookingRes
   const service = byId(services, request.serviceId);
   const doctor = byId(doctors, request.doctorId);
   const day = typeof request.date === "string" ? formatDay(request.date) : null;
-  const time = bookingSlots.find((slot) => slot === request.time);
+  const time = typeof request.time === "string" && isBookableTime(request.time, bookingHours) ? request.time : null;
 
   const topic = checkup
     ? `Check-up «${checkup.title.replaceAll("*", "")}»`
