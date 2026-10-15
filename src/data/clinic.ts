@@ -1,5 +1,8 @@
 import type { Clinic, Link } from "./types";
 
+// TODO(clinic): the clinic's own Telegram link. Until then — chat by phone number.
+const telegramUrl = "https://t.me/+998905005070";
+
 // Source: Figma «1. Сбор контента» → «Контакты и график».
 export const clinic: Clinic = {
   name: "Derlux Clinic",
@@ -17,16 +20,29 @@ export const clinic: Clinic = {
     district: "Мирзо-Улугбекский район",
     street: "ул. Садыка Азимова, 46",
     short: "ул. Садыка Азимова, 46",
+    locality: "Ташкент",
+    // TODO(clinic): postal code.
+    postalCode: null,
     country: "UZ",
   },
   hours: [
     { label: "Понедельник — суббота", value: "9:00–19:00" },
     { label: "Воскресенье", value: "только по записи" },
   ],
-  openingHours: ["Mo-Sa 09:00-19:00"],
+  // Sunday is by appointment only, so it is not listed as open.
+  openingHours: [
+    { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "09:00", closes: "19:00" },
+  ],
   hoursShort: "Пн–Сб 9:00–19:00",
-  // TODO(clinic): the clinic's own Telegram link. Until then — chat by phone number.
-  telegramUrl: "https://t.me/+998905005070",
+  telegramUrl,
+  // TODO(clinic): the Instagram link (and a Telegram channel, if there is one). Real accounts go
+  // into `profiles` too, for search engines.
+  socials: [
+    { network: "instagram", label: "Instagram", url: null },
+    { network: "telegram", label: "Telegram", url: telegramUrl },
+  ],
+  // TODO(clinic): links to the Google Business Profile, Yandex Business, 2GIS and Instagram once they exist.
+  profiles: [],
   // Yandex Maps geocodes «Ташкент, улица Садыка Азимова, 46» to this house.
   // TODO(clinic): check against the map link the clinic sent; if it differs, update geo and map.
   geo: { lat: 41.310108, lng: 69.2904 },

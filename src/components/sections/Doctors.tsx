@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { doctors } from "@/data/doctors";
 import { doctorsCopy, doctorsSection } from "@/data/home";
+import type { Doctor } from "@/data/types";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { buttonClassName } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
@@ -13,37 +14,48 @@ function yearsLabel(n: number) {
   return "лет";
 }
 
-/** «Врачи, которые слушают» (Figma «05 Врачи»). Carousel below md, grid above. */
+/** «Стаж 12 лет · Высшая категория», from whichever of the two the clinic has given. */
+function doctorFacts({ experienceYears, category }: Doctor) {
+  const experience =
+    experienceYears !== undefined && `${doctorsCopy.experience} ${experienceYears} ${yearsLabel(experienceYears)}`;
+  return [experience, category].filter(Boolean).join(" · ");
+}
+
+/**
+ * «Врачи, которые слушают» (Figma «05 Врачи»). Carousel below md, grid above. Figma has four
+ * 302px cards; the clinic has three doctors, so they share the row in three columns.
+ */
 export function Doctors() {
   return (
     <section id="doctors" aria-labelledby="doctors-title" className="bg-milk">
       <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
         <SectionHead titleId="doctors-title" {...doctorsSection} />
-        <ul className="snap-row md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 xl:grid-cols-4">
-          {doctors.map((doctor) => (
-            <li key={doctor.id} className="flex w-70 flex-col items-start gap-2.5 md:w-auto">
-              <div className="arch-doctor relative aspect-302/392 w-full overflow-hidden bg-sand">
-                <Image
-                  src={doctor.photo.src}
-                  alt={doctor.photo.alt}
-                  fill
-                  sizes="(min-width: 1440px) 302px, (min-width: 1280px) 22vw, (min-width: 768px) 45vw, 280px"
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-title font-semibold text-ink">{doctor.name}</h3>
-              <p className="text-small text-graphite">{doctor.position}</p>
-              <p className="text-small text-graphite">
-                {doctorsCopy.experience} {doctor.experienceYears} {yearsLabel(doctor.experienceYears)} · {doctor.category}
-              </p>
-              <BookingTrigger
-                preset={{ doctorId: doctor.id }}
-                className={buttonClassName({ variant: "secondary", fullWidth: true })}
-              >
-                {doctorsCopy.cta}
-              </BookingTrigger>
-            </li>
-          ))}
+        <ul className="snap-row md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
+          {doctors.map((doctor) => {
+            const facts = doctorFacts(doctor);
+            return (
+              <li key={doctor.id} className="flex w-70 flex-col items-start gap-2.5 md:w-auto">
+                <div className="arch-doctor relative aspect-302/392 w-full overflow-hidden bg-sand">
+                  <Image
+                    src={doctor.photo.src}
+                    alt={doctor.photo.alt}
+                    fill
+                    sizes="(min-width: 1440px) 411px, (min-width: 768px) 30vw, 280px"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="text-title font-semibold text-ink">{doctor.name}</h3>
+                <p className="text-small text-graphite">{doctor.position}</p>
+                {facts && <p className="text-small text-graphite">{facts}</p>}
+                <BookingTrigger
+                  preset={{ doctorId: doctor.id }}
+                  className={buttonClassName({ variant: "secondary", fullWidth: true, className: "mt-auto" })}
+                >
+                  {doctorsCopy.cta}
+                </BookingTrigger>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

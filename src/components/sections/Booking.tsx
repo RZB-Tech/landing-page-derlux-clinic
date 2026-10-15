@@ -49,6 +49,7 @@ export function Booking() {
           copy={bookingForm}
           steps={bookingSection.steps}
           address={`${clinic.address.city}, ${clinic.address.street}`}
+          phone={primaryPhone}
         />
       </div>
     </section>

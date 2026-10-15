@@ -1,18 +1,28 @@
 import { cn } from "@/lib/format";
+import { logo } from "@/lib/logo";
 
-/** Temporary word mark «DERLUX clinic» until the clinic sends its logo (Figma «Logo (временный)»). */
+/**
+ * The clinic's logo as the horizontal lockup (`src/lib/logo.ts`): teal «DERLUX» on light, milk on dark.
+ * The header logo grows only at 2xl: at 1280 a wider one pushes «Check-up» in the nav onto two lines.
+ */
 export function Logo({ variant = "header", className }: { variant?: "header" | "footer"; className?: string }) {
-  if (variant === "footer") {
-    return (
-      <a href="#top" aria-label="Derlux Clinic — наверх" className={cn("font-display text-logo-lg font-medium text-on-dark", className)}>
-        DERLUX
-      </a>
-    );
-  }
+  const onDark = variant === "footer";
   return (
-    <a href="#top" aria-label="Derlux Clinic — наверх" className={cn("flex flex-col font-medium whitespace-nowrap", className)}>
-      <span className="font-display text-logo-m text-ink sm:text-logo">DERLUX</span>
-      <span className="text-logo-sub-m text-graphite uppercase sm:text-logo-sub">clinic</span>
+    <a href="#top" aria-label="Derlux Clinic — наверх" className={cn("w-fit shrink-0", className)}>
+      <svg
+        viewBox={`0 0 ${logo.width} ${logo.height}`}
+        width={logo.width}
+        height={logo.height}
+        fillRule="evenodd"
+        aria-hidden
+        className={cn("block w-auto", onDark ? "h-12 xl:h-14" : "h-8 sm:h-10 2xl:h-12")}
+      >
+        <path className="fill-logo-gold" d={logo.mark.d} />
+        <g transform={`translate(${logo.wordmarkX} ${logo.wordmarkY})`}>
+          <path className={onDark ? "fill-on-dark" : "fill-logo-teal"} d={logo.wordmark.name} />
+          <path className="fill-logo-gold" d={logo.wordmark.sub} />
+        </g>
+      </svg>
     </a>
   );
 }

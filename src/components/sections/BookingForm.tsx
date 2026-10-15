@@ -1,8 +1,10 @@
 "use client";
 
-import { useId, useState, type FormEvent, type ReactNode } from "react";
-import type { CheckupProgram, Direction, Doctor, Service } from "@/data/types";
+import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
+import type { CheckupProgram, Clinic, Direction, Doctor, Service } from "@/data/types";
 import type { bookingForm } from "@/data/home";
+import { submitBooking } from "@/actions/booking";
+import { trackGoal } from "@/lib/analytics";
 import { cn, fillTemplate, formatPriceFrom } from "@/lib/format";
 import { useBooking } from "@/components/booking/BookingProvider";
 import { AccentTitle } from "@/components/ui/AccentTitle";
@@ -20,6 +22,8 @@ type BookingFormProps = {
   copy: typeof bookingForm;
   steps: string[];
   address: string;
+  /** Offered when the request cannot be sent. */
+  phone: Clinic["phones"][number];
 };
 
 type Errors = Partial<Record<"name" | "phone" | "consent", string>>;
@@ -37,20 +41,20 @@ function normalizePhone(input: string) {
   return digits.slice(0, 12);
 }
 
-// Mock of the booking API (no backend yet): resolves after a short delay.
-async function submitBookingRequest(payload: Record<string, string | null>) {
-  await new Promise((resolve) => setTimeout(resolve, 600));
-  return { ok: true as const, payload };
-}
-
-export function BookingForm({ directions, checkups, doctors, services, slots, copy, steps, address }: BookingFormProps) {
+export function BookingForm({ directions, checkups, doctors, services, slots, copy, steps, address, phone }: BookingFormProps) {
   const { selection, days, day, update, reset } = useBooking();
   const [name, setName] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const uid = useId();
+  // Spam check on the server: people take seconds to fill in the form, bots do not. Same clock as
+  // the submit event's `timeStamp`.
+  const mountedAt = useRef(0);
+  useEffect(() => {
+    mountedAt.current = performance.now();
+  }, []);
 
   const direction = directions.find((d) => d.id === selection.directionId);
   const checkup = checkups.find((c) => c.id === selection.checkupId);
@@ -103,22 +107,32 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
     return next;
   }
 
-  async function onSubmit(e: FormEvent) {
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const website = String(new FormData(e.currentTarget).get("website") ?? "");
     const next = validate();
     setErrors(next);
     if (Object.keys(next).length > 0) return;
     setStatus("sending");
-    await submitBookingRequest({
-      direction: direction?.id ?? null,
-      checkup: checkup?.id ?? null,
-      service: service?.id ?? null,
-      doctor: doctor?.id ?? null,
+    const result = await submitBooking({
+      directionId: direction?.id ?? null,
+      checkupId: checkup?.id ?? null,
+      serviceId: service?.id ?? null,
+      concernId: selection.concernId,
+      doctorId: doctor?.id ?? null,
+      unsure: selection.unsure,
       date: selection.time ? (day?.iso ?? null) : null,
       time: selection.time,
       name: name.trim(),
-      phone: `+${phoneDigits}`,
-    });
+      phone: phoneDigits,
+      website,
+      elapsedMs: e.timeStamp - mountedAt.current,
+    }).catch(() => ({ ok: false }));
+    if (!result.ok) {
+      setStatus("error");
+      return;
+    }
+    trackGoal("booking_submit");
     setStatus("sent");
   }
 
@@ -298,10 +312,27 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
           )}
         </div>
 
+        {/* Honeypot for bots: off screen, out of the tab order and hidden from screen readers. */}
+        <div aria-hidden className="sr-only">
+          <label>
+            Website
+            <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+          </label>
+        </div>
+
         <button type="submit" disabled={status === "sending"} className={buttonClassName({ variant: "primary", fullWidth: true, className: "whitespace-normal" })}>
           {submitLabel}
         </button>
-        <p className="text-center text-small text-graphite">{copy.note}</p>
+        {status === "error" ? (
+          <p role="alert" className="text-center text-small font-medium text-accent">
+            {copy.errors.send}{" "}
+            <a href={`tel:${phone.e164}`} className="whitespace-nowrap underline">
+              {phone.display}
+            </a>
+          </p>
+        ) : (
+          <p className="text-center text-small text-graphite">{copy.note}</p>
+        )}
       </form>
     </FormCard>
   );

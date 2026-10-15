@@ -1,6 +1,11 @@
 import type { Money } from "@/data/types";
 
-const NBSP = " ";
+export const NBSP = " ";
+
+/** Glues one- and two-letter words («с», «по», «—») to the next word so they never end a line. */
+export function keepShortWords(text: string): string {
+  return text.replace(/(?<=^|\s)(\S{1,2}) /g, `$1${NBSP}`);
+}
 
 /** 150000 → «150 000» (non-breaking group separators, so prices never wrap mid-number). */
 export function formatAmount(value: number): string {

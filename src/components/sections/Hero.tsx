@@ -1,17 +1,44 @@
 import Image from "next/image";
+import { clinic } from "@/data/clinic";
 import { directions } from "@/data/directions";
 import { doctors } from "@/data/doctors";
 import { hero, nearestSlot, nearestSlotCopy } from "@/data/home";
+import type { SocialLink } from "@/data/types";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { ButtonContent, LinkButton, buttonClassName } from "@/components/ui/Button";
-import { Icon } from "@/components/ui/Icon";
+import { Icon, type IconName } from "@/components/ui/Icon";
 import { HeroBookingBar } from "./HeroBookingBar";
+
+const socialIcons: Record<SocialLink["network"], IconName> = {
+  instagram: "instagram-accent",
+  telegram: "send-accent",
+};
+
+/** Icon in a ring + the network's name; a plain item until the clinic sends the link. */
+function Social({ network, label, url }: SocialLink) {
+  const content = (
+    <>
+      <span className="flex size-11 shrink-0 items-center justify-center rounded-full border border-line-stone transition-colors group-hover:border-accent">
+        <Icon name={socialIcons[network]} size={20} />
+      </span>
+      {label}
+    </>
+  );
+  const className = "group flex items-center gap-3 text-label font-medium text-ink";
+  return url ? (
+    <a href={url} target="_blank" rel="noopener noreferrer" className={className}>
+      {content}
+    </a>
+  ) : (
+    <span className={className}>{content}</span>
+  );
+}
 
 export function Hero() {
   return (
     <section aria-labelledby="hero-title" className="bg-milk">
-      <div className="page-x flex flex-col gap-12 pt-10 pb-10 sm:pb-20 md:pt-16 md:pb-24 xl:flex-row xl:items-center xl:gap-16 xl:pt-22 xl:pb-40">
+      <div className="page-x flex flex-col gap-12 pt-10 pb-8 md:pt-16 md:pb-10 xl:flex-row xl:items-center xl:gap-16 xl:pt-22 xl:pb-12">
         <div className="flex min-w-0 flex-col items-start gap-9 xl:max-w-160 xl:flex-1">
           <AccentTitle as="h1" size="h1" id="hero-title" text={hero.title} className="text-ink" />
           <p className="max-w-115 text-lead text-graphite">{hero.lead}</p>
@@ -64,6 +91,18 @@ export function Hero() {
             {hero.badge}
           </p>
         </div>
+      </div>
+
+      {/* Social links: not in Figma, added at the clinic's request. No bottom padding: the next
+          section's top padding is the gap. */}
+      <div className="page-x">
+        <ul aria-label={hero.socialsLabel} className="flex flex-wrap gap-x-10 gap-y-4 border-t border-line-soft pt-6 md:pt-8">
+          {clinic.socials.map((social) => (
+            <li key={social.network}>
+              <Social {...social} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

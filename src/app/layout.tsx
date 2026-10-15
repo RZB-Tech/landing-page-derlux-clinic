@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Onest } from "next/font/google";
 import { clinic } from "@/data/clinic";
-import { siteUrl } from "@/lib/site";
+import { homeMeta } from "@/data/home";
+import { brandColors } from "@/lib/brand";
+import { siteUrl, siteVerification } from "@/lib/site";
+import { Analytics } from "@/components/analytics/Analytics";
 import "./globals.css";
 
 const onest = Onest({
@@ -18,10 +21,9 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const title = "Derlux Clinic — многопрофильная клиника в Ташкенте";
-const description =
-  "Дерматология, гинекология, эндокринология, УЗИ и анализы в одной клинике. Цены известны заранее, онлайн-запись за минуту. Ташкент, ул. Садыка Азимова, 46.";
+const { title, description } = homeMeta;
 
+// The share image comes from `opengraph-image.tsx` next to this file.
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: title, template: `%s — ${clinic.name}` },
@@ -35,20 +37,23 @@ export const metadata: Metadata = {
     siteName: clinic.name,
     title,
     description,
-    images: [{ url: "/images/hero.jpg", width: 520, height: 700, alt: clinic.name }],
   },
-  twitter: { card: "summary_large_image", title, description, images: ["/images/hero.jpg"] },
+  twitter: { card: "summary_large_image", title, description },
   formatDetection: { telephone: false, email: false, address: false },
+  verification: siteVerification,
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f6f2ec",
+  themeColor: brandColors.milk,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className={`${onest.variable} ${cormorant.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

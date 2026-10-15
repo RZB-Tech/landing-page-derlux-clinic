@@ -1,6 +1,6 @@
 import { doctors } from "@/data/doctors";
 import { bookingDaysAhead } from "@/data/home";
-import { clinicJsonLd, toJsonLdScript } from "@/lib/jsonld";
+import { homeJsonLd, toJsonLdScript } from "@/lib/jsonld";
 import { BookingProvider } from "@/components/booking/BookingProvider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -34,7 +34,7 @@ export default function HomePage() {
         <Contacts />
       </main>
       <Footer />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(clinicJsonLd()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(homeJsonLd()) }} />
     </BookingProvider>
   );
 }

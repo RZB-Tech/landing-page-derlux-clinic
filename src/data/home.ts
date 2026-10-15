@@ -2,6 +2,15 @@ import type { Advantage, Concern, NearestSlot, SectionHeading } from "./types";
 
 // Copy of the home page (Figma «5. Лендинг», «Derlux — Главная · 1440 · v2»).
 
+// Search snippet and link preview. The title leads with what patients search for
+// («дерматолог Ташкент»), not with the brand.
+export const homeMeta = {
+  title: "Дерматолог, гинеколог, эндокринолог в Ташкенте — Derlux Clinic",
+  description:
+    "Дерматология, гинекология, эндокринология, УЗИ и анализы в одной клинике. Цены известны заранее, онлайн-запись за минуту. Ташкент, ул. Садыка Азимова, 46.",
+  ogImageAlt: "Derlux Clinic — дерматолог, гинеколог и эндокринолог в Ташкенте",
+};
+
 export const headerCopy = {
   cta: "Записаться",
   nav: "Основная навигация",
@@ -16,6 +25,7 @@ export const hero = {
   primaryCta: "Записаться на приём",
   secondaryCta: { label: "Подобрать врача", href: "#doctors" },
   badge: "Стерильность по стандартам",
+  socialsLabel: "Мы в соцсетях",
   image: { src: "/images/hero.jpg", alt: "Пациентка с чистой, здоровой кожей", width: 520, height: 700 },
   bookingBar: {
     directionLabel: "Направление",
@@ -140,6 +150,7 @@ export const bookingForm = {
     phone: "Проверьте номер: +998 и 9 цифр",
     consent: "Нужно согласие, чтобы мы могли перезвонить",
     slot: "Выберите дату и время — или оставьте заявку, администратор подберёт время",
+    send: "Не удалось отправить заявку. Попробуйте ещё раз или позвоните:",
   },
   success: {
     title: "Заявка *принята*",

@@ -1,46 +1,32 @@
 import type { Doctor } from "./types";
 
-// Placeholder doctors from landing v2: names, experience, categories and languages are fictional
-// until the clinic sends real profiles. Photos: Unsplash placeholders.
+// The clinic's doctors (names and specialties from the clinic, 2026-10-15).
+// TODO(clinic): experience, category and languages — the card shows them once they are filled in.
 export const doctors: Doctor[] = [
   {
-    id: "karimova",
-    name: "Дилноза Каримова",
-    position: "Дерматолог, косметолог",
-    directionIds: ["dermatology", "laser", "aesthetic"],
-    experienceYears: 12,
-    category: "Высшая категория",
-    languages: ["ru", "uz"],
-    photo: { src: "/images/doctor-1.jpg", alt: "Дилноза Каримова, дерматолог", width: 302, height: 392 },
+    id: "rakhimov",
+    name: "Рахимов Сарвар Самукович",
+    position: "Дерматолог",
+    directionIds: ["dermatology"],
+    photo: { src: "/images/doctor-rakhimov.jpg", alt: "Рахимов Сарвар Самукович, дерматолог", width: 822, height: 1067 },
   },
   {
-    id: "yusupova",
-    name: "Нилуфар Юсупова",
-    position: "Акушер-гинеколог",
-    directionIds: ["gynecology"],
-    experienceYears: 15,
-    category: "Высшая категория",
-    languages: ["ru", "uz"],
-    photo: { src: "/images/doctor-2.jpg", alt: "Нилуфар Юсупова, акушер-гинеколог", width: 302, height: 392 },
+    id: "akbarova",
+    name: "Акбарова Дилдора Гайратовна",
+    position: "Дерматолог",
+    directionIds: ["dermatology"],
+    photo: { src: "/images/doctor-akbarova.jpg", alt: "Акбарова Дилдора Гайратовна, дерматолог", width: 659, height: 855 },
   },
   {
-    id: "rakhimova",
-    name: "Малика Рахимова",
-    position: "Эндокринолог, детский эндокринолог",
-    directionIds: ["endocrinology"],
-    experienceYears: 9,
-    category: "Первая категория",
-    languages: ["ru", "uz"],
-    photo: { src: "/images/doctor-3.jpg", alt: "Малика Рахимова, эндокринолог", width: 302, height: 392 },
-  },
-  {
-    id: "alieva",
-    name: "Сабина Алиева",
-    position: "Врач УЗИ-диагностики",
-    directionIds: ["ultrasound"],
-    experienceYears: 11,
-    category: "Высшая категория",
-    languages: ["ru", "uz", "en"],
-    photo: { src: "/images/doctor-4.jpg", alt: "Сабина Алиева, врач УЗИ-диагностики", width: 302, height: 392 },
+    id: "salomova",
+    name: "Саломова Шахло Иноятовна",
+    position: "Гинеколог, врач УЗИ",
+    directionIds: ["gynecology", "ultrasound"],
+    photo: {
+      src: "/images/doctor-salomova.jpg",
+      alt: "Саломова Шахло Иноятовна, гинеколог и врач УЗИ",
+      width: 822,
+      height: 1067,
+    },
   },
 ];

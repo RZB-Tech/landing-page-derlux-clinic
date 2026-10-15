@@ -21,6 +21,9 @@
   --color-line-soft: #e7dfd3; /* line/soft */
   --color-line-stone: #dcd1c2; /* line/stone */
   --color-nude: #c9a58b; /* tone/nude */
+  /* Logo colours, sampled from the clinic's logo file (not in Figma) */
+  --color-logo-teal: #0e4854;
+  --color-logo-gold: #dbb086;
   /* Map illustration (placeholder until a Yandex/Google map embed) */
   --color-map-street: #e6ded1;
   --color-map-block: #f2ede3;
@@ -93,23 +96,6 @@
   --text-number: 28px;
   --text-number--line-height: 32px;
   --text-number--letter-spacing: -0.28px;
-
-  /* Temporary word mark «DERLUX clinic» */
-  --text-logo: 32px;
-  --text-logo--line-height: 32px;
-  --text-logo--letter-spacing: 5.76px;
-  --text-logo-m: 26px;
-  --text-logo-m--line-height: 26px;
-  --text-logo-m--letter-spacing: 4.68px;
-  --text-logo-sub-m: 11px;
-  --text-logo-sub-m--line-height: 14px;
-  --text-logo-sub-m--letter-spacing: 4.4px;
-  --text-logo-lg: 40px;
-  --text-logo-lg--line-height: 44px;
-  --text-logo-lg--letter-spacing: 7.2px;
-  --text-logo-sub: 13px;
-  --text-logo-sub--line-height: 17px;
-  --text-logo-sub--letter-spacing: 5.2px;
 
   --radius-*: initial;
   --radius-xs: 2px; /* progress segments */

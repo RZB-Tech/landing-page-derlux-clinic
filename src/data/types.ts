@@ -26,6 +26,16 @@ export type Money = {
   currency: "UZS";
 };
 
+export type DayOfWeek = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
+
+export type SocialLink = {
+  network: "instagram" | "telegram";
+  /** Text next to the icon: the network's name or the account's handle. */
+  label: string;
+  /** null until the clinic sends the link; the item is then shown without a link. */
+  url: string | null;
+};
+
 export type Clinic = {
   name: string;
   legalName: string;
@@ -39,6 +49,9 @@ export type Clinic = {
     street: string;
     /** Single-line form for small spaces. */
     short: string;
+    /** City name alone, for structured data («Ташкент»). */
+    locality: string;
+    postalCode: string | null;
     country: "UZ";
   };
   geo: { lat: number; lng: number };
@@ -51,10 +64,14 @@ export type Clinic = {
     routeUrl: string;
   };
   hours: { label: string; value: string }[];
-  /** schema.org openingHours, e.g. "Mo-Sa 09:00-19:00". */
-  openingHours: string[];
+  /** Regular hours for structured data (schema.org OpeningHoursSpecification). */
+  openingHours: { days: DayOfWeek[]; opens: string; closes: string }[];
   hoursShort: string;
   telegramUrl: string;
+  /** Social links in the row under the hero. */
+  socials: SocialLink[];
+  /** The clinic's own profiles elsewhere (Google Business, Yandex, 2GIS, Instagram) — schema.org sameAs. */
+  profiles: string[];
   license: { number: string | null; label: string };
   disclaimer: string;
 };
@@ -92,9 +109,10 @@ export type Doctor = {
   name: string;
   position: string;
   directionIds: Id[];
-  experienceYears: number;
-  category: string;
-  languages: string[];
+  experienceYears?: number;
+  /** «Высшая категория», … */
+  category?: string;
+  languages?: string[];
   photo: Image;
 };
 
