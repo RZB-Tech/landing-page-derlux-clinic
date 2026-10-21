@@ -2,6 +2,7 @@
 
 import { createContext, use, useCallback, useMemo, useState, useSyncExternalStore, type ReactNode } from "react";
 import type { Doctor } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { clinicToday, upcomingWorkingDays, type BookingDay } from "@/lib/dates";
 
 /**
@@ -84,10 +85,12 @@ function applyPreset(prev: BookingSelection, preset: BookingPreset, doctors: Doc
 }
 
 export function BookingProvider({
+  locale,
   doctors,
   daysAhead,
   children,
 }: {
+  locale: Locale;
   doctors: Doctor[];
   daysAhead: number;
   children: ReactNode;
@@ -96,7 +99,7 @@ export function BookingProvider({
 
   // The date is read on the client only, so prerendered HTML stays static.
   const today = useSyncExternalStore(noopSubscribe, todayKey, () => null);
-  const days = useMemo(() => (today ? upcomingWorkingDays(new Date(today), daysAhead) : []), [today, daysAhead]);
+  const days = useMemo(() => (today ? upcomingWorkingDays(new Date(today), daysAhead, locale) : []), [today, daysAhead, locale]);
   const day = days.find((d) => d.iso === selection.dateIso) ?? days[0] ?? null;
 
   const update = useCallback(

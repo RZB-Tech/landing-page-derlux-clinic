@@ -14,6 +14,7 @@ export type IconName =
   | "chevron-down-16"
   | "clock"
   | "dot-accent"
+  | "facebook-accent"
   | "heart-accent"
   | "instagram-accent"
   | "mail-accent"
@@ -28,7 +29,8 @@ export type IconName =
   | "shield-accent-24"
   | "star-16"
   | "star-18"
-  | "users-accent";
+  | "users-accent"
+  | "youtube-accent";
 
 type IconProps = {
   name: IconName;

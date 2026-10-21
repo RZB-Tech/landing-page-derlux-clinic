@@ -1,8 +1,11 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { doctorsUz } from "./uz";
 import type { Doctor } from "./types";
 
 // The clinic's doctors (names and specialties from the clinic, 2026-10-15).
 // TODO(clinic): experience, category and languages — the card shows them once they are filled in.
-export const doctors: Doctor[] = [
+const doctorsRu: Doctor[] = [
   {
     id: "rakhimov",
     name: "Рахимов Сарвар Самукович",
@@ -30,3 +33,12 @@ export const doctors: Doctor[] = [
     },
   },
 ];
+
+export function getDoctors(locale: Locale): Doctor[] {
+  if (locale === "ru") return doctorsRu;
+  return translate(doctorsRu, doctorsUz, (d, t) => ({
+    ...d,
+    ...t,
+    photo: { ...d.photo, alt: `${t.name}, ${t.position.toLowerCase()}` },
+  }));
+}

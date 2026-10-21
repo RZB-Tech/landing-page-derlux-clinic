@@ -2,7 +2,8 @@
 
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from "react";
 import type { CheckupProgram, Clinic, Direction, Doctor, Service } from "@/data/types";
-import type { bookingForm } from "@/data/home";
+import type { HomeCopy } from "@/data/home";
+import type { Locale } from "@/i18n/config";
 import { submitBooking } from "@/actions/booking";
 import { trackGoal } from "@/lib/analytics";
 import { toMinutes } from "@/lib/dates";
@@ -15,12 +16,13 @@ import { Icon } from "@/components/ui/Icon";
 import { Select, type SelectGroup } from "@/components/ui/Select";
 
 type BookingFormProps = {
+  locale: Locale;
   directions: Direction[];
   checkups: CheckupProgram[];
   doctors: Doctor[];
   services: Service[];
   slots: string[];
-  copy: typeof bookingForm;
+  copy: HomeCopy["bookingForm"];
   steps: string[];
   address: string;
   /** Offered when the request cannot be sent. */
@@ -42,7 +44,7 @@ function normalizePhone(input: string) {
   return digits.slice(0, 12);
 }
 
-export function BookingForm({ directions, checkups, doctors, services, slots, copy, steps, address, phone }: BookingFormProps) {
+export function BookingForm({ locale, directions, checkups, doctors, services, slots, copy, steps, address, phone }: BookingFormProps) {
   const { selection, days, day, update, reset } = useBooking();
   const [name, setName] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
@@ -77,7 +79,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
 
   const topicValue = checkup ? `checkup:${checkup.id}` : direction ? `direction:${direction.id}` : selection.unsure ? "unsure" : "";
   const topicLabel = checkup
-    ? `Check-up «${checkup.title.replaceAll("*", "")}»`
+    ? fillTemplate(copy.checkupLabel, { title: checkup.title.replaceAll("*", "") })
     : direction?.name ?? (selection.unsure ? copy.directionUnsure : copy.directionPlaceholder);
   const doctorLabel = doctor ? `${doctor.name} · ${doctor.position.split(",")[0].toLowerCase()}` : copy.anyDoctor;
 
@@ -87,7 +89,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
       label: copy.checkupGroup,
       options: checkups.map((c) => ({
         value: `checkup:${c.id}`,
-        label: `Check-up «${c.title.replaceAll("*", "")}»`,
+        label: fillTemplate(copy.checkupLabel, { title: c.title.replaceAll("*", "") }),
         hint: c.durationLabel,
       })),
     },
@@ -133,6 +135,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
       phone: phoneDigits,
       website,
       elapsedMs: e.timeStamp - mountedAt.current,
+      locale,
     }).catch(() => ({ ok: false }));
     if (!result.ok) {
       setStatus("error");
@@ -178,7 +181,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
 
   return (
     <FormCard>
-      <form noValidate onSubmit={onSubmit} className="flex flex-col gap-6" aria-label="Онлайн-запись">
+      <form noValidate onSubmit={onSubmit} className="flex flex-col gap-6" aria-label={copy.formLabel}>
         <div className="flex flex-col gap-2.5">
           <p className="text-caption font-medium text-graphite uppercase" aria-live="polite">
             {fillTemplate(copy.stepLabel, { step, total: steps.length, name: steps[step - 1] })}
@@ -194,7 +197,7 @@ export function BookingForm({ directions, checkups, doctors, services, slots, co
           <SelectBox id={`${uid}-topic`} label={topicLabel} muted={!topicDone} value={topicValue} groups={topicGroups} onChange={onTopicChange} />
           {service && (
             <p className="text-small text-graphite">
-              {copy.serviceHint}: {service.name} · {formatPriceFrom(service.price)}
+              {copy.serviceHint}: {service.name} · {formatPriceFrom(service.price, locale)}
             </p>
           )}
         </Field>

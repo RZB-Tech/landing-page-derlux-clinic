@@ -1,8 +1,11 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { faqUz } from "./uz";
 import type { FaqItem } from "./types";
 
 // First answer: landing v2. The other answers are not in the design — placeholders to agree
 // with the clinic.
-export const faq: FaqItem[] = [
+const faqRu: FaqItem[] = [
   {
     id: "booking-required",
     question: "Нужна ли предварительная запись?",
@@ -32,3 +35,8 @@ export const faq: FaqItem[] = [
     answer: "Да. Выберите врача при записи или скажите администратору — подберём подходящего специалиста.",
   },
 ];
+
+export function getFaq(locale: Locale): FaqItem[] {
+  if (locale === "ru") return faqRu;
+  return translate(faqRu, faqUz, (f, t) => ({ ...f, ...t }));
+}

@@ -1,4 +1,5 @@
 import type { Money } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 
 export const NBSP = " ";
 
@@ -12,9 +13,10 @@ export function formatAmount(value: number): string {
   return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, NBSP);
 }
 
-/** «от 150 000 сум» */
-export function formatPriceFrom(price: Money): string {
-  return `от${NBSP}${formatAmount(price.from)}${NBSP}сум`;
+/** «от 150 000 сум» / «150 000 so'mdan» */
+export function formatPriceFrom(price: Money, locale: Locale): string {
+  const amount = formatAmount(price.from);
+  return locale === "uz" ? `${amount}${NBSP}so'mdan` : `от${NBSP}${amount}${NBSP}сум`;
 }
 
 /** Fills «Шаг {step} из {total}» style templates from data. */

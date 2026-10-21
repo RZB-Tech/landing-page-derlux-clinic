@@ -1,5 +1,5 @@
 import Script from "next/script";
-import { clinic } from "@/data/clinic";
+import { getClinic } from "@/data/clinic";
 import { analyticsIds } from "@/lib/analytics";
 import { LinkGoals } from "./LinkGoals";
 
@@ -8,6 +8,7 @@ import { LinkGoals } from "./LinkGoals";
  * the booking form collects names and phone numbers.
  */
 export function Analytics() {
+  const clinic = getClinic("ru");
   const { ga, ym } = analyticsIds;
   if (!ga && !ym) return null;
 

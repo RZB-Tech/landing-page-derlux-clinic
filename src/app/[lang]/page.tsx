@@ -1,5 +1,7 @@
-import { doctors } from "@/data/doctors";
+import { notFound } from "next/navigation";
+import { getDoctors } from "@/data/doctors";
 import { bookingDaysAhead } from "@/data/home";
+import { hasLocale } from "@/i18n/config";
 import { homeJsonLd, toJsonLdScript } from "@/lib/jsonld";
 import { BookingProvider } from "@/components/booking/BookingProvider";
 import { Footer } from "@/components/layout/Footer";
@@ -16,25 +18,27 @@ import { Promotions } from "@/components/sections/Promotions";
 import { Reviews } from "@/components/sections/Reviews";
 import { Services } from "@/components/sections/Services";
 
-export default function HomePage() {
+export default async function HomePage({ params }: PageProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
   return (
-    <BookingProvider doctors={doctors} daysAhead={bookingDaysAhead}>
-      <Header />
+    <BookingProvider locale={lang} doctors={getDoctors(lang)} daysAhead={bookingDaysAhead}>
+      <Header locale={lang} />
       <main>
-        <Hero />
-        <Directions />
-        <Concerns />
-        <Services />
-        <Doctors />
-        <Checkups />
-        <Promotions />
-        <Reviews />
-        <Booking />
-        <Faq />
-        <Contacts />
+        <Hero locale={lang} />
+        <Directions locale={lang} />
+        <Concerns locale={lang} />
+        <Services locale={lang} />
+        <Doctors locale={lang} />
+        <Checkups locale={lang} />
+        <Promotions locale={lang} />
+        <Reviews locale={lang} />
+        <Booking locale={lang} />
+        <Faq locale={lang} />
+        <Contacts locale={lang} />
       </main>
-      <Footer />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(homeJsonLd()) }} />
+      <Footer locale={lang} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLdScript(homeJsonLd(lang)) }} />
     </BookingProvider>
   );
 }

@@ -29,7 +29,7 @@ export type Money = {
 export type DayOfWeek = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
 
 export type SocialLink = {
-  network: "instagram" | "telegram";
+  network: "instagram" | "facebook" | "telegram" | "youtube";
   /** Text next to the icon: the network's name or the account's handle. */
   label: string;
   /** null until the clinic sends the link; the item is then shown without a link. */
@@ -172,7 +172,6 @@ export type Advantage = {
 export type NearestSlot = {
   leadHours: number;
   directionId: Id;
-  note: string;
 };
 
 /** Booking slot grid on the clinic's clock (Пн–Сб). */

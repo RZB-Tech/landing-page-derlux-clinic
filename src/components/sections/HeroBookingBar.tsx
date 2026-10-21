@@ -13,6 +13,7 @@ type Copy = {
   dateLabel: string;
   anyDoctor: string;
   submit: string;
+  today: string;
 };
 
 /** Hero mini form (Figma «Booking bar»): direction · doctor · date → jumps to the full form. */
@@ -49,7 +50,7 @@ export function HeroBookingBar({ directions, doctors, copy }: { directions: Dire
       <Divider />
       <Field
         label={copy.dateLabel}
-        value={day?.short ?? "Сегодня"}
+        value={day?.short ?? copy.today}
         selected={day?.iso ?? ""}
         groups={dateGroups}
         onChange={(v) => update({ dateIso: v, time: null })}

@@ -1,7 +1,10 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { promotionsUz } from "./uz";
 import type { Promotion } from "./types";
 
 // Landing v2 — placeholder offers.
-export const promotions: Promotion[] = [
+const promotionsRu: Promotion[] = [
   {
     id: "derm-first-visit",
     value: "−20%",
@@ -28,3 +31,8 @@ export const promotions: Promotion[] = [
     directionId: "aesthetic",
   },
 ];
+
+export function getPromotions(locale: Locale): Promotion[] {
+  if (locale === "ru") return promotionsRu;
+  return translate(promotionsRu, promotionsUz, (p, t) => ({ ...p, ...t }));
+}

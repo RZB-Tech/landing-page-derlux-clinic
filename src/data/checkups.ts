@@ -1,7 +1,10 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { checkupsUz } from "./uz";
 import type { CheckupProgram } from "./types";
 
 // Landing v2. Composition and prices are a proposal to agree with the clinic.
-export const checkups: CheckupProgram[] = [
+const checkupsRu: CheckupProgram[] = [
   {
     id: "healthy-skin",
     title: "Здоровая *кожа*",
@@ -39,3 +42,8 @@ export const checkups: CheckupProgram[] = [
     price: { from: 650_000, currency: "UZS" },
   },
 ];
+
+export function getCheckups(locale: Locale): CheckupProgram[] {
+  if (locale === "ru") return checkupsRu;
+  return translate(checkupsRu, checkupsUz, (c, t) => ({ ...c, ...t }));
+}

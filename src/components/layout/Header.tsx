@@ -1,17 +1,23 @@
-import { bookingHref, clinic, mainNav, primaryPhone } from "@/data/clinic";
-import { headerCopy } from "@/data/home";
+import { bookingHref, getClinic, getMainNav, primaryPhone } from "@/data/clinic";
+import { getHome } from "@/data/home";
+import type { Locale } from "@/i18n/config";
 import { LinkButton } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { LanguageSwitch } from "./LanguageSwitch";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 
-export function Header() {
+export function Header({ locale }: { locale: Locale }) {
+  const clinic = getClinic(locale);
+  const mainNav = getMainNav(locale);
+  const { headerCopy } = getHome(locale);
+
   return (
     <header className="sticky top-0 z-40 border-b border-line-soft bg-milk">
       <div className="page-x flex items-center gap-2 py-3 sm:gap-4 md:gap-5 xl:gap-7 xl:py-5">
-        <Logo />
+        <Logo label={headerCopy.logoLabel} />
         <nav aria-label={headerCopy.nav} className="hidden xl:block">
-          <ul className="flex items-start gap-9 text-label font-medium text-ink">
+          <ul className="flex items-start gap-6 text-label font-medium whitespace-nowrap text-ink 2xl:gap-9">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <a href={item.href} className="transition-colors hover:text-accent">
@@ -36,6 +42,8 @@ export function Header() {
         >
           {headerCopy.cta}
         </LinkButton>
+        {/* Last in the bar from lg up; below, it would not fit, so it is in the menu panel. */}
+        <LanguageSwitch locale={locale} label={headerCopy.languageLabel} className="hidden lg:flex" />
         <MobileMenu
           nav={mainNav}
           phone={primaryPhone}
@@ -43,6 +51,7 @@ export function Header() {
           hours={clinic.hoursShort}
           copy={headerCopy}
           bookingHref={bookingHref}
+          languageSwitch={<LanguageSwitch locale={locale} label={headerCopy.languageLabel} />}
         />
       </div>
     </header>

@@ -1,10 +1,13 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { serviceNamesUz } from "./uz";
 import type { Service } from "./types";
 
 const uzs = (from: number) => ({ from, currency: "UZS" as const });
 
 // Dermatology rows: landing v2. Other directions: placeholders of realistic size until the
 // clinic sends its price list (Figma «Как работаем без контента»).
-export const services: Service[] = [
+const servicesRu: Service[] = [
   { id: "derm-consult", directionId: "dermatology", name: "Консультация дерматолога", durationMin: 30, price: uzs(150_000) },
   { id: "derm-acne", directionId: "dermatology", name: "Лечение акне", durationMin: 45, price: uzs(250_000) },
   { id: "derm-papilloma", directionId: "dermatology", name: "Удаление папиллом и бородавок", durationMin: 15, price: uzs(120_000) },
@@ -53,3 +56,8 @@ export const services: Service[] = [
   { id: "proc-blood", directionId: "procedures", name: "Забор крови из вены", durationMin: 10, price: uzs(50_000) },
   { id: "proc-dressing", directionId: "procedures", name: "Перевязка", durationMin: 20, price: uzs(70_000) },
 ];
+
+export function getServices(locale: Locale): Service[] {
+  if (locale === "ru") return servicesRu;
+  return translate(servicesRu, serviceNamesUz, (s, t) => ({ ...s, ...t }));
+}

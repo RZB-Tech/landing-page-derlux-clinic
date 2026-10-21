@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import type { Clinic, Link } from "@/data/types";
-import type { headerCopy } from "@/data/home";
+import type { HomeCopy } from "@/data/home";
 import { cn } from "@/lib/format";
+import type { ReactNode } from "react";
 import { buttonClassName } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 
@@ -12,12 +13,14 @@ type MobileMenuProps = {
   phone: Clinic["phones"][number];
   address: string;
   hours: string;
-  copy: typeof headerCopy;
+  copy: HomeCopy["headerCopy"];
   bookingHref: string;
+  /** The language switcher, rendered on the server. */
+  languageSwitch: ReactNode;
 };
 
 /** Below xl the nav collapses into this panel (the design has desktop only). */
-export function MobileMenu({ nav, phone, address, hours, copy, bookingHref }: MobileMenuProps) {
+export function MobileMenu({ nav, phone, address, hours, copy, bookingHref, languageSwitch }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
 
@@ -62,6 +65,10 @@ export function MobileMenu({ nav, phone, address, hours, copy, bookingHref }: Mo
             <a href={bookingHref} onClick={close} className={buttonClassName({ fullWidth: true })}>
               {copy.cta}
             </a>
+            <div className="flex items-center justify-between gap-4 border-t border-line-soft pt-6 lg:hidden">
+              <span className="text-small text-graphite">{copy.languageLabel}</span>
+              {languageSwitch}
+            </div>
           </div>
         </nav>
       </div>

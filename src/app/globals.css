@@ -137,6 +137,37 @@
   }
 }
 
+/* Intro splash: fades out by itself after its delay (set inline from `introSplash.durationMs`), so it
+   never stays up without JS. Skipped when the inline script marks it seen in this session. */
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@utility intro-splash {
+  animation: intro-out 500ms ease-in 2s forwards;
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: 1ms;
+  }
+}
+html[data-intro-seen] .intro-splash {
+  display: none;
+}
+/* The splash's loader line: grows from the left over its duration (set inline). */
+@keyframes intro-progress {
+  from {
+    transform: scaleX(0);
+  }
+}
+@utility intro-progress {
+  transform-origin: left;
+  animation: intro-progress 2s linear both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar {

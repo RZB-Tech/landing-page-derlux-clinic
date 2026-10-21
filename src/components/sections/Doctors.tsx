@@ -1,12 +1,14 @@
 import Image from "next/image";
-import { doctors } from "@/data/doctors";
-import { doctorsCopy, doctorsSection } from "@/data/home";
+import { getDoctors } from "@/data/doctors";
+import { getHome } from "@/data/home";
 import type { Doctor } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { buttonClassName } from "@/components/ui/Button";
 import { SectionHead } from "@/components/ui/SectionHead";
 
-function yearsLabel(n: number) {
+function yearsLabel(n: number, locale: Locale) {
+  if (locale === "uz") return "yil";
   const mod10 = n % 10;
   const mod100 = n % 100;
   if (mod10 === 1 && mod100 !== 11) return "год";
@@ -15,9 +17,9 @@ function yearsLabel(n: number) {
 }
 
 /** «Стаж 12 лет · Высшая категория», from whichever of the two the clinic has given. */
-function doctorFacts({ experienceYears, category }: Doctor) {
+function doctorFacts({ experienceYears, category }: Doctor, experienceLabel: string, locale: Locale) {
   const experience =
-    experienceYears !== undefined && `${doctorsCopy.experience} ${experienceYears} ${yearsLabel(experienceYears)}`;
+    experienceYears !== undefined && `${experienceLabel} ${experienceYears} ${yearsLabel(experienceYears, locale)}`;
   return [experience, category].filter(Boolean).join(" · ");
 }
 
@@ -25,14 +27,15 @@ function doctorFacts({ experienceYears, category }: Doctor) {
  * «Врачи, которые слушают» (Figma «05 Врачи»). Carousel below md, grid above. Figma has four
  * 302px cards; the clinic has three doctors, so they share the row in three columns.
  */
-export function Doctors() {
+export function Doctors({ locale }: { locale: Locale }) {
+  const { doctorsCopy, doctorsSection } = getHome(locale);
   return (
     <section id="doctors" aria-labelledby="doctors-title" className="bg-milk">
       <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
         <SectionHead titleId="doctors-title" {...doctorsSection} />
         <ul className="snap-row md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
-          {doctors.map((doctor) => {
-            const facts = doctorFacts(doctor);
+          {getDoctors(locale).map((doctor) => {
+            const facts = doctorFacts(doctor, doctorsCopy.experience, locale);
             return (
               <li key={doctor.id} className="flex w-70 flex-col items-start gap-2.5 md:w-auto">
                 <div className="arch-doctor relative aspect-302/392 w-full overflow-hidden bg-sand">

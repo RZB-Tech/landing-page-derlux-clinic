@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { clinic } from "@/data/clinic";
-import { contactsSection } from "@/data/home";
+import { getClinic } from "@/data/clinic";
+import { getHome } from "@/data/home";
+import { fillTemplate } from "@/lib/format";
+import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { LinkButton } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
@@ -20,7 +22,9 @@ function ContactRow({ icon, children }: { icon: IconName; children: ReactNode })
 }
 
 /** «Как нас найти» (Figma «15 Контакты»). */
-export function Contacts() {
+export function Contacts({ locale }: { locale: Locale }) {
+  const clinic = getClinic(locale);
+  const { contactsSection } = getHome(locale);
   return (
     <section id="contacts" aria-labelledby="contacts-title" className="bg-sand">
       <div className="page-x flex flex-col gap-6 py-20 md:py-24 xl:flex-row xl:py-40">
@@ -65,7 +69,7 @@ export function Contacts() {
 
         <YandexMap
           src={clinic.map.embedUrl}
-          title={`${contactsSection.mapLabel} на Яндекс Картах — ${clinic.address.street}`}
+          title={fillTemplate(contactsSection.mapTitle, { label: contactsSection.mapLabel, street: clinic.address.street })}
           activateLabel={contactsSection.mapActivate}
           placeholder={<MapIllustration label={contactsSection.mapLabel} address={clinic.address.short} />}
         />

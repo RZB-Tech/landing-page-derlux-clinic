@@ -1,10 +1,11 @@
 "use server";
 
-import { checkups } from "@/data/checkups";
-import { directions } from "@/data/directions";
-import { doctors } from "@/data/doctors";
-import { bookingForm, bookingHours, concerns } from "@/data/home";
-import { services } from "@/data/services";
+import { getCheckups } from "@/data/checkups";
+import { getDirections } from "@/data/directions";
+import { getDoctors } from "@/data/doctors";
+import { bookingHours, getHome } from "@/data/home";
+import { getServices } from "@/data/services";
+import { hasLocale, type Locale } from "@/i18n/config";
 import { isBookableTime } from "@/lib/dates";
 import { formatPriceFrom } from "@/lib/format";
 import { escapeTelegramHtml, sendTelegramMessage } from "@/lib/telegram";
@@ -27,12 +28,22 @@ export type BookingRequest = {
   website: string;
   /** Time from the form's mount to the submit. */
   elapsedMs: number;
+  /** Language of the page the visitor booked on: tells the administrator which language to call in. */
+  locale: Locale;
 };
 
 export type BookingResult = { ok: boolean };
 
 // A person needs longer than this to fill in a name and a phone number.
 const MIN_FILL_MS = 3000;
+
+// The clinic reads the requests in Russian whatever language the site was in.
+const checkups = getCheckups("ru");
+const directions = getDirections("ru");
+const doctors = getDoctors("ru");
+const services = getServices("ru");
+const { bookingForm, concerns } = getHome("ru");
+const siteLanguage: Record<Locale, string> = { ru: "русский", uz: "узбекский" };
 
 const text = (value: unknown, max: number) => (typeof value === "string" ? value.trim().slice(0, max) : "");
 const byId = <T extends { id: string }>(items: T[], id: unknown) => items.find((item) => item.id === id);
@@ -77,9 +88,10 @@ export async function submitBooking(request: BookingRequest): Promise<BookingRes
     ["Телефон", `+${phone}`],
     ["Направление", topic],
     ["Беспокоит", concern && concern.directionId === direction?.id ? concern.label : undefined],
-    ["Услуга", service && `${service.name} · ${formatPriceFrom(service.price)}`],
+    ["Услуга", service && `${service.name} · ${formatPriceFrom(service.price, "ru")}`],
     ["Врач", checkup || request.unsure ? undefined : (doctor?.name ?? "любой")],
     ["Когда", day && time ? `${day}, ${time}` : "время подберёт администратор"],
+    ["Язык сайта", siteLanguage[hasLocale(String(request.locale)) ? request.locale : "ru"]],
   ];
   const message = [
     "<b>Новая запись с сайта</b>",

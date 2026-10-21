@@ -1,16 +1,19 @@
-import { checkups } from "@/data/checkups";
-import { clinic, primaryPhone } from "@/data/clinic";
-import { directions } from "@/data/directions";
-import { doctors } from "@/data/doctors";
-import { bookingForm, bookingSection, bookingSlots } from "@/data/home";
-import { services } from "@/data/services";
+import { getCheckups } from "@/data/checkups";
+import { getClinic, primaryPhone } from "@/data/clinic";
+import { getDirections } from "@/data/directions";
+import { getDoctors } from "@/data/doctors";
+import { bookingSlots, getHome } from "@/data/home";
+import { getServices } from "@/data/services";
+import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { Icon } from "@/components/ui/Icon";
 import { Caption } from "@/components/ui/SectionHead";
 import { BookingForm } from "./BookingForm";
 
 /** «Запишитесь за минуту — без звонков» (Figma «11 Онлайн-запись»). */
-export function Booking() {
+export function Booking({ locale }: { locale: Locale }) {
+  const clinic = getClinic(locale);
+  const { bookingForm, bookingSection } = getHome(locale);
   return (
     <section id="booking" aria-labelledby="booking-title" className="bg-accent text-on-dark">
       <div className="page-x flex flex-col gap-12 py-20 md:py-24 xl:flex-row xl:items-start xl:justify-between xl:py-40">
@@ -41,10 +44,11 @@ export function Booking() {
         </div>
 
         <BookingForm
-          directions={directions}
-          checkups={checkups}
-          doctors={doctors}
-          services={services}
+          locale={locale}
+          directions={getDirections(locale)}
+          checkups={getCheckups(locale)}
+          doctors={getDoctors(locale)}
+          services={getServices(locale)}
           slots={bookingSlots}
           copy={bookingForm}
           steps={bookingSection.steps}

@@ -1,14 +1,17 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { clinic, primaryPhone } from "@/data/clinic";
-import { hero, homeMeta } from "@/data/home";
+import { notFound } from "next/navigation";
+import { getClinic, primaryPhone } from "@/data/clinic";
+import { getHome } from "@/data/home";
+import { hasLocale, locales } from "@/i18n/config";
 import { brandColors } from "@/lib/brand";
 import { keepShortWords } from "@/lib/format";
 import { logo, logoDataUri } from "@/lib/logo";
 
-// Link preview (Telegram, WhatsApp, Facebook, search). Generated at build time from the hero copy.
-export const alt = homeMeta.ogImageAlt;
+// Link preview (Telegram, WhatsApp, Facebook, search). Generated at build time from the hero copy,
+// once per language. The alt text is static, so it is the brand name.
+export const alt = "Derlux Clinic";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -41,7 +44,15 @@ function titleWords(text: string) {
     });
 }
 
-export default function Image() {
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
+
+export default async function Image({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const clinic = getClinic(lang);
+  const { hero } = getHome(lang);
   const { milk, white, ink, graphite, accent } = brandColors;
   const [weekdays, sunday] = clinic.hours;
 

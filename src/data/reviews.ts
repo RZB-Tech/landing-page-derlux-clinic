@@ -1,14 +1,17 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
+import { reviewsUz, ratingSourceUz } from "./uz";
 import type { RatingSummary, Review } from "./types";
 
 // Landing v2 — example reviews and rating. Replace with published reviews (with patient consent)
 // before launch; do not expose these in structured data.
-export const ratingSummary: RatingSummary = {
+const ratingSummaryRu: RatingSummary = {
   value: 4.9,
   valueLabel: "4,9",
   source: "по отзывам в Google и Яндекс Картах (пример)",
 };
 
-export const reviews: Review[] = [
+const reviewsRu: Review[] = [
   {
     id: "madina",
     author: "Мадина",
@@ -40,3 +43,13 @@ export const reviews: Review[] = [
     text: "Быстро, аккуратно, стерильно. Цену назвали заранее.",
   },
 ];
+
+export function getReviews(locale: Locale): Review[] {
+  if (locale === "ru") return reviewsRu;
+  return translate(reviewsRu, reviewsUz, (r, t) => ({ ...r, ...t }));
+}
+
+export function getRatingSummary(locale: Locale): RatingSummary {
+  if (locale === "ru") return ratingSummaryRu;
+  return { ...ratingSummaryRu, source: ratingSourceUz };
+}

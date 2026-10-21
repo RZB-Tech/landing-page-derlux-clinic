@@ -1,13 +1,16 @@
-import { clinic } from "@/data/clinic";
-import { faq } from "@/data/faq";
-import { faqSection } from "@/data/home";
+import { getClinic } from "@/data/clinic";
+import { getFaq } from "@/data/faq";
+import { getHome } from "@/data/home";
+import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { LinkButton } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Caption } from "@/components/ui/SectionHead";
 
 /** «Частые вопросы» (Figma «14 FAQ»). Native <details>: works without JS, answers stay indexable. */
-export function Faq() {
+export function Faq({ locale }: { locale: Locale }) {
+  const clinic = getClinic(locale);
+  const { faqSection } = getHome(locale);
   return (
     <section id="faq" aria-labelledby="faq-title" className="bg-milk">
       <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:flex-row xl:items-start xl:justify-between xl:py-40">
@@ -21,7 +24,7 @@ export function Faq() {
         </div>
 
         <div className="border-t border-line-stone xl:w-195">
-          {faq.map((item, i) => (
+          {getFaq(locale).map((item, i) => (
             <details key={item.id} name="faq" open={i === 0} className="group border-b border-line-stone py-6">
               <summary className="flex cursor-pointer list-none items-center gap-4">
                 <span className="flex-1 text-title font-semibold text-ink xl:max-w-160">{item.question}</span>

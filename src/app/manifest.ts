@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
-import { clinic } from "@/data/clinic";
+import { getClinic } from "@/data/clinic";
 import { brandColors } from "@/lib/brand";
 
+// One manifest for the site, in the default language.
 export default function manifest(): MetadataRoute.Manifest {
+  const clinic = getClinic("ru");
   return {
     name: clinic.name,
     short_name: "Derlux",

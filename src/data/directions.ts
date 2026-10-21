@@ -1,10 +1,12 @@
+import type { Locale } from "@/i18n/config";
+import { translate } from "@/i18n/translate";
 import type { Direction } from "./types";
 
 const uzs = (from: number) => ({ from, currency: "UZS" as const });
 
 // Names and descriptions: Figma «1. Сбор контента». Card subtitles and «от» prices: landing v2
 // (prices are examples until the clinic sends its price list). Photos: Unsplash placeholders.
-export const directions: Direction[] = [
+const directionsRu: Direction[] = [
   {
     id: "dermatology",
     slug: "dermatologiya",
@@ -97,3 +99,74 @@ export const directions: Direction[] = [
     specialist: "Медсестра",
   },
 ];
+
+type DirectionText = Pick<Direction, "name" | "shortName" | "summary" | "description" | "specialist">;
+
+const directionsUz: Record<string, DirectionText> = {
+  dermatology: {
+    name: "Dermatologiya",
+    shortName: "Dermatologiya",
+    summary: "Akne, psoriaz, ekzema, papillomalar",
+    description:
+      "Teri kasalliklarini davolash (husnbuzar, psoriaz, neyrodermit, ekzema, alopesiya, vitiligo), papillomalar, so'gallar, qadoqlar, kondilomalar, yumshoq molluskani olib tashlash, postakne, pigmentatsiya.",
+    specialist: "Dermatolog",
+  },
+  laser: {
+    name: "Lazer dermatologiya",
+    shortName: "Lazer",
+    summary: "Tirnoq, pigmentatsiya, chandiqlar",
+    description:
+      "Ichga o'sgan tirnoqni lazer bilan tuzatish, pigmentatsiyani olib tashlash, chandiqlar va postakneni davolash.",
+    specialist: "Dermatolog",
+  },
+  aesthetic: {
+    name: "Estetik tibbiyot",
+    shortName: "Estetika",
+    summary: "RF-lifting, strialar, sellulit",
+    description:
+      "Qarishga qarshi muolajalar (RF-lifting), sellulitga qarshi apparat muolajalari, strialar va yoriqlar.",
+    specialist: "Kosmetolog",
+  },
+  gynecology: {
+    name: "Ginekologiya",
+    shortName: "Ginekologiya",
+    summary: "Bepushtlik, mioma, homiladorlik",
+    description:
+      "Bepushtlik, yallig'lanish kasalliklari, mioma, kista, homiladorlikni olib borish, kontratseptsiya tanlash, bachadon bo'yni eroziyasini davolash.",
+    specialist: "Ginekolog",
+  },
+  endocrinology: {
+    name: "Endokrinologiya",
+    shortName: "Endokrinologiya",
+    summary: "Qalqonsimon bez, diabet, vazn",
+    description:
+      "Bolalar va kattalarda qalqonsimon bez, jismoniy rivojlanishning kechikishi, ortiqcha vazn, metabolik sindrom, ayollarda endokrin bepushtlik, 2-tur qandli diabet.",
+    specialist: "Endokrinolog",
+  },
+  ultrasound: {
+    name: "Barcha a'zolar UZI",
+    shortName: "UZI",
+    summary: "Barcha a'zolar, homiladorlik",
+    description: "Barcha a'zolarning ultratovush tekshiruvi, shu jumladan homiladorlik paytida.",
+    specialist: "UZI shifokori",
+  },
+  laboratory: {
+    name: "Laboratoriya",
+    shortName: "Laboratoriya",
+    summary: "Barcha turdagi tahlillar",
+    description: "Barcha turdagi tahlillar.",
+    specialist: "Laboratoriya",
+  },
+  procedures: {
+    name: "Muolaja xonasi",
+    shortName: "Muolaja",
+    summary: "Kapelnitsa, inyeksiyalar",
+    description: "Kapelnitsa, tomir ichiga va mushak ichiga inyeksiyalar.",
+    specialist: "Hamshira",
+  },
+};
+
+export function getDirections(locale: Locale): Direction[] {
+  if (locale === "ru") return directionsRu;
+  return translate(directionsRu, directionsUz, (d, t) => ({ ...d, ...t, image: { ...d.image, alt: t.name } }));
+}

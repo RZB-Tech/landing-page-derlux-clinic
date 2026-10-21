@@ -1,5 +1,6 @@
-import { advantages, concerns, concernsSection, whyCard } from "@/data/home";
+import { getHome } from "@/data/home";
 import type { Advantage } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { LinkButton } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
@@ -14,7 +15,8 @@ const advantageIcons: Record<Advantage["icon"], IconName> = {
 };
 
 /** «Что вас беспокоит?» + «Почему Derlux» + advantages (Figma «03»). */
-export function Concerns() {
+export function Concerns({ locale }: { locale: Locale }) {
+  const { advantages, concerns, concernsSection, whyCard } = getHome(locale);
   return (
     <section aria-labelledby="concerns-title" className="bg-milk">
       <div className="page-x flex flex-col gap-14 pb-20 md:pb-24 xl:gap-18 xl:pt-10 xl:pb-40">
@@ -31,7 +33,7 @@ export function Concerns() {
             <AccentTitle as="p" size="h3" text={whyCard.title} className="max-w-125" />
             <p className="max-w-125 text-body opacity-85">{whyCard.text}</p>
             <ul
-              aria-label="Врачи работают вместе"
+              aria-label={whyCard.specialistsLabel}
               className="grid w-full max-w-125 grid-cols-[1fr_auto_1fr_auto_1fr] items-center md:flex"
             >
               {whyCard.specialists.map((name, i) => (

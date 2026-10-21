@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { clinic } from "@/data/clinic";
-import { directions } from "@/data/directions";
-import { doctors } from "@/data/doctors";
-import { bookingHours, hero, nearestSlot, nearestSlotCopy } from "@/data/home";
+import { getClinic } from "@/data/clinic";
+import { getDirections } from "@/data/directions";
+import { getDoctors } from "@/data/doctors";
+import { bookingHours, getHome, heroImage, nearestSlot } from "@/data/home";
 import type { SocialLink } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { ButtonContent, LinkButton, buttonClassName } from "@/components/ui/Button";
@@ -13,7 +14,9 @@ import { NearestSlotCard } from "./NearestSlotCard";
 
 const socialIcons: Record<SocialLink["network"], IconName> = {
   instagram: "instagram-accent",
+  facebook: "facebook-accent",
   telegram: "send-accent",
+  youtube: "youtube-accent",
 };
 
 /** Icon in a ring + the network's name; a plain item until the clinic sends the link. */
@@ -36,7 +39,9 @@ function Social({ network, label, url }: SocialLink) {
   );
 }
 
-export function Hero() {
+export function Hero({ locale }: { locale: Locale }) {
+  const clinic = getClinic(locale);
+  const { hero, nearestSlotCopy } = getHome(locale);
   return (
     <section aria-labelledby="hero-title" className="bg-milk">
       <div className="page-x flex flex-col gap-12 pt-10 pb-8 md:pt-16 md:pb-10 xl:flex-row xl:items-center xl:gap-16 xl:pt-22 xl:pb-12">
@@ -53,7 +58,7 @@ export function Hero() {
               {hero.secondaryCta.label}
             </LinkButton>
           </div>
-          <HeroBookingBar directions={directions} doctors={doctors} copy={hero.bookingBar} />
+          <HeroBookingBar directions={getDirections(locale)} doctors={getDoctors(locale)} copy={hero.bookingBar} />
         </div>
 
         {/* Visual: arched photo, «Ближайшая запись» card and the sterility badge. Positions are
@@ -61,8 +66,8 @@ export function Hero() {
         <div className="relative mx-auto aspect-576/720 w-full max-w-xl max-sm:mb-20 xl:w-[40%] xl:shrink-0 2xl:w-[45%]">
           <div className="arch-hero absolute top-0 left-[9.7222%] aspect-520/700 w-[90.2778%] overflow-hidden bg-sand">
             <Image
-              src={hero.image.src}
-              alt={hero.image.alt}
+              src={heroImage.src}
+              alt={hero.imageAlt}
               fill
               preload
               sizes="(min-width: 1440px) 520px, (min-width: 1280px) 36vw, (min-width: 640px) 520px, 90vw"
@@ -71,6 +76,7 @@ export function Hero() {
           </div>
 
           <NearestSlotCard
+            locale={locale}
             offer={nearestSlot}
             hours={bookingHours}
             copy={nearestSlotCopy}
@@ -89,7 +95,7 @@ export function Hero() {
       <div className="page-x">
         <ul aria-label={hero.socialsLabel} className="flex flex-wrap gap-x-10 gap-y-4 border-t border-line-soft pt-6 md:pt-8">
           {clinic.socials.map((social) => (
-            <li key={social.network}>
+            <li key={social.label}>
               <Social {...social} />
             </li>
           ))}

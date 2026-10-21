@@ -1,5 +1,6 @@
-import { checkupCopy, checkupSection } from "@/data/home";
-import { checkups } from "@/data/checkups";
+import { getCheckups } from "@/data/checkups";
+import { getHome } from "@/data/home";
+import type { Locale } from "@/i18n/config";
 import { cn, formatPriceFrom } from "@/lib/format";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { AccentTitle } from "@/components/ui/AccentTitle";
@@ -9,13 +10,14 @@ import { Icon } from "@/components/ui/Icon";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 /** «Всё обследование — за один визит» (Figma «06 Check-up»). Carousel below xl. */
-export function Checkups() {
+export function Checkups({ locale }: { locale: Locale }) {
+  const { checkupCopy, checkupSection } = getHome(locale);
   return (
     <section id="checkup" aria-labelledby="checkup-title" className="bg-sand">
       <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
         <SectionHead titleId="checkup-title" {...checkupSection} />
         <ul className="snap-row xl:mx-0 xl:grid xl:grid-cols-3 xl:gap-6 xl:overflow-visible xl:px-0">
-          {checkups.map((program) => {
+          {getCheckups(locale).map((program) => {
             const dark = program.featured;
             return (
               <li
@@ -41,7 +43,7 @@ export function Checkups() {
                 </ul>
                 <div className="flex-1" />
                 <hr className={cn("w-full", dark ? "border-on-dark" : "border-line-soft")} />
-                <p className="text-number font-medium whitespace-nowrap">{formatPriceFrom(program.price)}</p>
+                <p className="text-number font-medium whitespace-nowrap">{formatPriceFrom(program.price, locale)}</p>
                 <BookingTrigger
                   preset={{ checkupId: program.id }}
                   className={buttonClassName({ variant: dark ? "light" : "primary", fullWidth: true })}

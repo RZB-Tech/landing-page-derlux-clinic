@@ -1,8 +1,9 @@
 "use client";
 
 import { useMemo, useSyncExternalStore } from "react";
-import type { nearestSlotCopy } from "@/data/home";
+import type { HomeCopy } from "@/data/home";
 import type { NearestSlot, WorkingHours } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { nearestSlot as findNearestSlot } from "@/lib/dates";
 import { cn } from "@/lib/format";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
@@ -17,9 +18,10 @@ const subscribe = (onChange: () => void) => {
 const currentMinute = () => Math.floor(Date.now() / 60_000);
 
 type NearestSlotCardProps = {
+  locale: Locale;
   offer: NearestSlot;
   hours: WorkingHours;
-  copy: typeof nearestSlotCopy;
+  copy: HomeCopy["nearestSlotCopy"];
   className: string;
 };
 
@@ -27,11 +29,11 @@ type NearestSlotCardProps = {
  * Hero card «Ближайшая запись»: the first slot `leadHours` from now on the clinic's clock. The page
  * is prerendered, so the time is computed on the client; until then the text holds its place hidden.
  */
-export function NearestSlotCard({ offer, hours, copy, className }: NearestSlotCardProps) {
+export function NearestSlotCard({ locale, offer, hours, copy, className }: NearestSlotCardProps) {
   const minute = useSyncExternalStore(subscribe, currentMinute, () => null);
   const slot = useMemo(
-    () => (minute === null ? null : findNearestSlot(new Date(minute * 60_000), offer.leadHours, hours)),
-    [minute, offer.leadHours, hours],
+    () => (minute === null ? null : findNearestSlot(new Date(minute * 60_000), offer.leadHours, hours, locale)),
+    [minute, offer.leadHours, hours, locale],
   );
 
   return (
@@ -43,7 +45,7 @@ export function NearestSlotCard({ offer, hours, copy, className }: NearestSlotCa
       <p className={cn("text-title font-semibold whitespace-nowrap text-ink", !slot && "invisible")}>
         {slot ? `${slot.dayLabel}, ${slot.time}` : copy.placeholder}
       </p>
-      <p className="text-small text-graphite min-[360px]:whitespace-nowrap">{offer.note}</p>
+      <p className="text-small text-graphite min-[360px]:whitespace-nowrap">{copy.note}</p>
       <BookingTrigger
         preset={{ directionId: offer.directionId, dateIso: slot?.iso ?? null, time: slot?.time ?? null }}
         className={buttonClassName({ variant: "primary", className: "max-[359px]:px-5" })}

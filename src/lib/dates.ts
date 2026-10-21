@@ -1,22 +1,61 @@
 import type { WorkingHours } from "@/data/types";
+import type { Locale, Localized } from "@/i18n/config";
 
-const WEEKDAYS_SHORT = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-const WEEKDAYS = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
-const MONTHS_GENITIVE = [
-  "января",
-  "февраля",
-  "марта",
-  "апреля",
-  "мая",
-  "июня",
-  "июля",
-  "августа",
-  "сентября",
-  "октября",
-  "ноября",
-  "декабря",
-];
-const MONTHS_SHORT = ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"];
+type DateWords = {
+  weekdaysShort: string[];
+  weekdays: string[];
+  /** «14 октября» / «14 oktabr» */
+  months: string[];
+  monthsShort: string[];
+  today: string;
+  tomorrow: string;
+};
+
+// Sunday first, as in `Date.getDay()`.
+const dateWords: Localized<DateWords> = {
+  ru: {
+    weekdaysShort: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+    weekdays: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
+    months: [
+      "января",
+      "февраля",
+      "марта",
+      "апреля",
+      "мая",
+      "июня",
+      "июля",
+      "августа",
+      "сентября",
+      "октября",
+      "ноября",
+      "декабря",
+    ],
+    monthsShort: ["янв", "фев", "мар", "апр", "мая", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"],
+    today: "Сегодня",
+    tomorrow: "Завтра",
+  },
+  uz: {
+    weekdaysShort: ["Yak", "Du", "Se", "Chor", "Pay", "Ju", "Sha"],
+    weekdays: ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"],
+    months: [
+      "yanvar",
+      "fevral",
+      "mart",
+      "aprel",
+      "may",
+      "iyun",
+      "iyul",
+      "avgust",
+      "sentabr",
+      "oktabr",
+      "noyabr",
+      "dekabr",
+    ],
+    monthsShort: ["yan", "fev", "mar", "apr", "may", "iyn", "iyl", "avg", "sen", "okt", "noy", "dek"],
+    today: "Bugun",
+    tomorrow: "Ertaga",
+  },
+};
 
 export type BookingDay = {
   /** ISO date, e.g. "2026-10-14". */
@@ -40,19 +79,21 @@ function toIso(d: Date): string {
  * on Sundays only by prior arrangement (Пн–Сб 9:00–19:00).
  * Call on the client only — it reads the current date.
  */
-export function upcomingWorkingDays(from: Date, count: number): BookingDay[] {
+export function upcomingWorkingDays(from: Date, count: number, locale: Locale): BookingDay[] {
+  const words = dateWords[locale];
   const days: BookingDay[] = [];
   const cursor = new Date(from.getFullYear(), from.getMonth(), from.getDate());
   let offset = 0;
   while (days.length < count) {
     if (cursor.getDay() !== 0) {
       const dd = cursor.getDate();
-      const prefix = offset === 0 ? "Сегодня" : offset === 1 ? "Завтра" : WEEKDAYS_SHORT[cursor.getDay()];
+      const weekday = words.weekdaysShort[cursor.getDay()];
+      const prefix = offset === 0 ? words.today : offset === 1 ? words.tomorrow : weekday;
       days.push({
         iso: toIso(cursor),
-        chip: `${WEEKDAYS_SHORT[cursor.getDay()]} ${dd}`,
-        long: `${dd} ${MONTHS_GENITIVE[cursor.getMonth()]}`,
-        short: `${prefix}, ${dd} ${MONTHS_SHORT[cursor.getMonth()]}`,
+        chip: `${weekday} ${dd}`,
+        long: `${dd} ${words.months[cursor.getMonth()]}`,
+        short: `${prefix}, ${dd} ${words.monthsShort[cursor.getMonth()]}`,
       });
     }
     cursor.setDate(cursor.getDate() + 1);
@@ -98,7 +139,7 @@ export type SlotTime = {
   iso: string;
   /** «15:30» */
   time: string;
-  /** «Сегодня», «Завтра» or the weekday: «Понедельник». */
+  /** «Сегодня», «Завтра» or the weekday: «Понедельник» (in the page's language). */
   dayLabel: string;
 };
 
@@ -106,7 +147,8 @@ export type SlotTime = {
  * The first slot at least `leadHours` from `now`, on the clinic's clock: rounded up to the slot
  * grid, moved into working hours, past Sunday (by appointment only) to the next working day.
  */
-export function nearestSlot(now: Date, leadHours: number, hours: WorkingHours): SlotTime {
+export function nearestSlot(now: Date, leadHours: number, hours: WorkingHours, locale: Locale): SlotTime {
+  const words = dateWords[locale];
   const opens = toMinutes(hours.opens);
   const lastStart = toMinutes(hours.closes) - hours.stepMinutes;
   // The clinic's wall clock, read through the UTC getters.
@@ -124,6 +166,6 @@ export function nearestSlot(now: Date, leadHours: number, hours: WorkingHours): 
   return {
     iso: day.toISOString().slice(0, 10),
     time: toTime(minutes),
-    dayLabel: offset === 0 ? "Сегодня" : offset === 1 ? "Завтра" : WEEKDAYS[day.getUTCDay()],
+    dayLabel: offset === 0 ? words.today : offset === 1 ? words.tomorrow : words.weekdays[day.getUTCDay()],
   };
 }

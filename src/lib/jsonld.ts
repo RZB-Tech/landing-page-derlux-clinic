@@ -1,27 +1,31 @@
-import { checkups } from "@/data/checkups";
-import { clinic, primaryPhone } from "@/data/clinic";
-import { directions } from "@/data/directions";
-import { faq } from "@/data/faq";
-import { services } from "@/data/services";
+import { getCheckups } from "@/data/checkups";
+import { getClinic, primaryPhone } from "@/data/clinic";
+import { getDirections } from "@/data/directions";
+import { getFaq } from "@/data/faq";
+import { getServices } from "@/data/services";
+import { localeInfo, type Locale } from "@/i18n/config";
 import { siteUrl } from "./site";
 
 const clinicId = `${siteUrl}/#clinic`;
 
+/** Address of the home page in a language, e.g. «https://…/uz». */
+const pageUrl = (locale: Locale) => `${siteUrl}${localeInfo[locale].path}`;
+
 /** WebSite: tells Google the site name to show above the result. */
-function websiteJsonLd() {
+function websiteJsonLd(locale: Locale) {
   return {
     "@type": "WebSite",
-    "@id": `${siteUrl}/#website`,
-    url: `${siteUrl}/`,
-    name: clinic.name,
-    inLanguage: "ru",
+    "@id": `${pageUrl(locale)}#website`,
+    url: pageUrl(locale),
+    name: getClinic(locale).name,
+    inLanguage: localeInfo[locale].htmlLang,
     publisher: { "@id": clinicId },
   };
 }
 
 /** Lowest and highest «от» price across the price list and Check-up programs: «90000–1100000 UZS». */
 function priceRange() {
-  const prices = [...services, ...checkups].map((item) => item.price.from);
+  const prices = [...getServices("ru"), ...getCheckups("ru")].map((item) => item.price.from);
   return `${Math.min(...prices)}–${Math.max(...prices)} UZS`;
 }
 
@@ -29,14 +33,15 @@ function priceRange() {
  * schema.org MedicalClinic (a LocalBusiness). Reviews and the rating on the page are examples,
  * so they are intentionally left out until real, published reviews exist.
  */
-function clinicJsonLd() {
+function clinicJsonLd(locale: Locale) {
+  const clinic = getClinic(locale);
   const { address } = clinic;
   return {
     "@type": "MedicalClinic",
     "@id": clinicId,
     name: clinic.name,
     description: clinic.description,
-    url: `${siteUrl}/`,
+    url: pageUrl(locale),
     image: `${siteUrl}/images/hero.jpg`,
     logo: `${siteUrl}/images/logo.jpg`,
     telephone: primaryPhone.e164,
@@ -62,7 +67,7 @@ function clinicJsonLd() {
     priceRange: priceRange(),
     currenciesAccepted: "UZS",
     ...(clinic.profiles.length > 0 && { sameAs: clinic.profiles }),
-    availableService: directions.map((d) => ({
+    availableService: getDirections(locale).map((d) => ({
       "@type": "MedicalProcedure",
       name: d.name,
       description: d.description,
@@ -73,11 +78,12 @@ function clinicJsonLd() {
 }
 
 /** The FAQ section, question by question, as shown on the page. */
-function faqJsonLd() {
+function faqJsonLd(locale: Locale) {
   return {
     "@type": "FAQPage",
-    "@id": `${siteUrl}/#faq`,
-    mainEntity: faq.map((item) => ({
+    "@id": `${pageUrl(locale)}#faq`,
+    inLanguage: localeInfo[locale].htmlLang,
+    mainEntity: getFaq(locale).map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -86,10 +92,10 @@ function faqJsonLd() {
 }
 
 /** Structured data for the home page: site, clinic and FAQ in one graph. */
-export function homeJsonLd() {
+export function homeJsonLd(locale: Locale) {
   return {
     "@context": "https://schema.org",
-    "@graph": [websiteJsonLd(), clinicJsonLd(), faqJsonLd()],
+    "@graph": [websiteJsonLd(locale), clinicJsonLd(locale), faqJsonLd(locale)],
   };
 }
 

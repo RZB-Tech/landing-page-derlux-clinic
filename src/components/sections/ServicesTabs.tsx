@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Direction, Service } from "@/data/types";
+import type { Locale } from "@/i18n/config";
 import { cn, formatPriceFrom } from "@/lib/format";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { buttonClassName } from "@/components/ui/Button";
@@ -9,19 +10,20 @@ import { chipClassName } from "@/components/ui/Chip";
 import { Icon } from "@/components/ui/Icon";
 
 type ServicesTabsProps = {
+  locale: Locale;
   directions: Direction[];
   services: Service[];
-  copy: { cta: string; durationUnit: string };
+  copy: { cta: string; durationUnit: string; tabsLabel: string };
 };
 
-export function ServicesTabs({ directions, services, copy }: ServicesTabsProps) {
+export function ServicesTabs({ locale, directions, services, copy }: ServicesTabsProps) {
   const [activeId, setActiveId] = useState(directions[0]?.id);
 
   return (
     <div className="flex flex-col gap-10 md:gap-12 xl:gap-18">
       <div
         role="tablist"
-        aria-label="Направления"
+        aria-label={copy.tabsLabel}
         className="no-scrollbar -mx-5 flex gap-2 overflow-x-auto px-5 md:-mx-10 md:px-10 xl:mx-0 xl:flex-wrap xl:px-0"
       >
         {directions.map((d) => {
@@ -69,7 +71,7 @@ export function ServicesTabs({ directions, services, copy }: ServicesTabsProps) 
                       {s.durationMin} {copy.durationUnit}
                     </p>
                     <p className="text-title font-semibold whitespace-nowrap text-ink lg:w-50 lg:shrink-0 lg:text-right">
-                      {formatPriceFrom(s.price)}
+                      {formatPriceFrom(s.price, locale)}
                     </p>
                   </div>
                   <BookingTrigger
