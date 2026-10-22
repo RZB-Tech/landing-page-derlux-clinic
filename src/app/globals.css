@@ -168,6 +168,88 @@ html[data-intro-seen] .intro-splash {
   }
 }
 
+/* Motion. Everything is off for visitors who ask for reduced motion. */
+@utility reveal {
+  @media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+      transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+    &[data-in] {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+/* Hero entrance: plays by itself, no JS; --d staggers the pieces. */
+@utility rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@utility float {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: var(--d, 0ms);
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility marquee {
+  animation: marquee 38s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@utility dialog-in {
+  animation: dialog-in 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  &::backdrop {
+    animation: fade-in 0.35s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    &::backdrop {
+      animation: none;
+    }
+  }
+}
+/* Page does not scroll behind an open dialog. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 @utility no-scrollbar {
   scrollbar-width: none;
   &::-webkit-scrollbar {

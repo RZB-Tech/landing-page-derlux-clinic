@@ -13,7 +13,7 @@ export function Header({ locale }: { locale: Locale }) {
   const { headerCopy } = getHome(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line-soft bg-milk">
+    <header className="sticky top-0 z-40 border-b border-line-soft bg-milk/85 backdrop-blur-md">
       <div className="page-x flex items-center gap-2 py-3 sm:gap-4 md:gap-5 xl:gap-7 xl:py-5">
         <Logo label={headerCopy.logoLabel} />
         <nav aria-label={headerCopy.nav} className="hidden xl:block">

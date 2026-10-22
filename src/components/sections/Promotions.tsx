@@ -5,6 +5,7 @@ import { cn } from "@/lib/format";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { Chip } from "@/components/ui/Chip";
 import { Icon } from "@/components/ui/Icon";
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 /** «Предложения месяца» (Figma «09 Акции»). Carousel below xl. */
@@ -12,8 +13,8 @@ export function Promotions({ locale }: { locale: Locale }) {
   const { promotionsCopy, promotionsSection } = getHome(locale);
   return (
     <section id="promotions" aria-labelledby="promotions-title" className="bg-milk">
-      <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
-        <SectionHead titleId="promotions-title" {...promotionsSection} />
+      <div className="page-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:gap-14 xl:py-28">
+        <Reveal><SectionHead titleId="promotions-title" {...promotionsSection} /></Reveal>
         <ul className="snap-row xl:mx-0 xl:grid xl:grid-cols-3 xl:gap-6 xl:overflow-visible xl:px-0">
           {getPromotions(locale).map((promo) => {
             const dark = promo.featured;

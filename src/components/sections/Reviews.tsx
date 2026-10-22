@@ -20,7 +20,7 @@ export function Reviews({ locale }: { locale: Locale }) {
   const ratingSummary = getRatingSummary(locale);
   return (
     <section aria-labelledby="reviews-title" className="bg-sand">
-      <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
+      <div className="page-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:gap-14 xl:py-28">
         <SectionHead
           titleId="reviews-title"
           {...reviewsSection}

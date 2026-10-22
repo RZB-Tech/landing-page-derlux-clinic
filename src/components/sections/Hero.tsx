@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { getClinic } from "@/data/clinic";
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
@@ -39,16 +40,47 @@ function Social({ network, label, url }: SocialLink) {
   );
 }
 
+const delay = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
+
 export function Hero({ locale }: { locale: Locale }) {
   const clinic = getClinic(locale);
   const { hero, nearestSlotCopy } = getHome(locale);
+  const directions = getDirections(locale);
   return (
-    <section aria-labelledby="hero-title" className="bg-milk">
-      <div className="page-x flex flex-col gap-12 pt-10 pb-8 md:pt-16 md:pb-10 xl:flex-row xl:items-center xl:gap-16 xl:pt-22 xl:pb-12">
-        <div className="flex min-w-0 flex-col items-start gap-9 xl:max-w-160 xl:flex-1">
-          <AccentTitle as="h1" size="h1" id="hero-title" text={hero.title} className="text-ink" />
-          <p className="max-w-115 text-lead text-graphite">{hero.lead}</p>
-          <div className="flex flex-wrap gap-3">
+    <section aria-labelledby="hero-title" className="relative overflow-hidden bg-milk">
+      {/* Background: the clinic's reception under a linear gradient, solid milk behind the text. */}
+      <Image
+        src="/images/clinic-reception.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-linear-to-b from-milk via-milk/90 to-milk/60 xl:bg-linear-to-r xl:from-milk xl:via-milk/85 xl:to-milk/20"
+      />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-milk to-transparent" />
+
+      <div className="page-x relative flex flex-col gap-14 pt-8 pb-12 md:pt-14 xl:flex-row xl:items-center xl:gap-14 xl:pt-16 xl:pb-16">
+        <div className="flex min-w-0 flex-col items-start gap-8 xl:max-w-170 xl:flex-1">
+          <p
+            style={delay(0)}
+            className="rise flex items-center gap-2.5 rounded-full border border-line-stone bg-white/70 py-2 pr-4 pl-3 text-label-sm font-medium text-graphite backdrop-blur"
+          >
+            <span className="relative flex size-2.5">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
+              <span className="relative inline-flex size-2.5 rounded-full bg-accent" />
+            </span>
+            {clinic.address.locality} · {clinic.hoursShort}
+          </p>
+          <div style={delay(100)} className="rise">
+            <AccentTitle as="h1" size="h1" id="hero-title" text={hero.title} className="text-ink" />
+          </div>
+          <p style={delay(200)} className="rise max-w-125 text-lead text-graphite">
+            {hero.lead}
+          </p>
+          <div style={delay(300)} className="rise flex flex-wrap gap-3">
             <BookingTrigger className={buttonClassName({ variant: "primary" })}>
               <ButtonContent variant="primary" arrow>
                 {hero.primaryCta}
@@ -58,42 +90,65 @@ export function Hero({ locale }: { locale: Locale }) {
               {hero.secondaryCta.label}
             </LinkButton>
           </div>
-          <HeroBookingBar directions={getDirections(locale)} doctors={getDoctors(locale)} copy={hero.bookingBar} />
+          <div style={delay(400)} className="rise w-full">
+            <HeroBookingBar directions={directions} doctors={getDoctors(locale)} copy={hero.bookingBar} />
+          </div>
         </div>
 
-        {/* Visual: arched photo, «Ближайшая запись» card and the sterility badge. Positions are
-            percentages of the 576×720 Figma frame so the composition scales on smaller screens. */}
-        <div className="relative mx-auto aspect-576/720 w-full max-w-xl max-sm:mb-20 xl:w-[40%] xl:shrink-0 2xl:w-[45%]">
-          <div className="arch-hero absolute top-0 left-[9.7222%] aspect-520/700 w-[90.2778%] overflow-hidden bg-sand">
+        {/* Collage: a tall rounded photo, a round inset of the reception and two floating cards. */}
+        <div
+          style={delay(250)}
+          className="rise relative mx-auto w-full max-w-xl pb-16 max-sm:pb-24 xl:mx-0 xl:w-[44%] xl:max-w-none xl:shrink-0"
+        >
+          <div className="relative aspect-4/5 overflow-hidden rounded-[48px] bg-sand shadow-float">
             <Image
               src={heroImage.src}
               alt={hero.imageAlt}
               fill
               preload
-              sizes="(min-width: 1440px) 520px, (min-width: 1280px) 36vw, (min-width: 640px) 520px, 90vw"
+              sizes="(min-width: 1440px) 600px, (min-width: 1280px) 42vw, (min-width: 640px) 560px, 92vw"
               className="object-cover"
             />
+            <div aria-hidden className="absolute inset-0 bg-linear-to-t from-ink/25 via-transparent to-transparent" />
           </div>
+
+          <p
+            style={delay(1200)}
+            className="float absolute top-6 -right-2 flex items-center gap-2.5 rounded-full bg-white/90 py-3 pr-4.5 pl-3.5 text-label font-medium whitespace-nowrap text-ink shadow-float backdrop-blur md:-right-6"
+          >
+            <Icon name="shield-accent-20" size={20} />
+            {hero.badge}
+          </p>
 
           <NearestSlotCard
             locale={locale}
             offer={nearestSlot}
             hours={bookingHours}
             copy={nearestSlotCopy}
-            className="absolute top-[72.2222%] left-0 flex max-w-full flex-col items-start gap-2.5 rounded-tile bg-white p-5 shadow-float"
+            className="float absolute right-0 bottom-0 flex max-w-[calc(100%-7rem)] flex-col items-start gap-2.5 rounded-tile bg-white p-5 shadow-float md:right-4 md:max-w-[calc(100%-12rem)]"
           />
-
-          <p className="absolute top-[5.5556%] right-0 flex items-center gap-2.5 rounded-full bg-milk py-3 pr-4.5 pl-3.5 text-label font-medium whitespace-nowrap text-ink 2xl:right-auto 2xl:left-[57.2917%]">
-            <Icon name="shield-accent-20" size={20} />
-            {hero.badge}
-          </p>
         </div>
       </div>
 
-      {/* Social links: not in Figma, added at the clinic's request. No bottom padding: the next
-          section's top padding is the gap. */}
-      <div className="page-x">
-        <ul aria-label={hero.socialsLabel} className="flex flex-wrap gap-x-10 gap-y-4 border-t border-line-soft pt-6 md:pt-8">
+      {/* Running line of the clinic's directions. The list is doubled so it loops seamlessly. */}
+      <div aria-hidden className="relative overflow-hidden bg-accent py-5 text-on-dark">
+        <div className="marquee flex w-max">
+          {[0, 1].map((copy) => (
+            <ul key={copy} className="flex shrink-0 items-center">
+              {directions.map((d) => (
+                <li key={d.id} className="flex items-center font-display text-display-h3 italic">
+                  <span className="px-8">{d.name}</span>
+                  <span className="text-nude">✦</span>
+                </li>
+              ))}
+            </ul>
+          ))}
+        </div>
+      </div>
+
+      {/* Social links, not in Figma; added at the clinic's request. */}
+      <div className="page-x relative">
+        <ul aria-label={hero.socialsLabel} className="flex flex-wrap gap-x-10 gap-y-4 py-6 md:py-8">
           {clinic.socials.map((social) => (
             <li key={social.label}>
               <Social {...social} />

@@ -19,7 +19,7 @@ export function Concerns({ locale }: { locale: Locale }) {
   const { advantages, concerns, concernsSection, whyCard } = getHome(locale);
   return (
     <section aria-labelledby="concerns-title" className="bg-milk">
-      <div className="page-x flex flex-col gap-14 pb-20 md:pb-24 xl:gap-18 xl:pt-10 xl:pb-40">
+      <div className="page-x flex flex-col gap-14 pb-16 md:pb-20 xl:gap-14 xl:pt-10 xl:pb-28">
         <div className="flex flex-col gap-12 xl:flex-row xl:items-start xl:justify-between xl:gap-6">
           <div className="flex flex-col items-start gap-7 xl:w-155">
             <Caption>{concernsSection.caption}</Caption>

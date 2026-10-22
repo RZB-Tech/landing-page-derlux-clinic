@@ -113,6 +113,10 @@ export type Doctor = {
   /** «Высшая категория», … */
   category?: string;
   languages?: string[];
+  /** What patients come with — chips in the doctor's dialog (clinic's wish list, 2026-10-22). */
+  focus: string[];
+  /** Scans of diplomas and licences. TODO(clinic): the clinic sends them separately. */
+  documents?: Image[];
   photo: Image;
 };
 

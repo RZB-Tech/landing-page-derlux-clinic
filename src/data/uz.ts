@@ -55,10 +55,10 @@ export const serviceNamesUz: Record<string, { name: string }> = {
   "proc-dressing": { name: "Bog'lam qo'yish" },
 };
 
-export const doctorsUz: Record<string, { name: string; position: string }> = {
-  rakhimov: { name: "Rahimov Sarvar Samukovich", position: "Dermatolog" },
-  akbarova: { name: "Akbarova Dildora G'ayratovna", position: "Dermatolog" },
-  salomova: { name: "Salomova Shahlo Inoyatovna", position: "Ginekolog, UZI shifokori" },
+export const doctorsUz: Record<string, { name: string; position: string; focus: string[] }> = {
+  rakhimov: { name: "Rahimov Sarvar Samukovich", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"] },
+  akbarova: { name: "Akbarova Dildora G'ayratovna", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"] },
+  salomova: { name: "Salomova Shahlo Inoyatovna", position: "Ginekolog, UZI shifokori", focus: ["Bepushtlik", "Yallig'lanish kasalliklari", "Mioma va kistalar", "Homiladorlikni olib borish", "Kontratseptsiya tanlash", "Bachadon bo'yni eroziyasi", "Barcha a'zolar UZI"] },
 };
 
 export const checkupsUz: Record<

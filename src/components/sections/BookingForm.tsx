@@ -11,7 +11,6 @@ import { cn, fillTemplate, formatPriceFrom } from "@/lib/format";
 import { useBooking } from "@/components/booking/BookingProvider";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { buttonClassName } from "@/components/ui/Button";
-import { chipClassName } from "@/components/ui/Chip";
 import { Icon } from "@/components/ui/Icon";
 import { Select, type SelectGroup } from "@/components/ui/Select";
 
@@ -23,7 +22,6 @@ type BookingFormProps = {
   services: Service[];
   slots: string[];
   copy: HomeCopy["bookingForm"];
-  steps: string[];
   address: string;
   /** Offered when the request cannot be sent. */
   phone: Clinic["phones"][number];
@@ -44,12 +42,13 @@ function normalizePhone(input: string) {
   return digits.slice(0, 12);
 }
 
-export function BookingForm({ locale, directions, checkups, doctors, services, slots, copy, steps, address, phone }: BookingFormProps) {
+export function BookingForm({ locale, directions, checkups, doctors, services, slots, copy, address, phone }: BookingFormProps) {
   const { selection, days, day, update, reset } = useBooking();
   const [name, setName] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
   const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+  const [more, setMore] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const uid = useId();
   // Spam check on the server: people take seconds to fill in the form, bots do not. Same clock as
@@ -58,6 +57,11 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
   useEffect(() => {
     mountedAt.current = performance.now();
   }, []);
+
+  // «Записаться к врачу» / «Ближайшая запись» preselect a doctor or a time elsewhere on the page: show them.
+  useEffect(() => {
+    if (selection.doctorId || selection.time) setMore(true);
+  }, [selection.doctorId, selection.time]);
 
   const direction = directions.find((d) => d.id === selection.directionId);
   const checkup = checkups.find((c) => c.id === selection.checkupId);
@@ -71,11 +75,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
       : slots;
 
   const topicDone = Boolean(direction || checkup || selection.unsure);
-  const slotDone = Boolean(day && selection.time);
-  const contactsDone = name.trim().length > 0 && phoneDigits.length === 12;
-  const done = [topicDone, topicDone, slotDone, contactsDone];
-  const firstOpen = done.indexOf(false);
-  const step = firstOpen === -1 ? steps.length : firstOpen + 1;
 
   const topicValue = checkup ? `checkup:${checkup.id}` : direction ? `direction:${direction.id}` : selection.unsure ? "unsure" : "";
   const topicLabel = checkup
@@ -181,18 +180,7 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
 
   return (
     <FormCard>
-      <form noValidate onSubmit={onSubmit} className="flex flex-col gap-6" aria-label={copy.formLabel}>
-        <div className="flex flex-col gap-2.5">
-          <p className="text-caption font-medium text-graphite uppercase" aria-live="polite">
-            {fillTemplate(copy.stepLabel, { step, total: steps.length, name: steps[step - 1] })}
-          </p>
-          <div className="flex gap-1.5" aria-hidden>
-            {steps.map((s, i) => (
-              <span key={s} className={cn("h-1 flex-1 rounded-xs", i < step ? "bg-accent" : "bg-line-soft")} />
-            ))}
-          </div>
-        </div>
-
+      <form noValidate onSubmit={onSubmit} className="flex flex-col gap-4" aria-label={copy.formLabel}>
         <Field label={copy.directionLabel} htmlFor={`${uid}-topic`}>
           <SelectBox id={`${uid}-topic`} label={topicLabel} muted={!topicDone} value={topicValue} groups={topicGroups} onChange={onTopicChange} />
           {service && (
@@ -201,58 +189,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
             </p>
           )}
         </Field>
-
-        {direction && (
-          <Field label={copy.doctorLabel} htmlFor={`${uid}-doctor`}>
-            <SelectBox
-              id={`${uid}-doctor`}
-              label={doctorLabel}
-              value={selection.doctorId ?? ""}
-              groups={doctorGroups}
-              onChange={(v) => update({ doctorId: v || null })}
-            />
-          </Field>
-        )}
-
-        <fieldset className="flex flex-col gap-2.5">
-          <legend className="mb-2.5 text-small text-graphite">{copy.dateLabel}</legend>
-          <div className="flex min-h-10.5 flex-wrap gap-2">
-            {days.map((d) => {
-              const active = d.iso === day?.iso;
-              return (
-                <button
-                  key={d.iso}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => update({ dateIso: d.iso })}
-                  className={chipClassName(active ? "active" : "default", !active ? "hover:border-ink" : undefined)}
-                >
-                  {d.chip}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <fieldset className="flex flex-col gap-2.5">
-          <legend className="mb-2.5 text-small text-graphite">{copy.timeLabel}</legend>
-          <div className="flex flex-wrap gap-2">
-            {timeChips.map((t) => {
-              const active = t === selection.time;
-              return (
-                <button
-                  key={t}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => update({ time: active ? null : t })}
-                  className={chipClassName(active ? "active" : "default", !active ? "hover:border-ink" : undefined)}
-                >
-                  {t}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
 
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label={copy.nameLabel} htmlFor={`${uid}-name`} error={errors.name}>
@@ -293,6 +229,76 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
           </Field>
         </div>
 
+        <div className="flex flex-col gap-1">
+          <button
+            type="button"
+            aria-expanded={more}
+            aria-controls={`${uid}-more`}
+            onClick={() => setMore((v) => !v)}
+            className="group flex items-center gap-2 self-start text-label font-medium text-accent"
+          >
+            <span aria-hidden className="flex size-6 items-center justify-center rounded-full bg-accent-10 text-base leading-none">
+              {more ? "−" : "+"}
+            </span>
+            {copy.moreToggle}
+            <span className="text-label-sm font-normal text-graphite">· {copy.moreHint}</span>
+          </button>
+          <div id={`${uid}-more`} hidden={!more} className="flex flex-col gap-4 pt-3">
+        {direction && (
+              <Field label={copy.doctorLabel} htmlFor={`${uid}-doctor`}>
+                <SelectBox
+                  id={`${uid}-doctor`}
+                  label={doctorLabel}
+                  value={selection.doctorId ?? ""}
+                  groups={doctorGroups}
+                  onChange={(v) => update({ doctorId: v || null })}
+                />
+              </Field>
+            )}
+
+        <fieldset className="flex flex-col gap-2">
+              <legend className="mb-2 text-small text-graphite">{copy.dateLabel}</legend>
+              <div className="flex flex-wrap gap-1.5">
+                {days.map((d) => {
+                  const active = d.iso === day?.iso;
+                  return (
+                    <button
+                      key={d.iso}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => update({ dateIso: d.iso })}
+                      className={chipClass(active)}
+                    >
+                      {d.chip}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+            <fieldset className="flex flex-col gap-2">
+              <legend className="mb-2 text-small text-graphite">{copy.timeLabel}</legend>
+              <div className="flex flex-wrap gap-1.5">
+                {timeChips.map((t) => {
+                  const active = t === selection.time;
+                  return (
+                    <button
+                      key={t}
+                      type="button"
+                      aria-pressed={active}
+                      onClick={() => update({ time: active ? null : t })}
+                      className={chipClass(active)}
+                    >
+                      {t}
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+          </div>
+        </div>
+
         <div className="flex flex-col gap-1.5">
           <label className="flex cursor-pointer items-center gap-3">
             <input
@@ -329,7 +335,7 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
           </label>
         </div>
 
-        <button type="submit" disabled={status === "sending"} className={buttonClassName({ variant: "primary", fullWidth: true, className: "whitespace-normal" })}>
+        <button type="submit" disabled={status === "sending"} className="w-full rounded-full bg-accent px-6 py-3.5 text-button font-medium text-on-dark transition-colors duration-200 hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50">
           {submitLabel}
         </button>
         {status === "error" ? (
@@ -347,11 +353,19 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
   );
 }
 
+/** Compact chip for dates and times (the shared Chip is sized for the landing's large filters). */
+function chipClass(active: boolean) {
+  return cn(
+    "rounded-full border px-3.5 py-2 text-label-sm font-medium transition-colors duration-200",
+    active ? "border-transparent bg-ink text-on-dark" : "border-line-stone bg-white text-ink hover:border-ink",
+  );
+}
+
 const inputClassName =
-  "w-full rounded-field border border-line-stone bg-milk px-4.5 py-4 text-label font-medium text-ink placeholder:font-normal placeholder:text-graphite focus:border-accent focus:outline-none aria-invalid:border-accent";
+  "w-full rounded-field border border-line-stone bg-milk px-4 py-3 text-label font-medium text-ink placeholder:font-normal placeholder:text-graphite focus:border-accent focus:outline-none aria-invalid:border-accent";
 
 function FormCard({ children }: { children: ReactNode }) {
-  return <div className="w-full rounded-panel bg-white p-5 text-ink sm:p-8 md:p-10 xl:w-150 xl:shrink-0">{children}</div>;
+  return <div className="w-full rounded-card bg-white p-5 text-ink sm:p-6 xl:w-135 xl:shrink-0">{children}</div>;
 }
 
 function Field({ label, htmlFor, error, children }: { label: string; htmlFor: string; error?: string; children: ReactNode }) {
@@ -386,7 +400,7 @@ function SelectBox({ id, label, muted, value, groups, onChange }: SelectBoxProps
       value={value}
       onChange={onChange}
       groups={groups}
-      buttonClassName="flex w-full items-center gap-2 rounded-field border border-line-stone bg-milk px-4.5 py-4 transition-colors aria-expanded:border-accent focus-visible:border-accent"
+      buttonClassName="flex w-full items-center gap-2 rounded-field border border-line-stone bg-milk px-4 py-3 transition-colors aria-expanded:border-accent focus-visible:border-accent"
     >
       <span className={cn("truncate text-label font-medium", muted ? "text-graphite" : "text-ink")}>{label}</span>
       <span className="flex-1" />

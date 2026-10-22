@@ -7,6 +7,7 @@ import { AccentTitle } from "@/components/ui/AccentTitle";
 import { buttonClassName } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { Icon } from "@/components/ui/Icon";
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 
 /** «Всё обследование — за один визит» (Figma «06 Check-up»). Carousel below xl. */
@@ -14,8 +15,8 @@ export function Checkups({ locale }: { locale: Locale }) {
   const { checkupCopy, checkupSection } = getHome(locale);
   return (
     <section id="checkup" aria-labelledby="checkup-title" className="bg-sand">
-      <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
-        <SectionHead titleId="checkup-title" {...checkupSection} />
+      <div className="page-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:gap-14 xl:py-28">
+        <Reveal><SectionHead titleId="checkup-title" {...checkupSection} /></Reveal>
         <ul className="snap-row xl:mx-0 xl:grid xl:grid-cols-3 xl:gap-6 xl:overflow-visible xl:px-0">
           {getCheckups(locale).map((program) => {
             const dark = program.featured;

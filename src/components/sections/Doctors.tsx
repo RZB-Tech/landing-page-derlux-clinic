@@ -1,11 +1,12 @@
-import Image from "next/image";
+import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { getHome } from "@/data/home";
-import type { Doctor } from "@/data/types";
+import { getServices } from "@/data/services";
 import type { Locale } from "@/i18n/config";
-import { BookingTrigger } from "@/components/booking/BookingTrigger";
-import { buttonClassName } from "@/components/ui/Button";
+import { formatPriceFrom } from "@/lib/format";
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
+import { DoctorsGrid, type DoctorView } from "./DoctorsGrid";
 
 function yearsLabel(n: number, locale: Locale) {
   if (locale === "uz") return "yil";
@@ -16,50 +17,48 @@ function yearsLabel(n: number, locale: Locale) {
   return "лет";
 }
 
-/** «Стаж 12 лет · Высшая категория», from whichever of the two the clinic has given. */
-function doctorFacts({ experienceYears, category }: Doctor, experienceLabel: string, locale: Locale) {
-  const experience =
-    experienceYears !== undefined && `${experienceLabel} ${experienceYears} ${yearsLabel(experienceYears, locale)}`;
-  return [experience, category].filter(Boolean).join(" · ");
-}
-
 /**
- * «Врачи, которые слушают» (Figma «05 Врачи»). Carousel below md, grid above. Figma has four
- * 302px cards; the clinic has three doctors, so they share the row in three columns.
+ * «Врачи, которые слушают». Each card opens a dialog with the doctor's details. All data is
+ * resolved here, on the server, into ready-made strings for the client grid.
  */
 export function Doctors({ locale }: { locale: Locale }) {
   const { doctorsCopy, doctorsSection } = getHome(locale);
+  const directions = getDirections(locale);
+  const services = getServices(locale);
+
+  const doctors: DoctorView[] = getDoctors(locale).map((doctor) => {
+    const own = directions.filter((d) => doctor.directionIds.includes(d.id));
+    const seen = new Set<string>();
+    const priced = services
+      .filter((s) => doctor.directionIds.includes(s.directionId))
+      .filter((s) => !seen.has(s.name) && seen.add(s.name))
+      .slice(0, 5)
+      .map((s) => ({ id: s.id, name: s.name, price: formatPriceFrom(s.price, locale) }));
+    const facts = [
+      doctor.experienceYears !== undefined &&
+        `${doctorsCopy.experience} ${doctor.experienceYears} ${yearsLabel(doctor.experienceYears, locale)}`,
+      doctor.category,
+    ].filter((f): f is string => Boolean(f));
+    return {
+      id: doctor.id,
+      name: doctor.name,
+      position: doctor.position,
+      photo: doctor.photo,
+      facts,
+      focus: doctor.focus,
+      documents: doctor.documents ?? [],
+      directions: own.map((d) => d.name),
+      services: priced,
+    };
+  });
+
   return (
     <section id="doctors" aria-labelledby="doctors-title" className="bg-milk">
-      <div className="page-x flex flex-col gap-10 py-20 md:gap-12 md:py-24 xl:gap-18 xl:py-40">
-        <SectionHead titleId="doctors-title" {...doctorsSection} />
-        <ul className="snap-row md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
-          {getDoctors(locale).map((doctor) => {
-            const facts = doctorFacts(doctor, doctorsCopy.experience, locale);
-            return (
-              <li key={doctor.id} className="flex w-70 flex-col items-start gap-2.5 md:w-auto">
-                <div className="arch-doctor relative aspect-302/392 w-full overflow-hidden bg-sand">
-                  <Image
-                    src={doctor.photo.src}
-                    alt={doctor.photo.alt}
-                    fill
-                    sizes="(min-width: 1440px) 411px, (min-width: 768px) 30vw, 280px"
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="text-title font-semibold text-ink">{doctor.name}</h3>
-                <p className="text-small text-graphite">{doctor.position}</p>
-                {facts && <p className="text-small text-graphite">{facts}</p>}
-                <BookingTrigger
-                  preset={{ doctorId: doctor.id }}
-                  className={buttonClassName({ variant: "secondary", fullWidth: true, className: "mt-auto" })}
-                >
-                  {doctorsCopy.cta}
-                </BookingTrigger>
-              </li>
-            );
-          })}
-        </ul>
+      <div className="page-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:py-28">
+        <Reveal>
+          <SectionHead titleId="doctors-title" {...doctorsSection} link={undefined} />
+        </Reveal>
+        <DoctorsGrid doctors={doctors} copy={doctorsCopy} />
       </div>
     </section>
   );

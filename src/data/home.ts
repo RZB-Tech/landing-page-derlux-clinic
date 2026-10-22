@@ -94,8 +94,7 @@ const ru = {
   pricesSection: {
     caption: "Услуги и цены",
     title: "Цены известны *заранее*",
-    lead: "Точную стоимость врач назовёт на консультации.",
-    link: { label: "Весь прайс", href: "#prices" },
+    lead: "Основные услуги и стоимость. Точную цену врач назовёт на приёме.",
   } satisfies SectionHeading,
   pricesCopy: { cta: "Записаться", durationUnit: "мин", tabsLabel: "Направления" },
 
@@ -104,7 +103,17 @@ const ru = {
     title: "Врачи, которые *слушают*",
     link: { label: "Все врачи", href: "#doctors" },
   } satisfies SectionHeading,
-  doctorsCopy: { cta: "Записаться к врачу", experience: "Стаж" },
+  doctorsCopy: {
+    cta: "Записаться к врачу",
+    experience: "Стаж",
+    details: "О враче",
+    close: "Закрыть",
+    focusTitle: "С чем обращаются",
+    directionsTitle: "Направления",
+    servicesTitle: "Услуги и цены",
+    documentsTitle: "Дипломы и лицензии",
+    documentsSoon: "Скоро появятся",
+  },
 
   checkupSection: {
     caption: "Check-up программы",
@@ -135,7 +144,8 @@ const ru = {
 
   bookingForm: {
     formLabel: "Онлайн-запись",
-    stepLabel: "Шаг {step} из {total} · {name}",
+    moreToggle: "Выбрать врача, дату и время",
+    moreHint: "необязательно",
     directionLabel: "Направление",
     directionPlaceholder: "Выберите направление",
     directionUnsure: "Не знаю — подскажите",
@@ -282,8 +292,7 @@ const uz: HomeCopy = {
   pricesSection: {
     caption: "Xizmatlar va narxlar",
     title: "Narxlar *oldindan* ma'lum",
-    lead: "Aniq narxni shifokor maslahatda aytadi.",
-    link: { label: "Butun narxnoma", href: "#prices" },
+    lead: "Asosiy xizmatlar va narxlar. Aniq narxni shifokor qabulda aytadi.",
   },
   pricesCopy: { cta: "Yozilish", durationUnit: "daq", tabsLabel: "Yo'nalishlar" },
 
@@ -292,7 +301,17 @@ const uz: HomeCopy = {
     title: "Tinglaydigan *shifokorlar*",
     link: { label: "Barcha shifokorlar", href: "#doctors" },
   },
-  doctorsCopy: { cta: "Shifokorga yozilish", experience: "Tajriba" },
+  doctorsCopy: {
+    cta: "Shifokorga yozilish",
+    experience: "Tajriba",
+    details: "Shifokor haqida",
+    close: "Yopish",
+    focusTitle: "Nima bilan murojaat qilinadi",
+    directionsTitle: "Yo'nalishlar",
+    servicesTitle: "Xizmatlar va narxlar",
+    documentsTitle: "Diplomlar va litsenziyalar",
+    documentsSoon: "Tez orada qo'shiladi",
+  },
 
   checkupSection: {
     caption: "Check-up dasturlari",
@@ -323,7 +342,8 @@ const uz: HomeCopy = {
 
   bookingForm: {
     formLabel: "Onlayn yozilish",
-    stepLabel: "{step}-qadam / {total} · {name}",
+    moreToggle: "Shifokor, sana va vaqtni tanlash",
+    moreHint: "ixtiyoriy",
     directionLabel: "Yo'nalish",
     directionPlaceholder: "Yo'nalishni tanlang",
     directionUnsure: "Bilmayman — maslahat bering",
