@@ -3,7 +3,9 @@ import { getClinic, primaryPhone } from "@/data/clinic";
 import { getDirections } from "@/data/directions";
 import { getFaq } from "@/data/faq";
 import { getServices } from "@/data/services";
+import type { Direction } from "@/data/types";
 import { localeInfo, type Locale } from "@/i18n/config";
+import { directionPath, homePath } from "./routes";
 import { siteUrl } from "./site";
 
 const clinicId = `${siteUrl}/#clinic`;
@@ -96,6 +98,48 @@ export function homeJsonLd(locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@graph": [websiteJsonLd(locale), clinicJsonLd(locale), faqJsonLd(locale)],
+  };
+}
+
+/**
+ * Structured data for a direction's page: breadcrumbs and the medical service with its «от» price.
+ * The clinic itself is described on the home page; here it is referenced by its `@id`.
+ */
+export function directionJsonLd(locale: Locale, direction: Direction, labels: { home: string; directions: string }) {
+  const clinic = getClinic(locale);
+  const url = `${siteUrl}${directionPath(locale, direction.slug)}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: labels.home, item: `${siteUrl}${homePath(locale)}` },
+          { "@type": "ListItem", position: 2, name: labels.directions, item: `${siteUrl}${homePath(locale)}#directions` },
+          { "@type": "ListItem", position: 3, name: direction.name, item: url },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: direction.name,
+        description: direction.description,
+        url,
+        image: `${siteUrl}${direction.image.src}`,
+        inLanguage: localeInfo[locale].htmlLang,
+        areaServed: { "@type": "City", name: clinic.address.locality },
+        provider: { "@type": "MedicalClinic", "@id": clinicId, name: clinic.name, url: `${siteUrl}${homePath(locale)}` },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: direction.priceFrom.currency,
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: direction.priceFrom.from,
+            priceCurrency: direction.priceFrom.currency,
+          },
+        },
+      },
+    ],
   };
 }
 

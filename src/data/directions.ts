@@ -16,7 +16,7 @@ const directionsRu: Direction[] = [
     description:
       "Лечение кожных заболеваний (угри, псориаз, нейродермит, экзема, алопеция, витилиго), удаление папиллом, бородавок, мозолей, кондилом, контагиозного моллюска, постакне, пигментация.",
     priceFrom: uzs(150_000),
-    image: { src: "/images/direction-derm.jpg", alt: "Дерматология", width: 302, height: 240 },
+    image: { src: "/images/direction-derm.jpg", alt: "Дерматология", width: 1600, height: 1067 },
     specialist: "Дерматолог",
   },
   {
@@ -27,7 +27,7 @@ const directionsRu: Direction[] = [
     summary: "Ногти, пигментация, рубцы",
     description: "Лазерная коррекция вросшего ногтя, удаление пигментации, лечение рубцов и постакне.",
     priceFrom: uzs(300_000),
-    image: { src: "/images/direction-laser.jpg", alt: "Лазерная дерматология", width: 302, height: 240 },
+    image: { src: "/images/direction-laser.jpg", alt: "Лазерная дерматология", width: 1600, height: 2133 },
     specialist: "Дерматолог",
   },
   {
@@ -38,7 +38,7 @@ const directionsRu: Direction[] = [
     summary: "RF-лифтинг, стрии, целлюлит",
     description: "Антивозрастные процедуры (RF-лифтинг), антицеллюлитные аппаратные процедуры, стрии и растяжки.",
     priceFrom: uzs(250_000),
-    image: { src: "/images/direction-aest.jpg", alt: "Эстетическая медицина", width: 302, height: 240 },
+    image: { src: "/images/direction-aest.jpg", alt: "Эстетическая медицина", width: 1600, height: 1067 },
     specialist: "Косметолог",
   },
   {
@@ -50,7 +50,7 @@ const directionsRu: Direction[] = [
     description:
       "Бесплодие, воспалительные заболевания, миома, киста, ведение беременности, подбор контрацепции, лечение эрозии шейки матки.",
     priceFrom: uzs(180_000),
-    image: { src: "/images/direction-gyn.jpg", alt: "Гинекология", width: 302, height: 240 },
+    image: { src: "/images/direction-gyn.jpg", alt: "Гинекология", width: 1400, height: 2099 },
     specialist: "Гинеколог",
   },
   {
@@ -62,7 +62,7 @@ const directionsRu: Direction[] = [
     description:
       "Щитовидная железа у детей и взрослых, задержка физического развития, избыточная масса тела, метаболический синдром, эндокринное бесплодие у женщин, сахарный диабет 2 типа.",
     priceFrom: uzs(180_000),
-    image: { src: "/images/direction-endo.jpg", alt: "Эндокринология", width: 302, height: 240 },
+    image: { src: "/images/direction-endo.jpg", alt: "Эндокринология", width: 1600, height: 2038 },
     specialist: "Эндокринолог",
   },
   {
@@ -73,7 +73,7 @@ const directionsRu: Direction[] = [
     summary: "Все органы, беременность",
     description: "Ультразвуковая диагностика всех органов, в том числе при беременности.",
     priceFrom: uzs(120_000),
-    image: { src: "/images/direction-uzi.jpg", alt: "УЗИ всех органов", width: 302, height: 240 },
+    image: { src: "/images/direction-uzi.jpg", alt: "УЗИ всех органов", width: 1600, height: 2400 },
     specialist: "Врач УЗИ",
   },
   {
@@ -84,7 +84,7 @@ const directionsRu: Direction[] = [
     summary: "Все виды анализов",
     description: "Все виды анализов.",
     priceFrom: uzs(35_000),
-    image: { src: "/images/direction-lab.jpg", alt: "Лаборатория", width: 302, height: 240 },
+    image: { src: "/images/direction-lab.jpg", alt: "Лаборатория", width: 1600, height: 1067 },
     specialist: "Лаборатория",
   },
   {
@@ -95,7 +95,7 @@ const directionsRu: Direction[] = [
     summary: "Капельницы, инъекции",
     description: "Капельницы, внутривенные и внутримышечные инъекции.",
     priceFrom: uzs(50_000),
-    image: { src: "/images/direction-proc.jpg", alt: "Процедурный кабинет", width: 302, height: 240 },
+    image: { src: "/images/direction-proc.jpg", alt: "Процедурный кабинет", width: 1600, height: 1059 },
     specialist: "Медсестра",
   },
 ];

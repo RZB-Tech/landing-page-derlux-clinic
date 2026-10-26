@@ -1,4 +1,5 @@
 import type { Locale, Localized } from "@/i18n/config";
+import { homeAnchor } from "@/lib/routes";
 import type { Clinic, Link, SocialLink } from "./types";
 
 // TODO(clinic): the clinic's own Telegram link. Until then — chat by phone number.
@@ -103,18 +104,20 @@ const nav: Localized<Link[]> = {
     { label: "Направления", href: "#directions" },
     { label: "Цены", href: "#prices" },
     { label: "Врачи", href: "#doctors" },
-    { label: "Check-up", href: "#checkup" },
+    // { label: "Check-up", href: "#checkup" }, // hidden with the Check-up section, see page.tsx
     { label: "Контакты", href: "#contacts" },
   ],
   uz: [
     { label: "Yo'nalishlar", href: "#directions" },
     { label: "Narxlar", href: "#prices" },
     { label: "Shifokorlar", href: "#doctors" },
-    { label: "Check-up", href: "#checkup" },
+    // { label: "Check-up", href: "#checkup" }, // hidden with the Check-up section, see page.tsx
     { label: "Aloqa", href: "#contacts" },
   ],
 };
 
-export const getMainNav = (locale: Locale) => nav[locale];
+// The links point at the home page's sections, so they work from the direction pages too.
+export const getMainNav = (locale: Locale): Link[] =>
+  nav[locale].map((item) => ({ ...item, href: homeAnchor(locale, item.href as `#${string}`) }));
 
 export const bookingHref = "#booking";

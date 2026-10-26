@@ -6,7 +6,18 @@ import { cn } from "@/lib/format";
  * RU / UZ switch: two plain links, so it works without JS and search engines follow both
  * languages (`hrefLang`). The current language is marked with `aria-current`.
  */
-export function LanguageSwitch({ locale, label, className }: { locale: Locale; label: string; className?: string }) {
+export function LanguageSwitch({
+  locale,
+  label,
+  paths,
+  className,
+}: {
+  locale: Locale;
+  label: string;
+  /** This page in each language; the home page of each language when omitted. */
+  paths?: Record<Locale, string>;
+  className?: string;
+}) {
   return (
     <nav aria-label={label} className={cn("flex rounded-full border border-line-stone bg-white p-0.5", className)}>
       {locales.map((item) => {
@@ -15,7 +26,7 @@ export function LanguageSwitch({ locale, label, className }: { locale: Locale; l
         return (
           <Link
             key={item}
-            href={info.path}
+            href={paths?.[item] ?? info.path}
             hrefLang={info.htmlLang}
             lang={info.htmlLang}
             title={info.name}

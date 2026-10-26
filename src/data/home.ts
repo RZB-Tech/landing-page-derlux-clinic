@@ -27,7 +27,7 @@ const ru = {
   },
 
   hero: {
-    title: "Здоровая *кожа* начинается с причины",
+    title: "Здоровая *кожа* начинается с правильного диагноза",
     lead: "Дерматолог, гинеколог и эндокринолог — рядом. Анализы и УЗИ — здесь же.",
     primaryCta: "Записаться на приём",
     secondaryCta: { label: "Подобрать врача", href: "#doctors" },
@@ -97,6 +97,27 @@ const ru = {
     lead: "Основные услуги и стоимость. Точную цену врач назовёт на приёме.",
   } satisfies SectionHeading,
   pricesCopy: { cta: "Записаться", durationUnit: "мин", tabsLabel: "Направления" },
+
+  // The page of one direction («/directions/…»).
+  directionPage: {
+    metaTitle: "{name} в Ташкенте",
+    metaDescription: "{description} Цены известны заранее, онлайн-запись за минуту. Ташкент, {address}.",
+    breadcrumbLabel: "Навигация по страницам",
+    breadcrumbHome: "Главная",
+    breadcrumbDirections: "Направления",
+    caption: "Направление",
+    priceLabel: "Стоимость",
+    specialistLabel: "Специалист",
+    cta: "Записаться на приём",
+    servicesCaption: "Услуги и цены",
+    servicesTitle: "Что входит и *сколько стоит*",
+    servicesNote: "Точную цену врач назовёт на приёме.",
+    doctorsCaption: "Врачи",
+    doctorsTitle: "Приём ведут *врачи*",
+    doctorCta: "Записаться к врачу",
+    othersCaption: "Другие направления",
+    othersTitle: "Что ещё *мы лечим*",
+  },
 
   doctorsSection: {
     caption: "Врачи",
@@ -226,7 +247,7 @@ const uz: HomeCopy = {
   },
 
   hero: {
-    title: "Sog'lom *teri* sababdan boshlanadi",
+    title: "*Teri* salomatligi to'g'ri tashxisdan boshlanadi",
     lead: "Dermatolog, ginekolog va endokrinolog — yonma-yon. Tahlillar va UZI ham shu yerda.",
     primaryCta: "Qabulga yozilish",
     secondaryCta: { label: "Shifokor tanlash", href: "#doctors" },
@@ -295,6 +316,26 @@ const uz: HomeCopy = {
     lead: "Asosiy xizmatlar va narxlar. Aniq narxni shifokor qabulda aytadi.",
   },
   pricesCopy: { cta: "Yozilish", durationUnit: "daq", tabsLabel: "Yo'nalishlar" },
+
+  directionPage: {
+    metaTitle: "{name} Toshkentda",
+    metaDescription: "{description} Narxlar oldindan ma'lum, onlayn yozilish bir daqiqada. Toshkent, {address}.",
+    breadcrumbLabel: "Sahifa yo'li",
+    breadcrumbHome: "Bosh sahifa",
+    breadcrumbDirections: "Yo'nalishlar",
+    caption: "Yo'nalish",
+    priceLabel: "Narxi",
+    specialistLabel: "Mutaxassis",
+    cta: "Qabulga yozilish",
+    servicesCaption: "Xizmatlar va narxlar",
+    servicesTitle: "Nimalar kiradi va *qancha turadi*",
+    servicesNote: "Aniq narxni shifokor qabulda aytadi.",
+    doctorsCaption: "Shifokorlar",
+    doctorsTitle: "Qabulni *shifokorlar* olib boradi",
+    doctorCta: "Shifokorga yozilish",
+    othersCaption: "Boshqa yo'nalishlar",
+    othersTitle: "Yana *nimalarni* davolaymiz",
+  },
 
   doctorsSection: {
     caption: "Shifokorlar",
@@ -421,7 +462,7 @@ export const nearestSlot: NearestSlot = {
 // 2026-10-15. Decorative, so no alt text. TODO(clinic): the original file — this copy came
 // through Telegram at 1280×720 and is soft on large screens.
 export const introSplash = {
-  image: { src: "/images/clinic-reception.jpg", width: 1280, height: 720 },
+  image: { src: "/images/clinic-reception.png", width: 1672, height: 941 },
   durationMs: 2000,
 };
 

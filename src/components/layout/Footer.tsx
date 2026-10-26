@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/config";
 import { LinkButton } from "@/components/ui/Button";
 import { Logo } from "./Logo";
 
-export function Footer({ locale }: { locale: Locale }) {
+export function Footer({ locale, logoHref }: { locale: Locale; logoHref?: string }) {
   const clinic = getClinic(locale);
   const mainNav = getMainNav(locale);
   const { footerCopy, headerCopy } = getHome(locale);
@@ -12,7 +12,7 @@ export function Footer({ locale }: { locale: Locale }) {
     <footer className="bg-ink text-on-dark">
       <div className="page-x flex flex-col pt-16 pb-10 xl:pt-24">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <Logo variant="footer" label={headerCopy.logoLabel} />
+          <Logo variant="footer" label={headerCopy.logoLabel} href={logoHref} />
           <div className="flex flex-wrap items-center gap-4">
             <a href={`tel:${primaryPhone.e164}`} className="text-title font-semibold whitespace-nowrap">
               {primaryPhone.display}
