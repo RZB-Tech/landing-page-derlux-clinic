@@ -37,15 +37,31 @@ type DoctorsGridProps = {
     directionsTitle: string;
     documentsTitle: string;
     documentsSoon: string;
+    previous: string;
+    next: string;
   };
 };
 
 /** Doctor cards; a click opens a native modal <dialog> with the details (Esc and backdrop close it). */
 export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const previewRef = useRef<HTMLDialogElement>(null);
   const [openId, setOpenId] = useState<string | null>(null);
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null);
   const { update } = useBooking();
   const doctor = doctors.find((d) => d.id === openId);
+  const documents = doctor?.documents ?? [];
+  const previewDoc = previewIndex === null ? undefined : documents[previewIndex];
+
+  // A second modal on top of the doctor's dialog: a scan at full size, with arrows between the scans.
+  const openPreview = (index: number) => {
+    setPreviewIndex(index);
+    requestAnimationFrame(() => {
+      if (!previewRef.current?.open) previewRef.current?.showModal();
+    });
+  };
+  const step = (delta: number) =>
+    setPreviewIndex((i) => (i === null ? i : (i + delta + documents.length) % documents.length));
 
   const open = (id: string) => {
     setOpenId(id);
@@ -162,9 +178,22 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
             <DialogBlock title={copy.documentsTitle}>
               <ul className="no-scrollbar -mx-6 flex gap-3 overflow-x-auto px-6 md:mx-0 md:px-0">
                 {doctor.documents.length > 0
-                  ? doctor.documents.map((doc) => (
-                      <li key={doc.src} className="relative aspect-3/4 w-20 shrink-0 overflow-hidden rounded-field bg-white md:w-24">
-                        <Image src={doc.src} alt={doc.alt} fill sizes="128px" className="object-cover" />
+                  ? doctor.documents.map((doc, i) => (
+                      <li key={doc.src} className="shrink-0">
+                        <button
+                          type="button"
+                          onClick={() => openPreview(i)}
+                          aria-haspopup="dialog"
+                          className="group relative block aspect-3/4 w-20 cursor-zoom-in overflow-hidden rounded-field bg-white md:w-24"
+                        >
+                          <Image
+                            src={doc.src}
+                            alt={doc.alt}
+                            fill
+                            sizes="128px"
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          />
+                        </button>
                       </li>
                     ))
                   : [0, 1, 2, 3].map((i) => (
@@ -202,6 +231,68 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
                 <Icon name="arrow-right-on-dark" size={20} />
               </a>
             </div>
+          </div>
+        )}
+      </dialog>
+
+      <dialog
+        ref={previewRef}
+        aria-label={copy.documentsTitle}
+        onClose={() => setPreviewIndex(null)}
+        onClick={(e) => e.target === previewRef.current && previewRef.current?.close()}
+        onKeyDown={(e) => {
+          if (e.key === "ArrowLeft") step(-1);
+          if (e.key === "ArrowRight") step(1);
+        }}
+        className="dialog-in m-auto max-h-dvh w-full max-w-none bg-transparent p-0 text-on-dark backdrop:bg-ink/85 backdrop:backdrop-blur-sm"
+      >
+        {previewDoc && (
+          <div className="relative flex h-dvh items-center justify-center p-4 md:p-10">
+            <Image
+              src={previewDoc.src}
+              alt={previewDoc.alt}
+              width={previewDoc.width}
+              height={previewDoc.height}
+              sizes="(min-width: 1024px) 70vw, 100vw"
+              className="h-auto max-h-full w-auto max-w-full rounded-field bg-white object-contain shadow-float"
+            />
+            <button
+              type="button"
+              onClick={() => previewRef.current?.close()}
+              aria-label={copy.close}
+              className="absolute top-4 right-4 flex size-11 items-center justify-center rounded-full bg-white text-ink shadow-bar transition-transform duration-200 hover:rotate-90 md:top-6 md:right-6"
+            >
+              <span aria-hidden className="text-2xl leading-none">
+                ×
+              </span>
+            </button>
+            {documents.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => step(-1)}
+                  aria-label={copy.previous}
+                  className="absolute top-1/2 left-3 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-ink shadow-bar md:left-6"
+                >
+                  <span aria-hidden className="text-2xl leading-none">
+                    ‹
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => step(1)}
+                  aria-label={copy.next}
+                  className="absolute top-1/2 right-3 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-ink shadow-bar md:right-6"
+                >
+                  <span aria-hidden className="text-2xl leading-none">
+                    ›
+                  </span>
+                </button>
+                <p className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-ink/70 px-4 py-1.5 text-label-sm md:bottom-6">
+                  {(previewIndex ?? 0) + 1} / {documents.length}
+                </p>
+              </>
+            )}
           </div>
         )}
       </dialog>

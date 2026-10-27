@@ -138,6 +138,8 @@ const ru = {
     servicesTitle: "Услуги и цены",
     documentsTitle: "Дипломы и лицензии",
     documentsSoon: "Скоро появятся",
+    previous: "Предыдущий документ",
+    next: "Следующий документ",
   },
 
   checkupSection: {
@@ -360,6 +362,8 @@ const uz: HomeCopy = {
     servicesTitle: "Xizmatlar va narxlar",
     documentsTitle: "Diplomlar va litsenziyalar",
     documentsSoon: "Tez orada qo'shiladi",
+    previous: "Oldingi hujjat",
+    next: "Keyingi hujjat",
   },
 
   checkupSection: {

@@ -22,6 +22,9 @@ import { buttonClassName, ButtonContent, LinkButton } from "@/components/ui/Butt
 import { Icon } from "@/components/ui/Icon";
 import { Caption } from "@/components/ui/SectionHead";
 
+// The page is fully prerendered (below), so it is not checked for instant navigation (dev-only insight).
+export const instant = false;
+
 // Every direction in both languages is built ahead of time.
 export function generateStaticParams() {
   return locales.flatMap((lang) => getDirections("ru").map((d) => ({ lang, slug: d.slug })));
