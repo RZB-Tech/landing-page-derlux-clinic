@@ -16,7 +16,7 @@ export function Services({ locale }: { locale: Locale }) {
           <SectionHead titleId="prices-title" {...pricesSection} />
         </Reveal>
         <Reveal>
-          <ServicesTabs locale={locale} directions={getDirections(locale)} services={getServices(locale)} copy={pricesCopy} />
+          <ServicesTabs directions={getDirections(locale)} services={getServices(locale)} copy={pricesCopy} />
         </Reveal>
       </div>
     </section>

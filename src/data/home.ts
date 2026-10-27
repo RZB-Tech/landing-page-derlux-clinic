@@ -93,9 +93,9 @@ const ru = {
   ],
 
   pricesSection: {
-    caption: "Услуги и цены",
-    title: "Цены известны *заранее*",
-    lead: "Основные услуги и стоимость. Точную цену врач назовёт на приёме.",
+    caption: "Услуги",
+    title: "Наши *услуги*",
+    lead: "Основные услуги клиники по направлениям.",
   } satisfies SectionHeading,
   pricesCopy: { cta: "Записаться", durationUnit: "мин", tabsLabel: "Направления" },
 
@@ -316,9 +316,9 @@ const uz: HomeCopy = {
   ],
 
   pricesSection: {
-    caption: "Xizmatlar va narxlar",
-    title: "Narxlar *oldindan* ma'lum",
-    lead: "Asosiy xizmatlar va narxlar. Aniq narxni shifokor qabulda aytadi.",
+    caption: "Xizmatlar",
+    title: "Bizning *xizmatlar*",
+    lead: "Klinikaning yo'nalishlar bo'yicha asosiy xizmatlari.",
   },
   pricesCopy: { cta: "Yozilish", durationUnit: "daq", tabsLabel: "Yo'nalishlar" },
 

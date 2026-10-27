@@ -3,25 +3,21 @@
 import Image from "next/image";
 import { useState } from "react";
 import type { Direction, Service } from "@/data/types";
-import type { Locale } from "@/i18n/config";
-import { cn, formatAmount, formatPriceFrom } from "@/lib/format";
+import { cn } from "@/lib/format";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { Icon } from "@/components/ui/Icon";
 
 type ServicesTabsProps = {
-  locale: Locale;
   directions: Direction[];
   services: Service[];
   copy: { cta: string; durationUnit: string; tabsLabel: string };
 };
 
-const currency = (locale: Locale) => (locale === "uz" ? "so'mdan" : "сум");
-
 /**
- * Picker of directions (thumbnail + name) on the left, a short price list on the right. Rows are
- * compact on purpose: name, time and price on one line.
+ * Picker of directions (thumbnail + name) on the left, a short list of services on the right. Rows are
+ * compact on purpose: name and time on one line. Prices are not shown here (clinic's decision).
  */
-export function ServicesTabs({ locale, directions, services, copy }: ServicesTabsProps) {
+export function ServicesTabs({ directions, services, copy }: ServicesTabsProps) {
   const [activeId, setActiveId] = useState(directions[0]?.id);
 
   return (
@@ -53,9 +49,6 @@ export function ServicesTabs({ locale, directions, services, copy }: ServicesTab
               </span>
               <span className="flex min-w-0 flex-col">
                 <span className="text-label font-semibold whitespace-nowrap xl:whitespace-normal">{d.shortName}</span>
-                <span className={cn("hidden text-label-sm xl:block", active ? "text-on-dark/75" : "text-graphite")}>
-                  {formatPriceFrom(d.priceFrom, locale)}
-                </span>
               </span>
               <Icon
                 name={active ? "arrow-right-on-dark" : "arrow-right-ink"}
@@ -98,10 +91,6 @@ export function ServicesTabs({ locale, directions, services, copy }: ServicesTab
                       {s.durationMin} {copy.durationUnit}
                     </p>
                   </div>
-                  <p className="text-right text-label font-semibold whitespace-nowrap text-ink">
-                    {formatAmount(s.price.from)}
-                    <span className="text-label-sm font-normal text-graphite"> {currency(locale)}</span>
-                  </p>
                   <BookingTrigger
                     preset={{ directionId: d.id, serviceId: s.id }}
                     aria-label={`${copy.cta}: ${s.name}`}
