@@ -6,7 +6,6 @@ import type { HomeCopy } from "@/data/home";
 import type { Locale } from "@/i18n/config";
 import { submitBooking } from "@/actions/booking";
 import { trackGoal } from "@/lib/analytics";
-import { toMinutes } from "@/lib/dates";
 import { cn, fillTemplate, formatPriceFrom } from "@/lib/format";
 import { useBooking } from "@/components/booking/BookingProvider";
 import { AccentTitle } from "@/components/ui/AccentTitle";
@@ -20,7 +19,6 @@ type BookingFormProps = {
   checkups: CheckupProgram[];
   doctors: Doctor[];
   services: Service[];
-  slots: string[];
   copy: HomeCopy["bookingForm"];
   address: string;
   /** Offered when the request cannot be sent. */
@@ -42,8 +40,8 @@ function normalizePhone(input: string) {
   return digits.slice(0, 12);
 }
 
-export function BookingForm({ locale, directions, checkups, doctors, services, slots, copy, address, phone }: BookingFormProps) {
-  const { selection, days, day, update, reset } = useBooking();
+export function BookingForm({ locale, directions, checkups, doctors, services, copy, address, phone }: BookingFormProps) {
+  const { selection, update, reset } = useBooking();
   const [name, setName] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
   const [consent, setConsent] = useState(false);
@@ -58,22 +56,14 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
     mountedAt.current = performance.now();
   }, []);
 
-  // «Записаться к врачу» / «Ближайшая запись» preselect a doctor or a time elsewhere on the page: show them.
-  useEffect(() => {
-    if (selection.doctorId || selection.time) setMore(true);
-  }, [selection.doctorId, selection.time]);
+  // «Записаться к врачу» preselects a doctor elsewhere on the page: show it. The form has no date or time.
+  const moreOpen = more || Boolean(selection.doctorId);
 
   const direction = directions.find((d) => d.id === selection.directionId);
   const checkup = checkups.find((c) => c.id === selection.checkupId);
   const service = services.find((s) => s.id === selection.serviceId);
   const doctor = doctors.find((d) => d.id === selection.doctorId);
   const doctorOptions = direction ? doctors.filter((d) => d.directionIds.includes(direction.id)) : [];
-  // A time from the hero's «Ближайшая запись» may be outside the list: show it among the chips.
-  const timeChips =
-    selection.time && !slots.includes(selection.time)
-      ? [...slots, selection.time].sort((a, b) => toMinutes(a) - toMinutes(b))
-      : slots;
-
   const topicDone = Boolean(direction || checkup || selection.unsure);
 
   const topicValue = checkup ? `checkup:${checkup.id}` : direction ? `direction:${direction.id}` : selection.unsure ? "unsure" : "";
@@ -128,8 +118,8 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
       concernId: selection.concernId,
       doctorId: doctor?.id ?? null,
       unsure: selection.unsure,
-      date: selection.time ? (day?.iso ?? null) : null,
-      time: selection.time,
+      date: null,
+      time: null,
       name: name.trim(),
       phone: phoneDigits,
       website,
@@ -153,9 +143,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
     setStatus("idle");
   }
 
-  const submitLabel =
-    day && selection.time ? fillTemplate(copy.submitWithSlot, { date: day.long, time: selection.time }) : copy.submit;
-
   if (status === "sent") {
     return (
       <FormCard>
@@ -163,9 +150,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
           <AccentTitle as="p" size="h3" text={copy.success.title} />
           <p className="text-body text-graphite">{copy.success.text}</p>
           <dl className="flex w-full flex-col border-t border-line-soft text-small">
-            <SuccessRow term={copy.success.when}>
-              {day && selection.time ? `${day.long}, ${selection.time}` : copy.success.timeToConfirm}
-            </SuccessRow>
             {doctor && <SuccessRow term={copy.success.doctor}>{doctor.name}</SuccessRow>}
             <SuccessRow term={copy.success.address}>{address}</SuccessRow>
             <SuccessRow term={copy.success.bring}>{copy.success.bringList}</SuccessRow>
@@ -229,75 +213,34 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
           </Field>
         </div>
 
+        {direction && (
         <div className="flex flex-col gap-1">
           <button
             type="button"
-            aria-expanded={more}
+            aria-expanded={moreOpen}
             aria-controls={`${uid}-more`}
             onClick={() => setMore((v) => !v)}
             className="group flex items-center gap-2 self-start text-label font-medium text-accent"
           >
             <span aria-hidden className="flex size-6 items-center justify-center rounded-full bg-accent-10 text-base leading-none">
-              {more ? "−" : "+"}
+              {moreOpen ? "−" : "+"}
             </span>
             {copy.moreToggle}
             <span className="text-label-sm font-normal text-graphite">· {copy.moreHint}</span>
           </button>
-          <div id={`${uid}-more`} hidden={!more} className="flex flex-col gap-4 pt-3">
-        {direction && (
-              <Field label={copy.doctorLabel} htmlFor={`${uid}-doctor`}>
-                <SelectBox
-                  id={`${uid}-doctor`}
-                  label={doctorLabel}
-                  value={selection.doctorId ?? ""}
-                  groups={doctorGroups}
-                  onChange={(v) => update({ doctorId: v || null })}
-                />
-              </Field>
-            )}
-
-        <fieldset className="flex flex-col gap-2">
-              <legend className="mb-2 text-small text-graphite">{copy.dateLabel}</legend>
-              <div className="flex flex-wrap gap-1.5">
-                {days.map((d) => {
-                  const active = d.iso === day?.iso;
-                  return (
-                    <button
-                      key={d.iso}
-                      type="button"
-                      aria-pressed={active}
-                      onClick={() => update({ dateIso: d.iso })}
-                      className={chipClass(active)}
-                    >
-                      {d.chip}
-                    </button>
-                  );
-                })}
-              </div>
-            </fieldset>
-
-            <fieldset className="flex flex-col gap-2">
-              <legend className="mb-2 text-small text-graphite">{copy.timeLabel}</legend>
-              <div className="flex flex-wrap gap-1.5">
-                {timeChips.map((t) => {
-                  const active = t === selection.time;
-                  return (
-                    <button
-                      key={t}
-                      type="button"
-                      aria-pressed={active}
-                      onClick={() => update({ time: active ? null : t })}
-                      className={chipClass(active)}
-                    >
-                      {t}
-                    </button>
-                  );
-                })}
-              </div>
-            </fieldset>
-
+          <div id={`${uid}-more`} hidden={!moreOpen} className="flex flex-col gap-4 pt-3">
+            <Field label={copy.doctorLabel} htmlFor={`${uid}-doctor`}>
+              <SelectBox
+                id={`${uid}-doctor`}
+                label={doctorLabel}
+                value={selection.doctorId ?? ""}
+                groups={doctorGroups}
+                onChange={(v) => update({ doctorId: v || null })}
+              />
+            </Field>
           </div>
         </div>
+        )}
 
         <div className="flex flex-col gap-1.5">
           <label className="flex cursor-pointer items-center gap-3">
@@ -336,7 +279,7 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
         </div>
 
         <button type="submit" disabled={status === "sending"} className="w-full rounded-full bg-accent px-6 py-3.5 text-button font-medium text-on-dark transition-colors duration-200 hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-50">
-          {submitLabel}
+          {copy.submit}
         </button>
         {status === "error" ? (
           <p role="alert" className="text-center text-small font-medium text-accent">
@@ -350,14 +293,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, s
         )}
       </form>
     </FormCard>
-  );
-}
-
-/** Compact chip for dates and times (the shared Chip is sized for the landing's large filters). */
-function chipClass(active: boolean) {
-  return cn(
-    "rounded-full border px-3.5 py-2 text-label-sm font-medium transition-colors duration-200",
-    active ? "border-transparent bg-ink text-on-dark" : "border-line-stone bg-white text-ink hover:border-ink",
   );
 }
 

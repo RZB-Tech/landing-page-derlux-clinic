@@ -2,7 +2,7 @@ import { getCheckups } from "@/data/checkups";
 import { getClinic, primaryPhone } from "@/data/clinic";
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
-import { bookingSlots, getHome } from "@/data/home";
+import { getHome } from "@/data/home";
 import { getServices } from "@/data/services";
 import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
@@ -39,7 +39,6 @@ export function Booking({ locale }: { locale: Locale }) {
           checkups={getCheckups(locale)}
           doctors={getDoctors(locale)}
           services={getServices(locale)}
-          slots={bookingSlots}
           copy={bookingForm}
           address={`${clinic.address.city}, ${clinic.address.street}`}
           phone={primaryPhone}

@@ -52,8 +52,9 @@ const directionsRu: Direction[] = [
     slug: "lazernaya-dermatologiya",
     name: "Лазерная дерматология",
     shortName: "Лазер",
-    summary: "Ногти, пигментация, рубцы",
-    description: "Лазерная коррекция вросшего ногтя, удаление пигментации, лечение рубцов и постакне.",
+    summary: "Папилломы, родинки, вросший ноготь",
+    description:
+      "Лазерное удаление папиллом, бородавок, родинок, кондилом и контагиозного моллюска, лазерная коррекция вросшего ногтя.",
     priceFrom: uzs(300_000),
     image: { src: "/images/direction-laser.jpg", alt: "Лазерная дерматология", width: 1600, height: 2133 },
     specialist: "Дерматолог",
@@ -61,9 +62,12 @@ const directionsRu: Direction[] = [
       {
         title: "Что *делаем*",
         items: [
+          "Удаление папиллом",
+          "Удаление бородавок",
+          "Удаление родинок",
+          "Удаление кондилом",
+          "Удаление контагиозного моллюска",
           "Лазерная коррекция вросшего ногтя",
-          "Лечение постакне",
-          "Лечение пигментации",
         ],
       },
     ],
@@ -73,8 +77,9 @@ const directionsRu: Direction[] = [
     slug: "esteticheskaya-medicina",
     name: "Эстетическая медицина",
     shortName: "Эстетика",
-    summary: "RF-лифтинг, стрии, целлюлит",
-    description: "Антивозрастные процедуры (RF-лифтинг), антицеллюлитные аппаратные процедуры, стрии и растяжки.",
+    summary: "Постакне, лифтинг, целлюлит",
+    description:
+      "Устранение постакне на лице и постоперационных рубцов на теле, подтяжка лица, антивозрастные процедуры (RF-лифтинг), лечение ожирения и целлюлита, стрии и растяжки.",
     priceFrom: uzs(250_000),
     image: { src: "/images/direction-aest.jpg", alt: "Эстетическая медицина", width: 1600, height: 1067 },
     specialist: "Косметолог",
@@ -82,7 +87,11 @@ const directionsRu: Direction[] = [
       {
         title: "Что *делаем*",
         items: [
+          "Устранение постакне на лице",
+          "Устранение постоперационных рубцов на теле",
+          "Подтяжка лица",
           "Антивозрастные процедуры (RF-лифтинг)",
+          "Лечение ожирения",
           "Антицеллюлитные аппаратные процедуры",
           "Комплексное лечение стрий и растяжек",
         ],
@@ -217,17 +226,20 @@ const directionsUz: Record<string, DirectionText> = {
   laser: {
     name: "Lazer dermatologiya",
     shortName: "Lazer",
-    summary: "Tirnoq, pigmentatsiya, chandiqlar",
+    summary: "Papilloma, xol, ichga o'sgan tirnoq",
     description:
-      "Ichga o'sgan tirnoqni lazer bilan tuzatish, pigmentatsiyani olib tashlash, chandiqlar va postakneni davolash.",
+      "Papilloma, sugal, xol, kondiloma va yumshoq molluskani lazer bilan olib tashlash, ichga o'sgan tirnoqni lazer bilan tuzatish.",
     specialist: "Dermatolog",
     sections: [
       {
         title: "*Nimalar* qilamiz",
         items: [
+          "Papillomalarni olib tashlash",
+          "Sugallarni olib tashlash",
+          "Xollarni olib tashlash",
+          "Kondilomalarni olib tashlash",
+          "Yumshoq molluskani olib tashlash",
           "Ichga o'sgan tirnoqni lazer bilan tuzatish",
-          "Postakneni davolash",
-          "Pigmentatsiyani davolash",
         ],
       },
     ],
@@ -235,15 +247,19 @@ const directionsUz: Record<string, DirectionText> = {
   aesthetic: {
     name: "Estetik tibbiyot",
     shortName: "Estetika",
-    summary: "RF-lifting, strialar, sellulit",
+    summary: "Postakne, lifting, sellulit",
     description:
-      "Qarishga qarshi muolajalar (RF-lifting), sellulitga qarshi apparat muolajalari, strialar va yoriqlar.",
+      "Yuzdagi postakne va tanadagi operatsiyadan keyingi chandiqlarni ketkazish, yuzni tortish, qarishga qarshi muolajalar (RF-lifting), semizlik va sellulitni davolash, strialar va yoriqlar.",
     specialist: "Kosmetolog",
     sections: [
       {
         title: "*Nimalar* qilamiz",
         items: [
+          "Yuzdagi postakneni ketkazish",
+          "Tanadagi operatsiyadan keyingi chandiqlarni ketkazish",
+          "Yuzni tortish",
           "Qarishga qarshi muolajalar (RF-lifting)",
+          "Semizlikni davolash",
           "Sellulitga qarshi apparat muolajalari",
           "Strialar va yoriqlarni kompleks davolash",
         ],

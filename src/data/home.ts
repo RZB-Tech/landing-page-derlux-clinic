@@ -165,13 +165,13 @@ const ru = {
     caption: "Онлайн-запись",
     title: "Запишитесь за *минуту* — без звонков",
     lead: "Администратор перезвонит и подтвердит запись.",
-    steps: ["Направление или услуга", "Врач", "Дата и время", "Имя и телефон"],
+    steps: ["Направление или услуга", "Врач", "Имя и телефон"],
     telegramLabel: "Telegram",
   },
 
   bookingForm: {
     formLabel: "Онлайн-запись",
-    moreToggle: "Выбрать врача, дату и время",
+    moreToggle: "Выбрать врача",
     moreHint: "необязательно",
     directionLabel: "Направление",
     directionPlaceholder: "Выберите направление",
@@ -389,13 +389,13 @@ const uz: HomeCopy = {
     caption: "Onlayn yozilish",
     title: "Bir *daqiqada* yoziling — qo'ng'iroqsiz",
     lead: "Administrator qo'ng'iroq qilib, yozilishni tasdiqlaydi.",
-    steps: ["Yo'nalish yoki xizmat", "Shifokor", "Sana va vaqt", "Ism va telefon"],
+    steps: ["Yo'nalish yoki xizmat", "Shifokor", "Ism va telefon"],
     telegramLabel: "Telegram",
   },
 
   bookingForm: {
     formLabel: "Onlayn yozilish",
-    moreToggle: "Shifokor, sana va vaqtni tanlash",
+    moreToggle: "Shifokorni tanlash",
     moreHint: "ixtiyoriy",
     directionLabel: "Yo'nalish",
     directionPlaceholder: "Yo'nalishni tanlang",
