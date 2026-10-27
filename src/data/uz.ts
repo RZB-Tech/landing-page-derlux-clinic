@@ -55,10 +55,14 @@ export const serviceNamesUz: Record<string, { name: string }> = {
   "proc-dressing": { name: "Bog'lam qo'yish" },
 };
 
-export const doctorsUz: Record<string, { name: string; position: string; focus: string[] }> = {
-  rakhimov: { name: "Rahimov Sarvar Samukovich", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"] },
-  akbarova: { name: "Akbarova Dildora G'ayratovna", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"] },
-  salomova: { name: "Salomova Shahlo Inoyatovna", position: "Ginekolog, UZI shifokori", focus: ["Bepushtlik", "Yallig'lanish kasalliklari", "Mioma va kistalar", "Homiladorlikni olib borish", "Kontratseptsiya tanlash", "Bachadon bo'yni eroziyasi", "Barcha a'zolar UZI"] },
+export const doctorsUz: Record<
+  string,
+  { name: string; position: string; focus: string[]; specializations: string[]; education: string[]; category?: string }
+> = {
+  rakhimov: { name: "Rahimov Sarvar Samukovich", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"], specializations: ["Dermatolog", "Lazer dermatologiya bo'yicha mutaxassis"], category: "Oliy toifa", education: ["2001–2008 — TashMI, bakalavriat", "2008–2011 — magistratura"] },
+  akbarova: { name: "Akbarova Dildora G'ayratovna", position: "Dermatolog", focus: ["Akne va postakne", "Psoriaz", "Neyrodermit va ekzema", "Alopesiya", "Vitiligo", "Pigmentatsiya", "Papilloma va temiratki", "Stria va yoriqlar"], specializations: ["Dermatolog", "Lazer dermatologiya bo'yicha mutaxassis"], education: ["2004–2011 — ToshPTI, bakalavriat", "2011–2013 — ordinatura"] },
+  salomova: { name: "Salomova Shahlo Inoyatovna", position: "Ginekolog, UZI shifokori", focus: ["Bepushtlik", "Yallig'lanish kasalliklari", "Mioma va kistalar", "Homiladorlikni olib borish", "Kontratseptsiya tanlash", "Bachadon bo'yni eroziyasi", "Barcha a'zolar UZI"], specializations: ["Akusher-ginekolog shifokor", "Ginekolog-endokrinolog", "UZI shifokori", "Dermatokosmetolog"], category: "Oliy toifa", education: ["1985–1991 — SamMI, bakalavriat", "1991–1992 — internatura"] },
+  khaydarova: { name: "Xaydarova Gavhar Abrarovna", position: "Endokrinolog", focus: ["Qalqonsimon bez kasalliklari", "Semizlikni davolash"], specializations: ["Endokrinolog", "Bolalar va kattalar endokrinologi"], education: ["2003–2010 — TTA, bakalavriat", "2013–2015 — RSPMTsE"] },
 };
 
 export const checkupsUz: Record<

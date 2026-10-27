@@ -76,6 +76,12 @@ export type Clinic = {
   disclaimer: string;
 };
 
+/** A titled list on a direction's page («С чем *обращаются*»: conditions, procedures). */
+export type DirectionSection = {
+  title: string;
+  items: string[];
+};
+
 export type Direction = {
   id: Id;
   slug: string;
@@ -88,6 +94,8 @@ export type Direction = {
   image: Image;
   /** Specialist title used in booking hints («Дерматолог»). */
   specialist: string;
+  /** Lists on the direction's own page; the clinic's wording (vish-list, 2026-10). */
+  sections?: DirectionSection[];
 };
 
 export type Service = {
@@ -109,6 +117,10 @@ export type Doctor = {
   name: string;
   position: string;
   directionIds: Id[];
+  /** Specializations: a doctor can have several («Дерматолог», «Специалист по лазерной дерматологии»). */
+  specializations?: string[];
+  /** One line per stage: «2001–2008 — ТашМИ, бакалавриат». */
+  education?: string[];
   experienceYears?: number;
   /** «Высшая категория», … */
   category?: string;

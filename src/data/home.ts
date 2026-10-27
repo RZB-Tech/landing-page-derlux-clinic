@@ -57,6 +57,7 @@ const ru = {
     title: "Восемь направлений — *одна* клиника",
     link: { label: "Все услуги и цены", href: "#prices" },
   } satisfies SectionHeading,
+  directionsCopy: { more: "Подробнее" },
 
   concernsSection: {
     caption: "С чего начать",
@@ -106,6 +107,7 @@ const ru = {
     breadcrumbHome: "Главная",
     breadcrumbDirections: "Направления",
     caption: "Направление",
+    detailsCaption: "О направлении",
     priceLabel: "Стоимость",
     specialistLabel: "Специалист",
     cta: "Записаться на приём",
@@ -129,6 +131,8 @@ const ru = {
     experience: "Стаж",
     details: "О враче",
     close: "Закрыть",
+    specializationTitle: "Специализация",
+    educationTitle: "Образование",
     focusTitle: "С чем обращаются",
     directionsTitle: "Направления",
     servicesTitle: "Услуги и цены",
@@ -276,6 +280,7 @@ const uz: HomeCopy = {
     title: "Sakkiz yo'nalish — *bitta* klinika",
     link: { label: "Barcha xizmat va narxlar", href: "#prices" },
   },
+  directionsCopy: { more: "Batafsil" },
 
   concernsSection: {
     caption: "Nimadan boshlash kerak",
@@ -324,6 +329,7 @@ const uz: HomeCopy = {
     breadcrumbHome: "Bosh sahifa",
     breadcrumbDirections: "Yo'nalishlar",
     caption: "Yo'nalish",
+    detailsCaption: "Yo'nalish haqida",
     priceLabel: "Narxi",
     specialistLabel: "Mutaxassis",
     cta: "Qabulga yozilish",
@@ -347,6 +353,8 @@ const uz: HomeCopy = {
     experience: "Tajriba",
     details: "Shifokor haqida",
     close: "Yopish",
+    specializationTitle: "Mutaxassislik",
+    educationTitle: "Ma'lumoti",
     focusTitle: "Nima bilan murojaat qilinadi",
     directionsTitle: "Yo'nalishlar",
     servicesTitle: "Xizmatlar va narxlar",
@@ -450,7 +458,7 @@ export const getHome = (locale: Locale): HomeCopy => copy[locale];
 
 // Not text, the same in every language.
 
-export const heroImage = { src: "/images/hero.jpg", width: 520, height: 700 };
+export const heroImage = { src: "/images/hero-green2.png", width: 948, height: 1659 };
 
 // Mock of the scheduling API: the nearest free slot is the first one 3 hours from now.
 export const nearestSlot: NearestSlot = {

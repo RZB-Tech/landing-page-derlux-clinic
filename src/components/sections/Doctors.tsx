@@ -1,9 +1,7 @@
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { getHome } from "@/data/home";
-import { getServices } from "@/data/services";
 import type { Locale } from "@/i18n/config";
-import { formatPriceFrom } from "@/lib/format";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DoctorsGrid, type DoctorView } from "./DoctorsGrid";
@@ -24,16 +22,9 @@ function yearsLabel(n: number, locale: Locale) {
 export function Doctors({ locale }: { locale: Locale }) {
   const { doctorsCopy, doctorsSection } = getHome(locale);
   const directions = getDirections(locale);
-  const services = getServices(locale);
 
   const doctors: DoctorView[] = getDoctors(locale).map((doctor) => {
     const own = directions.filter((d) => doctor.directionIds.includes(d.id));
-    const seen = new Set<string>();
-    const priced = services
-      .filter((s) => doctor.directionIds.includes(s.directionId))
-      .filter((s) => !seen.has(s.name) && seen.add(s.name))
-      .slice(0, 5)
-      .map((s) => ({ id: s.id, name: s.name, price: formatPriceFrom(s.price, locale) }));
     const facts = [
       doctor.experienceYears !== undefined &&
         `${doctorsCopy.experience} ${doctor.experienceYears} ${yearsLabel(doctor.experienceYears, locale)}`,
@@ -45,10 +36,11 @@ export function Doctors({ locale }: { locale: Locale }) {
       position: doctor.position,
       photo: doctor.photo,
       facts,
+      specializations: doctor.specializations ?? [],
+      education: doctor.education ?? [],
       focus: doctor.focus,
       documents: doctor.documents ?? [],
       directions: own.map((d) => d.name),
-      services: priced,
     };
   });
 

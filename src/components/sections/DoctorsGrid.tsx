@@ -16,10 +16,13 @@ export type DoctorView = {
   photo: ImageData;
   /** «Стаж 12 лет», «Высшая категория» — only what the clinic has given. */
   facts: string[];
+  /** Several allowed: «Дерматолог», «Специалист по лазерной дерматологии». */
+  specializations: string[];
+  /** One line per stage of training. */
+  education: string[];
   focus: string[];
   documents: ImageData[];
   directions: string[];
-  services: { id: string; name: string; price: string }[];
 };
 
 type DoctorsGridProps = {
@@ -28,9 +31,10 @@ type DoctorsGridProps = {
     cta: string;
     details: string;
     close: string;
+    specializationTitle: string;
+    educationTitle: string;
     focusTitle: string;
     directionsTitle: string;
-    servicesTitle: string;
     documentsTitle: string;
     documentsSoon: string;
   };
@@ -52,9 +56,9 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
 
   return (
     <>
-      <ul className="snap-row md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
+      <ul className="snap-row md:mx-0 md:gap-6 md:px-0 md:scroll-px-0">
         {doctors.map((d, i) => (
-          <Reveal as="li" key={d.id} delay={i * 120} className="w-72 md:w-auto">
+          <Reveal as="li" key={d.id} delay={i * 120} className="w-64 md:w-[calc((100%-4.5rem)/4)] md:min-w-56">
             <button
               type="button"
               onClick={() => open(d.id)}
@@ -65,11 +69,11 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
                 src={d.photo.src}
                 alt={d.photo.alt}
                 fill
-                sizes="(min-width: 1440px) 411px, (min-width: 768px) 30vw, 288px"
+                sizes="(min-width: 1440px) 300px, (min-width: 768px) 25vw, 256px"
                 className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
               />
               <span aria-hidden className="absolute inset-0 bg-linear-to-t from-ink/85 via-ink/10 to-transparent" />
-              <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5 md:p-6">
+              <span className="absolute inset-x-0 bottom-0 flex flex-col items-start gap-3 p-5">
                 <span className="flex min-w-0 flex-col gap-1">
                   <span className="font-display text-display-h3 leading-tight">{d.name}</span>
                   <span className="text-small opacity-85">{d.position}</span>
@@ -131,6 +135,29 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
               </div>
             </div>
 
+            {(doctor.specializations.length > 0 || doctor.education.length > 0) && (
+              <div className="grid gap-6 md:grid-cols-2">
+                {doctor.specializations.length > 0 && (
+                  <DialogBlock title={copy.specializationTitle}>
+                    <ul className="flex flex-col gap-1.5 text-body text-ink">
+                      {doctor.specializations.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </DialogBlock>
+                )}
+                {doctor.education.length > 0 && (
+                  <DialogBlock title={copy.educationTitle}>
+                    <ul className="flex flex-col gap-1.5 text-body text-ink">
+                      {doctor.education.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </DialogBlock>
+                )}
+              </div>
+            )}
+
             {/* Row 2: album of diplomas and licences. */}
             <DialogBlock title={copy.documentsTitle}>
               <ul className="no-scrollbar -mx-6 flex gap-3 overflow-x-auto px-6 md:mx-0 md:px-0">
@@ -158,17 +185,6 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
                   {doctor.focus.map((item) => (
                     <li key={item} className="rounded-full border border-line-stone bg-white px-3.5 py-2 text-label-sm text-ink">
                       {item}
-                    </li>
-                  ))}
-                </ul>
-              </DialogBlock>
-
-              <DialogBlock title={copy.servicesTitle}>
-                <ul className="flex flex-col rounded-tile bg-white px-4">
-                  {doctor.services.map((s) => (
-                    <li key={s.id} className="flex items-baseline justify-between gap-4 border-b border-line-soft py-2.5 last:border-b-0">
-                      <span className="text-small text-ink">{s.name}</span>
-                      <span className="text-small font-semibold whitespace-nowrap text-ink">{s.price}</span>
                     </li>
                   ))}
                 </ul>

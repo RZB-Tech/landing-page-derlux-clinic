@@ -6,7 +6,7 @@ import { clinicName, getClinic, primaryPhone } from "@/data/clinic";
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { bookingDaysAhead, getHome } from "@/data/home";
-import { getServices } from "@/data/services";
+// import { getServices } from "@/data/services"; // for the hidden services block below
 import { hasLocale, localeInfo, locales } from "@/i18n/config";
 import { fillTemplate, formatPriceFrom } from "@/lib/format";
 import { directionJsonLd, toJsonLdScript } from "@/lib/jsonld";
@@ -73,10 +73,11 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
   const direction = directions.find((d) => d.slug === slug);
   if (!direction) notFound();
 
-  const { directionPage: copy, pricesCopy } = getHome(lang);
+  const { directionPage: copy } = getHome(lang);
+  // const { pricesCopy } = getHome(lang); // for the hidden services block below
   const doctors = getDoctors(lang);
-  const services = getServices(lang).filter((s) => s.directionId === direction.id);
-  const directionDoctors = doctors.filter((d) => d.directionIds.includes(direction.id));
+  // const services = getServices(lang).filter((s) => s.directionId === direction.id);
+  // const directionDoctors = doctors.filter((d) => d.directionIds.includes(direction.id));
   const others = directions.filter((d) => d.id !== direction.id);
   const phone = primaryPhone;
 
@@ -152,6 +153,32 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
           </div>
         </section>
 
+        {direction.sections && direction.sections.length > 0 && (
+          <section aria-label={copy.detailsCaption} className="bg-milk">
+            <div className="page-x pb-16 md:pb-20 xl:pb-28">
+              <div className="grid grid-cols-1 gap-5 md:gap-6 xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))]">
+                {direction.sections.map((section, i) => (
+                  <Reveal key={section.title} delay={i * 120}>
+                    <div className="flex h-full flex-col gap-6 rounded-card bg-white p-6 md:rounded-panel md:p-8">
+                      <AccentTitle as="h2" size="h3" text={section.title} className="text-ink" />
+                      <ul className="grid grid-cols-1 gap-x-8 gap-y-3.5 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+                        {section.items.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-body text-ink">
+                            <Icon name="check-accent" size={20} className="mt-0.5 shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Services and prices: hidden at the client's request until the price list is final; may come back.
+            To restore, uncomment this block and the `services` constant above.
         {services.length > 0 && (
           <section aria-labelledby="direction-services-title" className="bg-sand">
             <div className="page-x flex flex-col gap-8 py-16 md:gap-10 md:py-20 xl:py-24">
@@ -188,7 +215,10 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
             </div>
           </section>
         )}
+        */}
 
+        {/* Doctors of the direction: hidden at the client's request, may come back. To restore, uncomment this block
+            and the `directionDoctors` constant above.
         {directionDoctors.length > 0 && (
           <section aria-labelledby="direction-doctors-title" className="bg-milk">
             <div className="page-x flex flex-col gap-8 py-16 md:gap-10 md:py-20 xl:py-24">
@@ -230,8 +260,9 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
             </div>
           </section>
         )}
+        */}
 
-        <section aria-labelledby="direction-others-title" className={directionDoctors.length > 0 ? "bg-sand" : "bg-milk"}>
+        <section aria-labelledby="direction-others-title" className="bg-sand">
           <div className="page-x flex flex-col gap-8 py-16 md:gap-10 md:py-20 xl:py-24">
             <Reveal>
               <div className="flex flex-col items-start gap-4">

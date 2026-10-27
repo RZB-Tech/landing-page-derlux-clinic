@@ -50,7 +50,7 @@ export function Hero({ locale }: { locale: Locale }) {
         panel) is darkened, so the lit DERLUX sign on the right stays clear. Below xl it is a block under the
         copy, so the panel never covers it.
       */}
-      <div className="relative order-2 aspect-16/10 xl:absolute xl:inset-0 xl:order-0 xl:aspect-auto">
+      <div className="relative order-2 aspect-16/10 xl:absolute xl:inset-y-0 xl:right-0 xl:-left-[24%] xl:order-0 xl:aspect-auto">
         <Image
           src="/images/clinic-reception.png"
           alt=""
@@ -59,31 +59,21 @@ export function Hero({ locale }: { locale: Locale }) {
           sizes="100vw"
           className="object-cover object-[70%_35%]"
         />
-        <div aria-hidden className="absolute inset-0 hidden bg-linear-to-r from-black/30 via-transparent via-45% to-transparent xl:block" />
+        <div aria-hidden className="absolute inset-0 bg-linear-to-t from-black/85 via-black/40 via-50% to-transparent xl:bg-linear-to-r xl:from-black/85 xl:via-black/50" />
         <div aria-hidden className="absolute inset-x-0 bottom-0 hidden h-32 bg-linear-to-t from-milk to-transparent xl:block" />
       </div>
 
-      <div className="page-x relative order-1 flex flex-col gap-14 pt-8 pb-12 md:pt-14 xl:flex-row xl:items-center xl:gap-14 xl:pt-16 xl:pb-16">
-        <div className="flex min-w-0 flex-col items-start gap-8 xl:max-w-150 xl:flex-1">
-          <p
-            style={delay(0)}
-            className="rise flex items-center gap-2.5 rounded-full border border-line-stone bg-white/70 py-2 pr-4 pl-3 text-label-sm font-medium text-graphite backdrop-blur"
-          >
-            <span className="relative flex size-2.5">
-              <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-50" />
-              <span className="relative inline-flex size-2.5 rounded-full bg-accent" />
-            </span>
-            {clinic.address.locality} · {clinic.hoursShort}
-          </p>
+      <div className="page-x relative order-1 flex flex-col gap-14 pt-8 pb-12 md:pt-14 xl:min-h-140 xl:flex-row xl:items-center xl:gap-14 xl:pt-16 xl:pb-16">
+        <div className="flex min-w-0 flex-col items-center gap-8 text-center xl:items-start xl:text-left xl:w-[min(30rem,38vw)] xl:flex-none">
           {/* One panel behind the copy keeps it readable on the bare photo. */}
-          <div className="flex w-full flex-col items-start gap-8 rounded-[48px] bg-milk/50 p-6 shadow-float backdrop-blur-md md:p-10">
+          <div className="flex w-full flex-col items-center gap-8 xl:items-start rounded-[48px] bg-milk/50 p-6 shadow-float backdrop-blur-md md:p-10 xl:p-8">
             <div style={delay(100)} className="rise">
               <AccentTitle as="h1" size="h2" id="hero-title" text={hero.title} className="text-ink" />
             </div>
             <p style={delay(200)} className="rise max-w-125 text-lead text-graphite">
               {hero.lead}
             </p>
-            <div style={delay(300)} className="rise flex flex-wrap gap-3">
+            <div style={delay(300)} className="rise flex flex-wrap justify-center gap-3 xl:justify-start">
               <BookingTrigger className={buttonClassName({ variant: "primary" })}>
                 <ButtonContent variant="primary" arrow>
                   {hero.primaryCta}
@@ -96,30 +86,26 @@ export function Hero({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        {/* Collage: a tall rounded photo, a round inset of the reception and two floating cards. */}
+        {/* Photo on the right, from xl: it sits between the copy panel and the page edge so the lit sign in
+            the background stays clear. `right` is measured from the viewport edge (8.5vw), not the row. */}
         <div
-          style={delay(250)}
-          className="rise relative mx-auto hidden w-full max-w-sm xl:-mr-8 xl:ml-auto xl:w-[30%] xl:max-w-none xl:shrink-0"
+          style={{ ...delay(250), right: "calc(8.5vw - max(0px, (100vw - 90rem) / 2))" }}
+          className="rise hidden xl:absolute xl:top-1/2 xl:block xl:w-[min(27rem,23vw)] xl:-translate-y-1/2"
         >
-          <div className="relative aspect-4/5 overflow-hidden rounded-[48px] bg-sand shadow-float">
-            <Image
-              src={heroImage.src}
-              alt={hero.imageAlt}
-              fill
-              preload
-              sizes="(min-width: 1440px) 600px, (min-width: 1280px) 42vw, (min-width: 640px) 560px, 92vw"
-              className="object-cover"
-            />
-            <div aria-hidden className="absolute inset-0 bg-linear-to-t from-ink/25 via-transparent to-transparent" />
+          {/* Frame: a thin accent outline offset behind the photo, and a milk mat with a hairline around it. */}
+          <div aria-hidden className="absolute inset-0 translate-x-3 translate-y-3 rounded-[56px] border border-accent/50" />
+          <div className="relative rounded-[56px] border border-white/80 bg-milk/70 p-2 shadow-float backdrop-blur">
+            <div className="relative aspect-4/5 overflow-hidden rounded-[48px] bg-sand ring-1 ring-accent/30">
+              <Image
+                src={heroImage.src}
+                alt={hero.imageAlt}
+                fill
+                preload
+                sizes="(min-width: 1440px) 432px, 23vw"
+                className="object-cover"
+              />
+            </div>
           </div>
-
-          <p
-            style={delay(1200)}
-            className="float absolute top-6 -right-2 flex items-center gap-2.5 rounded-full bg-white/90 py-3 pr-4.5 pl-3.5 text-label font-medium whitespace-nowrap text-ink shadow-float backdrop-blur md:-right-6"
-          >
-            <Icon name="shield-accent-20" size={20} />
-            {hero.badge}
-          </p>
         </div>
       </div>
 
