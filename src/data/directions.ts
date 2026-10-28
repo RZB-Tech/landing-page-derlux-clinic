@@ -131,7 +131,7 @@ const directionsRu: Direction[] = [
     shortName: "Эндокринология",
     summary: "Щитовидная железа, диабет, вес",
     description:
-      "Щитовидная железа у детей и взрослых, задержка физического развития, избыточная масса тела, метаболический синдром, эндокринное бесплодие у женщин, сахарный диабет 2 типа.",
+      "Щитовидная железа у детей и взрослых, задержка физического развития, избыточная масса тела, метаболический синдром, эндокринное бесплодие у женщин, сахарный диабет 1 и 2 типа.",
     priceFrom: uzs(180_000),
     image: { src: "/images/endokrinolog_osmotr_.webp", alt: "Эндокринология", width: 700, height: 525 },
     specialist: "Эндокринолог",
@@ -144,7 +144,7 @@ const directionsRu: Direction[] = [
           "Избыточная масса тела",
           "Метаболический синдром",
           "Эндокринное бесплодие у женщин",
-          "Сахарный диабет 2 типа",
+          "Сахарный диабет 1 и 2 типа",
         ],
       },
     ],
@@ -293,7 +293,7 @@ const directionsUz: Record<string, DirectionText> = {
     shortName: "Endokrinologiya",
     summary: "Qalqonsimon bez, diabet, vazn",
     description:
-      "Bolalar va kattalarda qalqonsimon bez, jismoniy rivojlanishning kechikishi, ortiqcha vazn, metabolik sindrom, ayollarda endokrin bepushtlik, 2-tur qandli diabet.",
+      "Bolalar va kattalarda qalqonsimon bez, jismoniy rivojlanishning kechikishi, ortiqcha vazn, metabolik sindrom, ayollarda endokrin bepushtlik, 1 va 2-tur qandli diabet.",
     specialist: "Endokrinolog",
     sections: [
       {
@@ -304,7 +304,7 @@ const directionsUz: Record<string, DirectionText> = {
           "Ortiqcha vazn",
           "Metabolik sindrom",
           "Ayollarda endokrin bepushtlik",
-          "2-tur qandli diabet",
+          "1 va 2-tur qandli diabet",
         ],
       },
     ],

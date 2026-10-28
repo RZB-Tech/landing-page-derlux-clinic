@@ -119,6 +119,15 @@ const ru = {
     doctorCta: "Записаться к врачу",
     othersCaption: "Другие направления",
     othersTitle: "Что ещё *мы лечим*",
+    conditionMore: "Подробнее",
+    conditionCauses: "Причины и факторы риска",
+    conditionSymptoms: "Признаки",
+    conditionDiagnostics: "Диагностика",
+    conditionTreatment: "Как лечим",
+    conditionRisks: "Если не лечить",
+    conditionNote: "Справочная информация, не заменяет осмотр. Диагноз и лечение назначает врач.",
+    conditionCta: "Записаться на приём",
+    conditionClose: "Закрыть",
   },
 
   doctorsSection: {
@@ -343,6 +352,15 @@ const uz: HomeCopy = {
     doctorCta: "Shifokorga yozilish",
     othersCaption: "Boshqa yo'nalishlar",
     othersTitle: "Yana *nimalarni* davolaymiz",
+    conditionMore: "Batafsil",
+    conditionCauses: "Sabablari va xavf omillari",
+    conditionSymptoms: "Belgilari",
+    conditionDiagnostics: "Diagnostika",
+    conditionTreatment: "Qanday davolaymiz",
+    conditionRisks: "Davolanmasa",
+    conditionNote: "Ma'lumot uchun, ko'rikni almashtirmaydi. Tashxis va davoni shifokor belgilaydi.",
+    conditionCta: "Qabulga yozilish",
+    conditionClose: "Yopish",
   },
 
   doctorsSection: {

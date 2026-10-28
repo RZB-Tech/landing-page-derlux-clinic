@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { clinicName, getClinic, primaryPhone } from "@/data/clinic";
+import { getConditions } from "@/data/conditions";
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { bookingDaysAhead, getHome } from "@/data/home";
@@ -17,8 +18,13 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Reveal } from "@/components/motion/Reveal";
 import { Booking } from "@/components/sections/Booking";
+import { ConditionList } from "@/components/sections/ConditionList";
 import { AccentTitle } from "@/components/ui/AccentTitle";
-import { buttonClassName, ButtonContent, LinkButton } from "@/components/ui/Button";
+import {
+  buttonClassName,
+  ButtonContent,
+  LinkButton,
+} from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { Caption } from "@/components/ui/SectionHead";
 
@@ -27,10 +33,14 @@ export const instant = false;
 
 // Every direction in both languages is built ahead of time.
 export function generateStaticParams() {
-  return locales.flatMap((lang) => getDirections("ru").map((d) => ({ lang, slug: d.slug })));
+  return locales.flatMap((lang) =>
+    getDirections("ru").map((d) => ({ lang, slug: d.slug })),
+  );
 }
 
-export async function generateMetadata({ params }: PageProps<"/[lang]/directions/[slug]">): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps<"/[lang]/directions/[slug]">): Promise<Metadata> {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
   const direction = getDirections(lang).find((d) => d.slug === slug);
@@ -43,7 +53,12 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/directions
   });
   const path = directionPath(lang, slug);
   const info = localeInfo[lang];
-  const image = { url: direction.image.src, width: direction.image.width, height: direction.image.height, alt: direction.image.alt };
+  const image = {
+    url: direction.image.src,
+    width: direction.image.width,
+    height: direction.image.height,
+    alt: direction.image.alt,
+  };
   return {
     title,
     description,
@@ -51,25 +66,36 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/directions
     alternates: {
       canonical: path,
       languages: {
-        ...Object.fromEntries(locales.map((l) => [localeInfo[l].htmlLang, directionPath(l, slug)])),
+        ...Object.fromEntries(
+          locales.map((l) => [localeInfo[l].htmlLang, directionPath(l, slug)]),
+        ),
         "x-default": directionPath("ru", slug),
       },
     },
     openGraph: {
       type: "website",
       locale: info.og,
-      alternateLocale: locales.filter((l) => l !== lang).map((l) => localeInfo[l].og),
+      alternateLocale: locales
+        .filter((l) => l !== lang)
+        .map((l) => localeInfo[l].og),
       url: path,
       siteName: clinicName,
       title: `${title} — ${clinicName}`,
       description,
       images: [image],
     },
-    twitter: { card: "summary_large_image", title: `${title} — ${clinicName}`, description, images: [image.url] },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} — ${clinicName}`,
+      description,
+      images: [image.url],
+    },
   };
 }
 
-export default async function DirectionPage({ params }: PageProps<"/[lang]/directions/[slug]">) {
+export default async function DirectionPage({
+  params,
+}: PageProps<"/[lang]/directions/[slug]">) {
   const { lang, slug } = await params;
   if (!hasLocale(lang)) notFound();
   const directions = getDirections(lang);
@@ -79,17 +105,26 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
   const { directionPage: copy } = getHome(lang);
   // const { pricesCopy } = getHome(lang); // for the hidden services block below
   const doctors = getDoctors(lang);
+  const conditions = getConditions(lang)[direction.id];
   // const services = getServices(lang).filter((s) => s.directionId === direction.id);
   // const directionDoctors = doctors.filter((d) => d.directionIds.includes(direction.id));
   const others = directions.filter((d) => d.id !== direction.id);
   const phone = primaryPhone;
 
   return (
-    <BookingProvider locale={lang} doctors={doctors} daysAhead={bookingDaysAhead}>
+    <BookingProvider
+      locale={lang}
+      doctors={doctors}
+      daysAhead={bookingDaysAhead}
+    >
       <Header
         locale={lang}
         logoHref={homePath(lang)}
-        paths={Object.fromEntries(locales.map((l) => [l, directionPath(l, slug)])) as Record<(typeof locales)[number], string>}
+        paths={
+          Object.fromEntries(
+            locales.map((l) => [l, directionPath(l, slug)]),
+          ) as Record<(typeof locales)[number], string>
+        }
       />
       <main>
         <section aria-labelledby="direction-title" className="bg-milk">
@@ -97,13 +132,19 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
             <nav aria-label={copy.breadcrumbLabel}>
               <ol className="flex flex-wrap items-center gap-2 text-small text-graphite">
                 <li>
-                  <a href={homeAnchor(lang, "#top")} className="transition-colors hover:text-accent">
+                  <a
+                    href={homeAnchor(lang, "#top")}
+                    className="transition-colors hover:text-accent"
+                  >
                     {copy.breadcrumbHome}
                   </a>
                 </li>
                 <li aria-hidden>/</li>
                 <li>
-                  <a href={homeAnchor(lang, "#directions")} className="transition-colors hover:text-accent">
+                  <a
+                    href={homeAnchor(lang, "#directions")}
+                    className="transition-colors hover:text-accent"
+                  >
                     {copy.breadcrumbDirections}
                   </a>
                 </li>
@@ -117,20 +158,39 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
             <div className="flex flex-col gap-10 xl:flex-row xl:items-center xl:gap-16">
               <div className="flex min-w-0 flex-col items-start gap-6 xl:flex-1">
                 <Caption>{copy.caption}</Caption>
-                <AccentTitle as="h1" size="h1" id="direction-title" text={direction.name} className="text-ink" />
-                <p className="max-w-150 text-lead text-graphite">{direction.description}</p>
+                <AccentTitle
+                  as="h1"
+                  size="h1"
+                  id="direction-title"
+                  text={direction.name}
+                  className="text-ink"
+                />
+                <p className="max-w-150 text-lead text-graphite">
+                  {direction.description}
+                </p>
                 <dl className="flex flex-wrap gap-x-10 gap-y-4">
                   <div>
-                    <dt className="text-small text-graphite">{copy.priceLabel}</dt>
-                    <dd className="text-title font-semibold text-ink">{formatPriceFrom(direction.priceFrom, lang)}</dd>
+                    <dt className="text-small text-graphite">
+                      {copy.priceLabel}
+                    </dt>
+                    <dd className="text-title font-semibold text-ink">
+                      {formatPriceFrom(direction.priceFrom, lang)}
+                    </dd>
                   </div>
                   <div>
-                    <dt className="text-small text-graphite">{copy.specialistLabel}</dt>
-                    <dd className="text-title font-semibold text-ink">{direction.specialist}</dd>
+                    <dt className="text-small text-graphite">
+                      {copy.specialistLabel}
+                    </dt>
+                    <dd className="text-title font-semibold text-ink">
+                      {direction.specialist}
+                    </dd>
                   </div>
                 </dl>
                 <div className="flex flex-wrap gap-3">
-                  <BookingTrigger preset={{ directionId: direction.id }} className={buttonClassName({ variant: "primary" })}>
+                  <BookingTrigger
+                    preset={{ directionId: direction.id }}
+                    className={buttonClassName({ variant: "primary" })}
+                  >
                     <ButtonContent variant="primary" arrow>
                       {copy.cta}
                     </ButtonContent>
@@ -163,15 +223,45 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
                 {direction.sections.map((section, i) => (
                   <Reveal key={section.title} delay={i * 120}>
                     <div className="flex h-full flex-col gap-6 rounded-card bg-white p-6 md:rounded-panel md:p-8">
-                      <AccentTitle as="h2" size="h3" text={section.title} className="text-ink" />
-                      <ul className="grid grid-cols-1 gap-x-8 gap-y-3.5 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
-                        {section.items.map((item) => (
-                          <li key={item} className="flex items-start gap-3 text-body text-ink">
-                            <Icon name="check-accent" size={20} className="mt-0.5 shrink-0" />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
+                      <AccentTitle
+                        as="h2"
+                        size="h3"
+                        text={section.title}
+                        className="text-ink"
+                      />
+                      {conditions && i === 0 ? (
+                        <ConditionList
+                          directionId={direction.id}
+                          conditions={conditions}
+                          copy={{
+                            more: copy.conditionMore,
+                            causes: copy.conditionCauses,
+                            symptoms: copy.conditionSymptoms,
+                            diagnostics: copy.conditionDiagnostics,
+                            treatment: copy.conditionTreatment,
+                            risks: copy.conditionRisks,
+                            note: copy.conditionNote,
+                            cta: copy.conditionCta,
+                            close: copy.conditionClose,
+                          }}
+                        />
+                      ) : (
+                        <ul className="grid grid-cols-1 gap-x-8 gap-y-3.5 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
+                          {section.items.map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-3 text-body text-ink"
+                            >
+                              <Icon
+                                name="check-accent"
+                                size={20}
+                                className="mt-0.5 shrink-0"
+                              />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </Reveal>
                 ))}
@@ -270,7 +360,10 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
             <Reveal>
               <div className="flex flex-col items-start gap-4">
                 <Caption>{copy.othersCaption}</Caption>
-                <AccentTitle id="direction-others-title" text={copy.othersTitle} />
+                <AccentTitle
+                  id="direction-others-title"
+                  text={copy.othersTitle}
+                />
               </div>
             </Reveal>
             <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:gap-5 xl:grid-cols-4">
@@ -281,8 +374,12 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
                     className="group flex h-full items-end justify-between gap-3 rounded-card bg-white p-5 transition-shadow hover:shadow-float md:rounded-panel md:p-6"
                   >
                     <span className="flex min-w-0 flex-col gap-1.5">
-                      <span className="font-display text-display-h3 font-medium text-ink">{other.name}</span>
-                      <span className="text-small text-graphite">{other.summary}</span>
+                      <span className="font-display text-display-h3 font-medium text-ink">
+                        {other.name}
+                      </span>
+                      <span className="text-small text-graphite">
+                        {other.summary}
+                      </span>
                       <span className="text-label-sm font-medium text-accent">
                         {formatPriceFrom(other.priceFrom, lang)}
                       </span>
@@ -304,7 +401,10 @@ export default async function DirectionPage({ params }: PageProps<"/[lang]/direc
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: toJsonLdScript(
-            directionJsonLd(lang, direction, { home: copy.breadcrumbHome, directions: copy.breadcrumbDirections }),
+            directionJsonLd(lang, direction, {
+              home: copy.breadcrumbHome,
+              directions: copy.breadcrumbDirections,
+            }),
           ),
         }}
       />

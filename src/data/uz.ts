@@ -34,7 +34,7 @@ export const serviceNamesUz: Record<string, { name: string }> = {
   "endo-kids": { name: "Bolalar endokrinologi maslahati" },
   "endo-thyroid": { name: "Qalqonsimon bezni tekshirish" },
   "endo-weight": { name: "Vazn kamaytirish dasturi (qabul)" },
-  "endo-diabetes": { name: "2-tur qandli diabetni nazorat qilish" },
+  "endo-diabetes": { name: "1 va 2-tur qandli diabetni nazorat qilish" },
 
   "us-abdomen": { name: "Qorin bo'shlig'i a'zolari UZI" },
   "us-thyroid": { name: "Qalqonsimon bez UZI" },

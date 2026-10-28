@@ -16,6 +16,7 @@ export type IconName =
   | "dot-accent"
   | "facebook-accent"
   | "heart-accent"
+  | "info-accent"
   | "instagram-accent"
   | "mail-accent"
   | "map-pin-accent"

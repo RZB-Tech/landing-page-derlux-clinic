@@ -206,3 +206,19 @@ export type SectionHeading = {
   lead?: string;
   link?: Link;
 };
+
+/** What a patient may want to know about a condition: a dialog opens from the direction page's list. */
+export type Condition = {
+  id: Id;
+  name: string;
+  /** Two sentences: what it is. */
+  about: string;
+  /** Causes and risk factors (for a service such as pregnancy care: what needs extra attention). */
+  causes: string[];
+  symptoms: string[];
+  /** What the doctor checks at the appointment. */
+  diagnostics: string[];
+  treatment: string[];
+  /** What can happen without treatment. */
+  risks: string[];
+};

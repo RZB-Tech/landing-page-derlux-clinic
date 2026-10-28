@@ -36,7 +36,7 @@ const servicesRu: Service[] = [
   { id: "endo-kids", directionId: "endocrinology", name: "Консультация детского эндокринолога", durationMin: 30, price: uzs(180_000) },
   { id: "endo-thyroid", directionId: "endocrinology", name: "Обследование щитовидной железы", durationMin: 45, price: uzs(320_000) },
   { id: "endo-weight", directionId: "endocrinology", name: "Программа снижения веса (приём)", durationMin: 45, price: uzs(250_000) },
-  { id: "endo-diabetes", directionId: "endocrinology", name: "Контроль сахарного диабета 2 типа", durationMin: 30, price: uzs(200_000) },
+  { id: "endo-diabetes", directionId: "endocrinology", name: "Контроль сахарного диабета 1 и 2 типа", durationMin: 30, price: uzs(200_000) },
 
   { id: "us-abdomen", directionId: "ultrasound", name: "УЗИ органов брюшной полости", durationMin: 30, price: uzs(150_000) },
   { id: "us-thyroid", directionId: "ultrasound", name: "УЗИ щитовидной железы", durationMin: 20, price: uzs(120_000) },

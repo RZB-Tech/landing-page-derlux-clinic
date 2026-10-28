@@ -102,14 +102,14 @@ export const primaryPhone = getClinic("ru").phones.find((p) => p.primary) ?? get
 const nav: Localized<Link[]> = {
   ru: [
     { label: "Направления", href: "#directions" },
-    { label: "Цены", href: "#prices" },
+    { label: "Услуги", href: "#prices" },
     { label: "Врачи", href: "#doctors" },
     // { label: "Check-up", href: "#checkup" }, // hidden with the Check-up section, see page.tsx
     { label: "Контакты", href: "#contacts" },
   ],
   uz: [
     { label: "Yo'nalishlar", href: "#directions" },
-    { label: "Narxlar", href: "#prices" },
+    { label: "Xizmatlar", href: "#prices" },
     { label: "Shifokorlar", href: "#doctors" },
     // { label: "Check-up", href: "#checkup" }, // hidden with the Check-up section, see page.tsx
     { label: "Aloqa", href: "#contacts" },
