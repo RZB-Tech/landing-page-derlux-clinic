@@ -8,6 +8,7 @@ import { getServices } from "@/data/services";
 import { hasLocale, type Locale } from "@/i18n/config";
 import { isBookableTime } from "@/lib/dates";
 import { formatPriceFrom } from "@/lib/format";
+import { createAmoLead } from "@/lib/amocrm";
 import { escapeTelegramHtml, sendTelegramMessage } from "@/lib/telegram";
 
 /** What the booking form sends: ids from `src/data/` and the patient's contacts. */
@@ -93,13 +94,19 @@ export async function submitBooking(request: BookingRequest): Promise<BookingRes
     ["Когда", day && time ? `${day}, ${time}` : "время подберёт администратор"],
     ["Язык сайта", siteLanguage[hasLocale(String(request.locale)) ? request.locale : "ru"]],
   ];
+  const filled = rows.filter((row): row is [string, string] => Boolean(row[1]));
   const message = [
     "<b>Новая запись с сайта</b>",
     "",
-    ...rows
-      .filter((row): row is [string, string] => Boolean(row[1]))
-      .map(([label, value]) => `<b>${label}:</b> ${escapeTelegramHtml(value)}`),
+    ...filled.map(([label, value]) => `<b>${label}:</b> ${escapeTelegramHtml(value)}`),
   ].join("\n");
+  // The CRM keeps everything except the name and phone (they are the contact) as a comment.
+  const note = filled
+    .filter(([label]) => label !== "Имя" && label !== "Телефон")
+    .map(([label, value]) => `${label}: ${value}`)
+    .join("\n");
 
-  return { ok: await sendTelegramMessage(message) };
+  // Both channels get the request; it counts as sent when at least one of them took it.
+  const [telegram, crm] = await Promise.all([sendTelegramMessage(message), createAmoLead({ name, phone, note })]);
+  return { ok: telegram || crm };
 }
