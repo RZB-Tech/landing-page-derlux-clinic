@@ -1,7 +1,13 @@
 import "server-only";
 
 /** The data of one lead; `note` is the full request as plain text, kept on the lead as a comment. */
-export type CrmLead = { name: string; phone: string; note: string };
+export type CrmLead = { name: string; phone: string; direction: string; note: string };
+
+// Ids from the clinic's account (drrahimov.amocrm.ru): the lead field «Источник» with its option
+// «Website», and the text field «Направление», both added for the site on 2026-10-28.
+const SOURCE_FIELD_ID = 847895;
+const SOURCE_WEBSITE_ENUM_ID = 1386321;
+const DIRECTION_FIELD_ID = 1556351;
 
 /**
  * A long-lived token works only on its own account's host, https://{subdomain}.amocrm.ru (the shared
@@ -32,7 +38,7 @@ async function amoRequest(host: string, token: string, path: string, body: unkno
  * the request as a comment. The token comes from the server-only env var `AMOCRM_ACCESS_TOKEN`. Logs
  * failures without the token or the patient's data.
  */
-export async function createAmoLead({ name, phone, note }: CrmLead): Promise<boolean> {
+export async function createAmoLead({ name, phone, direction, note }: CrmLead): Promise<boolean> {
   const token = process.env.AMOCRM_ACCESS_TOKEN;
   if (!token) {
     console.error("amoCRM: AMOCRM_ACCESS_TOKEN is not set");
@@ -43,7 +49,12 @@ export async function createAmoLead({ name, phone, note }: CrmLead): Promise<boo
     const created = (await amoRequest(host, token, "/leads/complex", [
       {
         name: `Заявка с сайта: ${name}`,
+        custom_fields_values: [
+          { field_id: SOURCE_FIELD_ID, values: [{ enum_id: SOURCE_WEBSITE_ENUM_ID }] },
+          { field_id: DIRECTION_FIELD_ID, values: [{ value: direction }] },
+        ],
         _embedded: {
+          tags: [{ name: "website" }],
           contacts: [
             {
               first_name: name,

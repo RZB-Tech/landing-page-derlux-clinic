@@ -100,13 +100,14 @@ export async function submitBooking(request: BookingRequest): Promise<BookingRes
     "",
     ...filled.map(([label, value]) => `<b>${label}:</b> ${escapeTelegramHtml(value)}`),
   ].join("\n");
-  // The CRM keeps everything except the name and phone (they are the contact) as a comment.
+  // The CRM keeps the rest as a comment; the name and phone are the contact, «Беспокоит» and «Когда» are
+  // not wanted there.
   const note = filled
-    .filter(([label]) => label !== "Имя" && label !== "Телефон")
+    .filter(([label]) => !["Имя", "Телефон", "Беспокоит", "Когда"].includes(label))
     .map(([label, value]) => `${label}: ${value}`)
     .join("\n");
 
   // Both channels get the request; it counts as sent when at least one of them took it.
-  const [telegram, crm] = await Promise.all([sendTelegramMessage(message), createAmoLead({ name, phone, note })]);
+  const [telegram, crm] = await Promise.all([sendTelegramMessage(message), createAmoLead({ name, phone, direction: topic, note })]);
   return { ok: telegram || crm };
 }

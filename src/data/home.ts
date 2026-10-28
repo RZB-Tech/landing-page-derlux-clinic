@@ -209,8 +209,8 @@ const ru = {
       send: "Не удалось отправить заявку. Попробуйте ещё раз или позвоните:",
     },
     success: {
-      title: "Заявка *принята*",
-      text: "Администратор перезвонит в течение 15 минут и подтвердит запись.",
+      title: "*Спасибо* вам!",
+      text: "Администратор позвонит вам и подтвердит запись.",
       when: "Когда",
       doctor: "Врач",
       address: "Адрес",
@@ -442,8 +442,8 @@ const uz: HomeCopy = {
       send: "So'rovni yuborib bo'lmadi. Qayta urinib ko'ring yoki qo'ng'iroq qiling:",
     },
     success: {
-      title: "So'rov *qabul qilindi*",
-      text: "Administrator 15 daqiqa ichida qo'ng'iroq qilib, yozilishni tasdiqlaydi.",
+      title: "*Rahmat* sizga!",
+      text: "Administrator sizga qo'ng'iroq qilib, yozilishni tasdiqlaydi.",
       when: "Qachon",
       doctor: "Shifokor",
       address: "Manzil",

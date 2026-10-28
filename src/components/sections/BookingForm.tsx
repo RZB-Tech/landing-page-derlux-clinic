@@ -25,7 +25,7 @@ type BookingFormProps = {
   phone: Clinic["phones"][number];
 };
 
-type Errors = Partial<Record<"name" | "phone" | "consent", string>>;
+type Errors = Partial<Record<"name" | "phone", string>>;
 
 /** Keeps «998» + up to 9 digits and renders «+998 90 123 45 67». */
 function formatPhone(digits: string) {
@@ -44,9 +44,7 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
   const { selection, update, reset } = useBooking();
   const [name, setName] = useState("");
   const [phoneDigits, setPhoneDigits] = useState("");
-  const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
-  const [more, setMore] = useState(false);
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const uid = useId();
   // Spam check on the server: people take seconds to fill in the form, bots do not. Same clock as
@@ -56,37 +54,20 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
     mountedAt.current = performance.now();
   }, []);
 
-  // «Записаться к врачу» preselects a doctor elsewhere on the page: show it. The form has no date or time.
-  const moreOpen = more || Boolean(selection.doctorId);
-
   const direction = directions.find((d) => d.id === selection.directionId);
   const checkup = checkups.find((c) => c.id === selection.checkupId);
   const service = services.find((s) => s.id === selection.serviceId);
   const doctor = doctors.find((d) => d.id === selection.doctorId);
-  const doctorOptions = direction ? doctors.filter((d) => d.directionIds.includes(direction.id)) : [];
   const topicDone = Boolean(direction || checkup || selection.unsure);
 
   const topicValue = checkup ? `checkup:${checkup.id}` : direction ? `direction:${direction.id}` : selection.unsure ? "unsure" : "";
   const topicLabel = checkup
     ? fillTemplate(copy.checkupLabel, { title: checkup.title.replaceAll("*", "") })
     : direction?.name ?? (selection.unsure ? copy.directionUnsure : copy.directionPlaceholder);
-  const doctorLabel = doctor ? `${doctor.name} · ${doctor.position.split(",")[0].toLowerCase()}` : copy.anyDoctor;
 
   const topicGroups: SelectGroup[] = [
     { label: copy.directionsGroup, options: directions.map((d) => ({ value: `direction:${d.id}`, label: d.name })) },
-    {
-      label: copy.checkupGroup,
-      options: checkups.map((c) => ({
-        value: `checkup:${c.id}`,
-        label: fillTemplate(copy.checkupLabel, { title: c.title.replaceAll("*", "") }),
-        hint: c.durationLabel,
-      })),
-    },
     { options: [{ value: "unsure", label: copy.directionUnsure }] },
-  ];
-  const doctorGroups: SelectGroup[] = [
-    { options: [{ value: "", label: copy.anyDoctor }] },
-    { options: doctorOptions.map((d) => ({ value: d.id, label: d.name, hint: d.position })) },
   ];
 
   function onTopicChange(value: string) {
@@ -100,7 +81,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
     const next: Errors = {};
     if (!name.trim()) next.name = copy.errors.name;
     if (phoneDigits.length !== 12) next.phone = copy.errors.phone;
-    if (!consent) next.consent = copy.errors.consent;
     return next;
   }
 
@@ -138,7 +118,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
     reset();
     setName("");
     setPhoneDigits("");
-    setConsent(false);
     setErrors({});
     setStatus("idle");
   }
@@ -170,6 +149,11 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
           {service && (
             <p className="text-small text-graphite">
               {copy.serviceHint}: {service.name} · {formatPriceFrom(service.price, locale)}
+            </p>
+          )}
+          {doctor && (
+            <p className="text-small text-graphite">
+              {copy.doctorLabel}: {doctor.name}
             </p>
           )}
         </Field>
@@ -211,63 +195,6 @@ export function BookingForm({ locale, directions, checkups, doctors, services, c
               className={inputClassName}
             />
           </Field>
-        </div>
-
-        {direction && (
-        <div className="flex flex-col gap-1">
-          <button
-            type="button"
-            aria-expanded={moreOpen}
-            aria-controls={`${uid}-more`}
-            onClick={() => setMore((v) => !v)}
-            className="group flex items-center gap-2 self-start text-label font-medium text-accent"
-          >
-            <span aria-hidden className="flex size-6 items-center justify-center rounded-full bg-accent-10 text-base leading-none">
-              {moreOpen ? "−" : "+"}
-            </span>
-            {copy.moreToggle}
-            <span className="text-label-sm font-normal text-graphite">· {copy.moreHint}</span>
-          </button>
-          <div id={`${uid}-more`} hidden={!moreOpen} className="flex flex-col gap-4 pt-3">
-            <Field label={copy.doctorLabel} htmlFor={`${uid}-doctor`}>
-              <SelectBox
-                id={`${uid}-doctor`}
-                label={doctorLabel}
-                value={selection.doctorId ?? ""}
-                groups={doctorGroups}
-                onChange={(v) => update({ doctorId: v || null })}
-              />
-            </Field>
-          </div>
-        </div>
-        )}
-
-        <div className="flex flex-col gap-1.5">
-          <label className="flex cursor-pointer items-center gap-3">
-            <input
-              type="checkbox"
-              checked={consent}
-              aria-invalid={Boolean(errors.consent)}
-              aria-describedby={errors.consent ? `${uid}-consent-error` : undefined}
-              onChange={(e) => {
-                setConsent(e.target.checked);
-                if (errors.consent) setErrors((prev) => ({ ...prev, consent: undefined }));
-              }}
-              className="peer sr-only"
-            />
-            <span
-              aria-hidden
-              className="flex size-5.5 shrink-0 items-center justify-center rounded-checkbox border border-line-stone bg-white peer-checked:border-accent peer-checked:bg-accent peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent [&>*]:opacity-0 peer-checked:[&>*]:opacity-100"
-            >
-              <Icon name="check-checkbox" size={16} />
-            </span>
-            <span className="text-small text-graphite">{copy.consent}</span>
-          </label>
-          {errors.consent && (
-            <p id={`${uid}-consent-error`} className="text-small font-medium text-accent">
-              {errors.consent}
-            </p>
-          )}
         </div>
 
         {/* Honeypot for bots: off screen, out of the tab order and hidden from screen readers. */}
