@@ -44,11 +44,19 @@ const servicesRu: Service[] = [
   { id: "us-breast", directionId: "ultrasound", name: "УЗИ молочных желёз", durationMin: 30, price: uzs(150_000) },
   { id: "us-pregnancy", directionId: "ultrasound", name: "УЗИ при беременности", durationMin: 30, price: uzs(200_000) },
 
+  // The list of analyses is the clinic's; durations and prices are placeholders.
+  // TODO(clinic): confirm the price list.
   { id: "lab-cbc", directionId: "laboratory", name: "Общий анализ крови", durationMin: 10, price: uzs(35_000) },
-  { id: "lab-biochem", directionId: "laboratory", name: "Биохимический анализ крови", durationMin: 10, price: uzs(180_000) },
-  { id: "lab-thyroid", directionId: "laboratory", name: "Гормоны щитовидной железы (ТТГ, Т4 св.)", durationMin: 10, price: uzs(160_000) },
-  { id: "lab-ferritin", directionId: "laboratory", name: "Ферритин", durationMin: 10, price: uzs(90_000) },
-  { id: "lab-glucose", directionId: "laboratory", name: "Глюкоза и гликированный гемоглобин", durationMin: 10, price: uzs(110_000) },
+  { id: "lab-urine", directionId: "laboratory", name: "Общий анализ мочи", durationMin: 10, price: uzs(30_000) },
+  { id: "lab-biochem", directionId: "laboratory", name: "Биохимия", durationMin: 10, price: uzs(180_000) },
+  { id: "lab-microscopy", directionId: "laboratory", name: "Микроскопия", durationMin: 10, price: uzs(40_000) },
+  { id: "lab-pcr", directionId: "laboratory", name: "ПЦР анализы", durationMin: 10, price: uzs(120_000) },
+  { id: "lab-culture", directionId: "laboratory", name: "Бак посев", durationMin: 10, price: uzs(110_000) },
+  { id: "lab-coag", directionId: "laboratory", name: "Коагулограмма", durationMin: 10, price: uzs(90_000) },
+  { id: "lab-hormones", directionId: "laboratory", name: "Гормоны", durationMin: 10, price: uzs(160_000) },
+  { id: "lab-torch", directionId: "laboratory", name: "ТОРЧ инфекции", durationMin: 10, price: uzs(200_000) },
+  { id: "lab-express", directionId: "laboratory", name: "Экспресс тесты", durationMin: 10, price: uzs(50_000) },
+  { id: "lab-elisa", directionId: "laboratory", name: "ИФА, ИХЛА", durationMin: 10, price: uzs(130_000) },
 
   { id: "proc-iv", directionId: "procedures", name: "Капельница (без стоимости препарата)", durationMin: 60, price: uzs(80_000) },
   { id: "proc-im", directionId: "procedures", name: "Внутримышечная инъекция", durationMin: 10, price: uzs(50_000) },

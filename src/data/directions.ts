@@ -157,7 +157,7 @@ const directionsRu: Direction[] = [
     summary: "Все органы, беременность",
     description: "Ультразвуковая диагностика всех органов, в том числе при беременности.",
     priceFrom: uzs(120_000),
-    image: { src: "/images/direction-uzi.jpg", alt: "УЗИ всех органов", width: 1600, height: 2400 },
+    image: { src: "/images/uzi.jpg", alt: "УЗИ всех органов", width: 1080, height: 687 },
     specialist: "Врач УЗИ",
   },
   {
@@ -170,6 +170,24 @@ const directionsRu: Direction[] = [
     priceFrom: uzs(35_000),
     image: { src: "/images/labaratoria.jpg", alt: "Лаборатория", width: 1082, height: 722 },
     specialist: "Лаборатория",
+    sections: [
+      {
+        title: "Какие анализы *сдают*",
+        items: [
+          "Общий анализ крови",
+          "Общий анализ мочи",
+          "Биохимия",
+          "Микроскопия",
+          "ПЦР анализы",
+          "Бак посев",
+          "Коагулограмма",
+          "Гормоны",
+          "ТОРЧ инфекции",
+          "Экспресс тесты",
+          "ИФА, ИХЛА",
+        ],
+      },
+    ],
   },
   {
     id: "procedures",
@@ -322,6 +340,24 @@ const directionsUz: Record<string, DirectionText> = {
     summary: "Barcha turdagi tahlillar",
     description: "Barcha turdagi tahlillar.",
     specialist: "Laboratoriya",
+    sections: [
+      {
+        title: "Qanday tahlillar *topshiriladi*",
+        items: [
+          "Umumiy qon tahlili",
+          "Umumiy siydik tahlili",
+          "Biokimyo",
+          "Mikroskopiya",
+          "PZR tahlillari",
+          "Bakteriologik ekma",
+          "Koagulogramma",
+          "Gormonlar",
+          "TORCH infeksiyalari",
+          "Ekspress testlar",
+          "IFA, IXLA",
+        ],
+      },
+    ],
   },
   procedures: {
     name: "Muolaja xonasi",

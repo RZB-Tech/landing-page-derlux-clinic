@@ -76,7 +76,7 @@ export function ServicesTabs({ directions, services, copy }: ServicesTabsProps) 
             </div>
             <p className="w-full rounded-full bg-white/70 px-5 py-2.5 text-center font-display text-display-h3 text-ink">{d.name}</p>
           </div>
-          <ul className="flex flex-1 flex-col rounded-card bg-white px-4 py-2 md:px-6">
+          <ul className="flex max-h-[21rem] flex-1 flex-col overflow-y-auto overscroll-contain rounded-card bg-white px-4 py-2 [scrollbar-color:var(--color-line-stone)_transparent] [scrollbar-width:thin] md:px-6">
             {services
               .filter((s) => s.directionId === d.id)
               .map((s) => (
