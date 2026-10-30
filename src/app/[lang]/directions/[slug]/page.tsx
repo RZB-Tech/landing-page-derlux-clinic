@@ -3,15 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { clinicName, getClinic, primaryPhone } from "@/data/clinic";
-import { getConditions } from "@/data/conditions";
+import { conditionSlug, getConditions } from "@/data/conditions";
 import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { bookingDaysAhead, getHome } from "@/data/home";
 // import { getServices } from "@/data/services"; // for the hidden services block below
 import { hasLocale, localeInfo, locales } from "@/i18n/config";
-import { fillTemplate, formatPriceFrom } from "@/lib/format";
+import { fillTemplate, formatPriceFrom, lowerFirst } from "@/lib/format";
 import { directionJsonLd, toJsonLdScript } from "@/lib/jsonld";
-import { directionPath, homeAnchor, homePath } from "@/lib/routes";
+import {
+  conditionPath,
+  directionPath,
+  homeAnchor,
+  homePath,
+} from "@/lib/routes";
 import { BookingTrigger } from "@/components/booking/BookingTrigger";
 import { BookingProvider } from "@/components/booking/BookingProvider";
 import { Footer } from "@/components/layout/Footer";
@@ -48,17 +53,21 @@ export async function generateMetadata({
   const { directionPage } = getHome(lang);
   const title = fillTemplate(directionPage.metaTitle, { name: direction.name });
   const description = fillTemplate(directionPage.metaDescription, {
-    description: direction.description,
+    name: direction.name,
+    summary: lowerFirst(direction.summary),
     address: getClinic(lang).address.short,
   });
   const path = directionPath(lang, slug);
   const info = localeInfo[lang];
-  const image = {
-    url: direction.image.src,
-    width: direction.image.width,
-    height: direction.image.height,
-    alt: direction.image.alt,
-  };
+  // Telegram, WhatsApp and Facebook do not show AVIF; such a direction keeps the site's share image.
+  const image = direction.image.src.endsWith(".avif")
+    ? undefined
+    : {
+        url: direction.image.src,
+        width: direction.image.width,
+        height: direction.image.height,
+        alt: direction.image.alt,
+      };
   return {
     title,
     description,
@@ -82,13 +91,13 @@ export async function generateMetadata({
       siteName: clinicName,
       title: `${title} — ${clinicName}`,
       description,
-      images: [image],
+      ...(image && { images: [image] }),
     },
     twitter: {
       card: "summary_large_image",
       title: `${title} — ${clinicName}`,
       description,
-      images: [image.url],
+      ...(image && { images: [image.url] }),
     },
   };
 }
@@ -127,7 +136,7 @@ export default async function DirectionPage({
         }
       />
       <main>
-        <section aria-labelledby="direction-title" className="bg-milk">
+        <section data-hero aria-labelledby="direction-title" className="bg-milk">
           <div className="page-x flex flex-col gap-10 pt-6 pb-16 md:pt-8 md:pb-20 xl:gap-16 xl:pb-28">
             <nav aria-label={copy.breadcrumbLabel}>
               <ol className="flex flex-wrap items-center gap-2 text-small text-graphite">
@@ -233,6 +242,12 @@ export default async function DirectionPage({
                         <ConditionList
                           directionId={direction.id}
                           conditions={conditions}
+                          paths={Object.fromEntries(
+                            conditions.map((c) => [
+                              c.id,
+                              conditionPath(lang, direction.slug, conditionSlug(c.id)),
+                            ]),
+                          )}
                           copy={{
                             more: copy.conditionMore,
                             causes: copy.conditionCauses,

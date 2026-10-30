@@ -3,9 +3,10 @@ import { getClinic, primaryPhone } from "@/data/clinic";
 import { getDirections } from "@/data/directions";
 import { getFaq } from "@/data/faq";
 import { getServices } from "@/data/services";
-import type { Direction } from "@/data/types";
+import { serviceConditionIds } from "@/data/conditions";
+import type { Condition, Direction, Doctor } from "@/data/types";
 import { localeInfo, type Locale } from "@/i18n/config";
-import { directionPath, homePath } from "./routes";
+import { directionPath, doctorPath, homePath } from "./routes";
 import { siteUrl } from "./site";
 
 const clinicId = `${siteUrl}/#clinic`;
@@ -138,6 +139,97 @@ export function directionJsonLd(locale: Locale, direction: Direction, labels: { 
             priceCurrency: direction.priceFrom.currency,
           },
         },
+      },
+    ],
+  };
+}
+
+/** schema.org MedicalSpecialty of each direction (for the doctors' pages). */
+const specialtyByDirection: Record<string, string> = {
+  dermatology: "Dermatology",
+  laser: "Dermatology",
+  aesthetic: "Dermatology",
+  gynecology: "Gynecologic",
+  endocrinology: "Endocrine",
+  ultrasound: "Radiography",
+  laboratory: "LaboratoryScience",
+};
+
+/**
+ * Structured data for a condition's page: breadcrumbs (home → direction → condition) and a MedicalWebPage
+ * about the condition, with its signs, risk factors and treatments as on the page. Services such as
+ * pregnancy care are not described as a MedicalCondition.
+ */
+export function conditionJsonLd(
+  locale: Locale,
+  direction: Direction,
+  condition: Condition,
+  url: string,
+  labels: { home: string },
+) {
+  const about = serviceConditionIds.has(condition.id)
+    ? { "@type": "Thing", name: condition.name, description: condition.about }
+    : {
+        "@type": "MedicalCondition",
+        name: condition.name,
+        description: condition.about,
+        signOrSymptom: condition.symptoms.map((name) => ({ "@type": "MedicalSignOrSymptom", name })),
+        riskFactor: condition.causes.map((name) => ({ "@type": "MedicalRiskFactor", name })),
+        possibleTreatment: condition.treatment.map((name) => ({ "@type": "MedicalTherapy", name })),
+      };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: labels.home, item: `${siteUrl}${homePath(locale)}` },
+          { "@type": "ListItem", position: 2, name: direction.name, item: `${siteUrl}${directionPath(locale, direction.slug)}` },
+          { "@type": "ListItem", position: 3, name: condition.name, item: url },
+        ],
+      },
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${url}#page`,
+        url,
+        name: condition.name,
+        description: condition.about,
+        inLanguage: localeInfo[locale].htmlLang,
+        isPartOf: { "@id": `${pageUrl(locale)}#website` },
+        publisher: { "@id": clinicId },
+        about,
+      },
+    ],
+  };
+}
+
+/**
+ * Structured data for a doctor's page: breadcrumbs (home → doctor) and the doctor as an IndividualPhysician
+ * who practises at the clinic (referenced by its `@id`).
+ */
+export function doctorJsonLd(locale: Locale, doctor: Doctor, description: string, labels: { home: string }) {
+  const url = `${siteUrl}${doctorPath(locale, doctor.id)}`;
+  const specialties = [...new Set(doctor.directionIds.map((id) => specialtyByDirection[id]).filter(Boolean))];
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: labels.home, item: `${siteUrl}${homePath(locale)}` },
+          { "@type": "ListItem", position: 2, name: doctor.name, item: url },
+        ],
+      },
+      {
+        "@type": "IndividualPhysician",
+        "@id": `${url}#physician`,
+        name: doctor.name,
+        description,
+        url,
+        image: `${siteUrl}${doctor.photo.src}`,
+        medicalSpecialty: specialties,
+        knowsAbout: doctor.focus,
+        practicesAt: { "@id": clinicId },
       },
     ],
   };

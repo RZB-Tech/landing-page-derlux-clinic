@@ -24,6 +24,31 @@ export function fillTemplate(template: string, values: Record<string, string | n
   return template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ""));
 }
 
+/** «Акне, псориаз» → «акне, псориаз», to continue a sentence. */
+export const lowerFirst = (text: string) => text.charAt(0).toLocaleLowerCase() + text.slice(1);
+
+/**
+ * Shortens text to `max` characters for a search snippet: at the last full sentence that fits, else at
+ * the last whole word, with «…».
+ */
+export function clipText(text: string, max: number): string {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max);
+  const sentenceEnd = cut.lastIndexOf(". ");
+  if (sentenceEnd > max / 2) return cut.slice(0, sentenceEnd + 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:—–-]\s*$/, "")}…`;
+}
+
+/** Russian «год / года / лет» for a number of years; Uzbek has one form. */
+export function yearsLabel(n: number, locale: Locale): string {
+  if (locale === "uz") return "yil";
+  const mod10 = n % 10;
+  const mod100 = n % 100;
+  if (mod10 === 1 && mod100 !== 11) return "год";
+  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "года";
+  return "лет";
+}
+
 /** Joins class names, skipping falsy values. */
 export function cn(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(" ");

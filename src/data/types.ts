@@ -221,4 +221,6 @@ export type Condition = {
   treatment: string[];
   /** What can happen without treatment. */
   risks: string[];
+  /** A photo in the dialog, shared by both languages (`conditionImages` in `conditions.ts`). */
+  image?: Image;
 };

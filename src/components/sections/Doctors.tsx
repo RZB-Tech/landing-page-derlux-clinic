@@ -2,18 +2,11 @@ import { getDirections } from "@/data/directions";
 import { getDoctors } from "@/data/doctors";
 import { getHome } from "@/data/home";
 import type { Locale } from "@/i18n/config";
+import { yearsLabel } from "@/lib/format";
+import { doctorPath } from "@/lib/routes";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { DoctorsGrid, type DoctorView } from "./DoctorsGrid";
-
-function yearsLabel(n: number, locale: Locale) {
-  if (locale === "uz") return "yil";
-  const mod10 = n % 10;
-  const mod100 = n % 100;
-  if (mod10 === 1 && mod100 !== 11) return "год";
-  if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return "года";
-  return "лет";
-}
 
 /**
  * «Врачи, которые слушают». Each card opens a dialog with the doctor's details. All data is
@@ -32,6 +25,7 @@ export function Doctors({ locale }: { locale: Locale }) {
     ].filter((f): f is string => Boolean(f));
     return {
       id: doctor.id,
+      href: doctorPath(locale, doctor.id),
       name: doctor.name,
       position: doctor.position,
       photo: doctor.photo,

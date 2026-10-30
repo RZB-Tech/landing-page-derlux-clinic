@@ -44,7 +44,7 @@ export function Hero({ locale }: { locale: Locale }) {
   const { hero } = getHome(locale);
   const directions = getDirections(locale);
   return (
-    <section aria-labelledby="hero-title" className="relative flex flex-col overflow-hidden bg-milk xl:block">
+    <section data-hero aria-labelledby="hero-title" className="relative flex flex-col overflow-hidden bg-milk xl:block">
       {/*
         The clinic's reception photo. From xl it is the background and only the left ~45% (under the copy
         panel) is darkened, so the lit DERLUX sign on the right stays clear. Below xl it is a block under the
@@ -67,8 +67,13 @@ export function Hero({ locale }: { locale: Locale }) {
         <div className="flex min-w-0 flex-col items-center gap-8 text-center xl:items-start xl:text-left xl:w-[min(30rem,38vw)] xl:flex-none">
           {/* One panel behind the copy keeps it readable on the bare photo. */}
           <div className="flex w-full flex-col items-center gap-8 xl:items-start rounded-[48px] bg-milk/50 p-6 shadow-float backdrop-blur-md md:p-10 xl:p-8">
-            <div style={delay(100)} className="rise">
-              <AccentTitle as="h1" size="h2" id="hero-title" text={hero.title} className="text-ink" />
+            {/* The <h1> says what the clinic is and where (what patients search for); the design's title is the
+                visual headline under it. */}
+            <div style={delay(100)} className="rise flex flex-col items-center gap-4 xl:items-start">
+              <h1 id="hero-title" className="text-caption font-medium text-accent uppercase">
+                {hero.eyebrow}
+              </h1>
+              <AccentTitle as="p" size="h2" text={hero.title} className="text-ink" />
             </div>
             <p style={delay(200)} className="rise max-w-125 text-lead text-graphite">
               {hero.lead}

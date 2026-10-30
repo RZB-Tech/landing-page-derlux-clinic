@@ -8,6 +8,9 @@ import { NextResponse, type NextRequest } from "next/server";
 export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const { pathname } = url;
+  // The Russian share image is generated under `/ru` and linked from `og:image` as it is: it is not
+  // a page, and a redirect would land on a path that has no image.
+  if (pathname.startsWith("/ru/opengraph-image")) return NextResponse.next();
   if (pathname === "/ru" || pathname.startsWith("/ru/")) {
     url.pathname = pathname.slice("/ru".length) || "/";
     return NextResponse.redirect(url, 308);
@@ -17,5 +20,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/", "/ru", "/ru/:path*", "/directions/:path*"],
+  matcher: ["/", "/ru", "/ru/:path*", "/directions/:path*", "/doctors/:path*"],
 };

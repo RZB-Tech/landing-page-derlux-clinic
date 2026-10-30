@@ -11,6 +11,8 @@ import { Icon } from "@/components/ui/Icon";
 
 export type DoctorView = {
   id: string;
+  /** The doctor's own page: the card links there, a plain click opens the dialog instead. */
+  href: string;
   name: string;
   position: string;
   photo: ImageData;
@@ -42,7 +44,10 @@ type DoctorsGridProps = {
   };
 };
 
-/** Doctor cards; a click opens a native modal <dialog> with the details (Esc and backdrop close it). */
+/**
+ * Doctor cards; a click opens a native modal <dialog> with the details (Esc and backdrop close it). Each card
+ * is a link to the doctor's page, so search engines reach it and Ctrl/middle click opens it in a tab.
+ */
 export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const previewRef = useRef<HTMLDialogElement>(null);
@@ -75,9 +80,13 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
       <ul className="snap-row md:mx-0 md:gap-6 md:px-0 md:scroll-px-0">
         {doctors.map((d, i) => (
           <Reveal as="li" key={d.id} delay={i * 120} className="w-64 md:w-[calc((100%-4.5rem)/4)] md:min-w-56">
-            <button
-              type="button"
-              onClick={() => open(d.id)}
+            <a
+              href={d.href}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                open(d.id);
+              }}
               aria-haspopup="dialog"
               className="group relative block aspect-3/4 w-full overflow-hidden rounded-[36px] bg-sand text-left text-on-dark"
             >
@@ -99,7 +108,7 @@ export function DoctorsGrid({ doctors, copy }: DoctorsGridProps) {
                   <Icon name="arrow-right-ink" size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                 </span>
               </span>
-            </button>
+            </a>
           </Reveal>
         ))}
       </ul>

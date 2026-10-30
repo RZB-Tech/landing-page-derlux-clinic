@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import type { Condition } from "@/data/types";
 import { useBooking } from "@/components/booking/BookingProvider";
@@ -22,13 +23,19 @@ export type ConditionCopy = {
 type ConditionListProps = {
   directionId: string;
   conditions: Condition[];
+  /** Each condition's own page, by id. */
+  paths: Record<string, string>;
   copy: ConditionCopy;
 };
 
-/** «С чем обращаются»: each condition opens a centered dialog with signs, treatment and risks. */
+/**
+ * «С чем обращаются»: each condition opens a centered dialog with signs, treatment and risks. The items are
+ * links to the conditions' own pages, so search engines reach the full text and Ctrl/middle click opens it.
+ */
 export function ConditionList({
   directionId,
   conditions,
+  paths,
   copy,
 }: ConditionListProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -48,9 +55,13 @@ export function ConditionList({
       <ul className="grid grid-cols-1 gap-x-8 gap-y-1 md:grid-cols-2 xl:grid-cols-1 2xl:grid-cols-2">
         {conditions.map((c) => (
           <li key={c.id}>
-            <button
-              type="button"
-              onClick={() => open(c.id)}
+            <a
+              href={paths[c.id]}
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                open(c.id);
+              }}
               aria-haspopup="dialog"
               className="group flex w-full cursor-pointer items-start gap-3 rounded-tile py-2 text-left text-body text-ink transition-colors hover:text-accent"
             >
@@ -62,7 +73,7 @@ export function ConditionList({
                 size={18}
                 className="mt-1 shrink-0 opacity-60 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
               />
-            </button>
+            </a>
           </li>
         ))}
       </ul>
@@ -93,9 +104,26 @@ export function ConditionList({
             >
               {condition.name}
             </h3>
-            <p className="text-small leading-relaxed text-graphite">
-              {condition.about}
-            </p>
+            {condition.image ? (
+              // Photo left, text right: at half the dialog's width the small photos are shrunk, not enlarged.
+              <div className="grid grid-cols-1 items-center gap-6 md:grid-cols-2">
+                <Image
+                  src={condition.image.src}
+                  alt={condition.image.alt}
+                  width={condition.image.width}
+                  height={condition.image.height}
+                  sizes="(min-width: 768px) 400px, 100vw"
+                  className="h-auto w-full rounded-card"
+                />
+                <p className="text-small leading-relaxed text-graphite">
+                  {condition.about}
+                </p>
+              </div>
+            ) : (
+              <p className="text-small leading-relaxed text-graphite">
+                {condition.about}
+              </p>
+            )}
 
             <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
               <Block title={copy.causes} items={condition.causes} />

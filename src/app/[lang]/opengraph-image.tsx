@@ -3,16 +3,14 @@ import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
 import { getClinic, primaryPhone } from "@/data/clinic";
-import { hasLocale, locales } from "@/i18n/config";
+import { getHome } from "@/data/home";
+import { defaultLocale, hasLocale, locales } from "@/i18n/config";
 import { brandColors } from "@/lib/brand";
 import { logo, logoDataUri } from "@/lib/logo";
 
 // Link preview (Telegram, WhatsApp, Facebook, search): the clinic's logo on the page background,
-// with the address under it. Generated at build time, once per language. The alt text is static,
-// so it is the brand name.
-export const alt = "Derlux Clinic";
-export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+// with the address under it. Generated at build time, once per language, with that language's alt text.
+const size = { width: 1200, height: 630 };
 
 // Static paths, so the build traces only these files.
 const sansMedium = await readFile(join(process.cwd(), "assets/fonts/Onest-Medium.ttf"));
@@ -21,6 +19,14 @@ const logoWidth = 760;
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
+}
+
+// One image per language; this is only here to give it the language's alt text (`homeMeta.ogImageAlt`).
+// Next also calls it without `lang` when it lists the image's ids, so it must not 404 then.
+export async function generateImageMetadata({ params }: { params: Promise<{ lang?: string }> }) {
+  const { lang = defaultLocale } = (await params) ?? {};
+  const alt = getHome(hasLocale(lang) ? lang : defaultLocale).homeMeta.ogImageAlt;
+  return [{ id: "default", alt, size, contentType: "image/png" }];
 }
 
 export default async function Image({ params }: { params: Promise<{ lang: string }> }) {

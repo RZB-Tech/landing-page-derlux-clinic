@@ -8,12 +8,23 @@ import type { Locale } from "@/i18n/config";
 import { AccentTitle } from "@/components/ui/AccentTitle";
 import { Icon } from "@/components/ui/Icon";
 import { Caption } from "@/components/ui/SectionHead";
+import { BookingFloat } from "./BookingFloat";
 import { BookingForm } from "./BookingForm";
 
 /** «Запишитесь за минуту — без звонков» (Figma «11 Онлайн-запись»). */
 export function Booking({ locale }: { locale: Locale }) {
   const clinic = getClinic(locale);
   const { bookingForm, bookingSection } = getHome(locale);
+  const formProps = {
+    locale,
+    directions: getDirections(locale),
+    checkups: getCheckups(locale),
+    doctors: getDoctors(locale),
+    services: getServices(locale),
+    copy: bookingForm,
+    address: `${clinic.address.city}, ${clinic.address.street}`,
+    phone: primaryPhone,
+  };
   return (
     <section id="booking" aria-labelledby="booking-title" className="bg-accent text-on-dark">
       <div className="page-x flex flex-col gap-12 py-14 md:py-16 xl:flex-row xl:items-center xl:justify-between xl:gap-16 xl:py-20">
@@ -33,17 +44,21 @@ export function Booking({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <BookingForm
-          locale={locale}
-          directions={getDirections(locale)}
-          checkups={getCheckups(locale)}
-          doctors={getDoctors(locale)}
-          services={getServices(locale)}
-          copy={bookingForm}
-          address={`${clinic.address.city}, ${clinic.address.street}`}
-          phone={primaryPhone}
-        />
+        <BookingForm {...formProps} />
       </div>
+
+      <BookingFloat
+        copy={{ label: bookingSection.floatLabel, close: bookingSection.close }}
+        intro={
+          <>
+            <Caption onDark>{bookingSection.caption}</Caption>
+            <AccentTitle as="p" text={bookingSection.title} />
+            <p className="text-body opacity-85">{bookingSection.lead}</p>
+          </>
+        }
+      >
+        <BookingForm {...formProps} />
+      </BookingFloat>
     </section>
   );
 }

@@ -27,6 +27,8 @@ const ru = {
   },
 
   hero: {
+    // The page's <h1>: what patients search for. The design's title below it is the visual headline.
+    eyebrow: "Клиника дерматологии, гинекологии и эндокринологии в Ташкенте",
     title: "Здоровая *кожа* начинается с правильного диагноза",
     lead: "Дерматолог, гинеколог и эндокринолог — рядом. Анализы и УЗИ — здесь же.",
     primaryCta: "Записаться на приём",
@@ -102,7 +104,7 @@ const ru = {
   // The page of one direction («/directions/…»).
   directionPage: {
     metaTitle: "{name} в Ташкенте",
-    metaDescription: "{description} Цены известны заранее, онлайн-запись за минуту. Ташкент, {address}.",
+    metaDescription: "{name} в Ташкенте: {summary}. Опытные врачи, онлайн-запись за минуту. Ташкент, {address}.",
     breadcrumbLabel: "Навигация по страницам",
     breadcrumbHome: "Главная",
     breadcrumbDirections: "Направления",
@@ -128,6 +130,25 @@ const ru = {
     conditionNote: "Справочная информация, не заменяет осмотр. Диагноз и лечение назначает врач.",
     conditionCta: "Записаться на приём",
     conditionClose: "Закрыть",
+  },
+
+  // The page of one condition («/directions/dermatologiya/akne»); its section titles come from `directionPage`.
+  conditionPage: {
+    metaTitle: "{name} — {specialist} в Ташкенте",
+    /** Follows the condition's text in the description, which is cut to fit the snippet. */
+    metaSuffix: "Derlux Clinic, Ташкент — онлайн-запись.",
+    directionLink: "Подробнее о направлении",
+    othersTitle: "С чем ещё *обращаются*",
+  },
+
+  // A doctor's own page («/doctors/rakhimov»); section titles come from `doctorsCopy`.
+  doctorPage: {
+    metaTitle: "{name} — {position} в Ташкенте",
+    metaDescription: "{position} в Ташкенте{facts}. {focus}. Онлайн-запись в Derlux Clinic.",
+    caption: "Врач",
+    breadcrumbDoctors: "Врачи",
+    othersCaption: "Врачи",
+    othersTitle: "Другие *врачи*",
   },
 
   doctorsSection: {
@@ -176,6 +197,8 @@ const ru = {
     lead: "Администратор перезвонит и подтвердит запись.",
     steps: ["Направление или услуга", "Врач", "Имя и телефон"],
     telegramLabel: "Telegram",
+    floatLabel: "Записаться",
+    close: "Закрыть",
   },
 
   bookingForm: {
@@ -262,6 +285,7 @@ const uz: HomeCopy = {
   },
 
   hero: {
+    eyebrow: "Toshkentda dermatologiya, ginekologiya va endokrinologiya klinikasi",
     title: "*Teri* salomatligi to'g'ri tashxisdan boshlanadi",
     lead: "Dermatolog, ginekolog va endokrinolog — yonma-yon. Tahlillar va UZI ham shu yerda.",
     primaryCta: "Qabulga yozilish",
@@ -335,7 +359,7 @@ const uz: HomeCopy = {
 
   directionPage: {
     metaTitle: "{name} Toshkentda",
-    metaDescription: "{description} Narxlar oldindan ma'lum, onlayn yozilish bir daqiqada. Toshkent, {address}.",
+    metaDescription: "{name} Toshkentda: {summary}. Tajribali shifokorlar, bir daqiqada onlayn yozilish. Toshkent, {address}.",
     breadcrumbLabel: "Sahifa yo'li",
     breadcrumbHome: "Bosh sahifa",
     breadcrumbDirections: "Yo'nalishlar",
@@ -361,6 +385,22 @@ const uz: HomeCopy = {
     conditionNote: "Ma'lumot uchun, ko'rikni almashtirmaydi. Tashxis va davoni shifokor belgilaydi.",
     conditionCta: "Qabulga yozilish",
     conditionClose: "Yopish",
+  },
+
+  conditionPage: {
+    metaTitle: "{name} — Toshkentda {specialist}",
+    metaSuffix: "Derlux Clinic, Toshkent — onlayn yozilish.",
+    directionLink: "Yo'nalish haqida batafsil",
+    othersTitle: "Yana nima bilan *murojaat qilishadi*",
+  },
+
+  doctorPage: {
+    metaTitle: "{name} — Toshkentda {position}",
+    metaDescription: "Toshkentda {position}{facts}. {focus}. Derlux Clinic'da onlayn yozilish.",
+    caption: "Shifokor",
+    breadcrumbDoctors: "Shifokorlar",
+    othersCaption: "Shifokorlar",
+    othersTitle: "Boshqa *shifokorlar*",
   },
 
   doctorsSection: {
@@ -409,6 +449,8 @@ const uz: HomeCopy = {
     lead: "Administrator qo'ng'iroq qilib, yozilishni tasdiqlaydi.",
     steps: ["Yo'nalish yoki xizmat", "Shifokor", "Ism va telefon"],
     telegramLabel: "Telegram",
+    floatLabel: "Yozilish",
+    close: "Yopish",
   },
 
   bookingForm: {

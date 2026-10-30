@@ -14,3 +14,10 @@ export const homeAnchor = (locale: Locale, hash: `#${string}`) => `${base(locale
 
 /** A direction's own page: «/directions/dermatologiya», «/uz/directions/dermatologiya». */
 export const directionPath = (locale: Locale, slug: string) => `${base(locale)}/directions/${slug}`;
+
+/** A condition's page under its direction: «/directions/dermatologiya/akne». */
+export const conditionPath = (locale: Locale, directionSlug: string, conditionSlug: string) =>
+  `${directionPath(locale, directionSlug)}/${conditionSlug}`;
+
+/** A doctor's own page: «/doctors/rakhimov», «/uz/doctors/rakhimov». */
+export const doctorPath = (locale: Locale, slug: string) => `${base(locale)}/doctors/${slug}`;
